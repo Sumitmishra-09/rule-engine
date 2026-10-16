@@ -1,0 +1,7 @@
+{
+  "repositories": [
+    "main-worktrees/rule-engine",
+    "main-worktrees/rule-engine-expression-parser"
+  ],
+  "reason": "Main-based feature worktrees are the indexed implementation. Original folders are synchronized to the same feature commits but retain local user edits."
+}

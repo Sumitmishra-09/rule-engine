@@ -1,0 +1,24 @@
+diff --git a/.classpath b/.classpath
+index 83822d9..78035f2 100644
+--- a/.classpath
++++ b/.classpath
+@@ -6,12 +6,6 @@
+ 			<attribute name="maven.pomderived" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+-		<attributes>
+-			<attribute name="maven.pomderived" value="true"/>
+-			<attribute name="optional" value="true"/>
+-		</attributes>
+-	</classpathentry>
+ 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+ 		<attributes>
+ 			<attribute name="test" value="true"/>
+@@ -37,6 +31,5 @@
+ 			<attribute name="maven.pomderived" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry kind="lib" path="C:/Users/Prakhar/Downloads/de.visualrules.ui.editor_6.8.3.R011/de.visualrules.ui.editor_6.8.3.R011.jar"/>
+ 	<classpathentry kind="output" path="target/classes"/>
+ </classpath>

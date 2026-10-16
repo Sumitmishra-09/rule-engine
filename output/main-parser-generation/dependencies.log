@@ -1,0 +1,15 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< local.verification:parser-generation >----------------
+[INFO] Building parser-generation 1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.6.1:build-classpath (default-cli) @ parser-generation ---
+[INFO] Skipped writing classpath file 'D:\hyperform_3.0_backend\rule-engine\output\main-parser-generation\classpath.txt'.  No changes found.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.870 s
+[INFO] Finished at: 2026-10-16T12:41:26+05:30
+[INFO] ------------------------------------------------------------------------

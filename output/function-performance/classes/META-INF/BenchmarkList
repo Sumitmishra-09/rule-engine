@@ -1,0 +1,5 @@
+JMH S 35 local.benchmark.InvocationBenchmark S 74 local.benchmark.jmh_generated.InvocationBenchmark_boundHandleExact_jmhTest S 16 boundHandleExact S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
+JMH S 35 local.benchmark.InvocationBenchmark S 76 local.benchmark.jmh_generated.InvocationBenchmark_boundHandleGeneric_jmhTest S 18 boundHandleGeneric S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
+JMH S 35 local.benchmark.InvocationBenchmark S 74 local.benchmark.jmh_generated.InvocationBenchmark_cachedReflection_jmhTest S 16 cachedReflection S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
+JMH S 35 local.benchmark.InvocationBenchmark S 73 local.benchmark.jmh_generated.InvocationBenchmark_currentRegistry_jmhTest S 15 currentRegistry S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
+JMH S 35 local.benchmark.InvocationBenchmark S 68 local.benchmark.jmh_generated.InvocationBenchmark_directCall_jmhTest S 10 directCall S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 

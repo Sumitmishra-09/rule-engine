@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-16T15:14:22.928508",
+  "branch": "feature/registered-functions-direct-calls",
+  "versions": {
+    "rule-engine": "13.0.94",
+    "parser": "1.0.44"
+  },
+  "repositories": [
+    {
+      "repository": "rule-engine",
+      "previous_feature_head": "8eaa114626bfeb7e4ef3e651046da98c6fb314fa",
+      "pushed_commit": "b39c51646627dc4c532d1bf20a0d9a9ef60e52b5",
+      "remote_head_verified": true,
+      "main_unchanged": "ff9aa7a11d34c3ee3bae9bbed547c3af1f625e19",
+      "redmine_unchanged": "f694d31bea1b6ac93db61760fe1be62348dec1ff",
+      "original_checkout_synchronized": true,
+      "user_edits_preserved": [
+        {
+          "path": ".classpath",
+          "sha256": "3340bdf4261e5bdfd7a0e58c1fbc0d1e7cc18a3f9c73594f30f41bdfdc4b5d7a",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "pom.xml",
+          "sha256": "ec0b2c62743668540cc88756d2ba66a03f99cc502c14f5f6373cb060e3610023",
+          "preservation": "original whitespace change reapplied on version bump"
+        }
+      ]
+    },
+    {
+      "repository": "rule-engine-expression-parser",
+      "previous_feature_head": "1113fa3eaec8f5374565c671ed1417664be593f7",
+      "pushed_commit": "4e2829465f61d9761a0995dc50413948fc2b5755",
+      "remote_head_verified": true,
+      "main_unchanged": "e3abbe0050d9f3d63ca3974bdb583319a97dd083",
+      "redmine_unchanged": "e4614287f57b5565d01ab01c60dd8d7e14871896",
+      "original_checkout_synchronized": true,
+      "user_edits_preserved": [
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath",
+          "sha256": "7a852b04ea211bcfa1fcbbcac82904826f33b18ab7eb19457b61636607452edf",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath",
+          "sha256": "0a3dfcc304ab5b0deff3cd0bebf9917b379eabf576c4e463edcb284e49d0bc32",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath",
+          "sha256": "ad7343738ed5de02f8c6205defa62e655f019ed5c7990f4e0fe46aa682b22026",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath",
+          "sha256": "ad7343738ed5de02f8c6205defa62e655f019ed5c7990f4e0fe46aa682b22026",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath",
+          "sha256": "0a3dfcc304ab5b0deff3cd0bebf9917b379eabf576c4e463edcb284e49d0bc32",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath",
+          "sha256": "9d15b43d91f8109002900431574421e348be9f062948ec7bcd6374a1971ecac8",
+          "preservation": "byte-for-byte"
+        }
+      ]
+    }
+  ],
+  "changes": "Direct-only cleanup committed with engine 13.0.94, parser parent/modules/bundles 1.0.44, and engine dependency 1.0.44.",
+  "validation": "69 focused tests passed before version bump; Java/Xtend source bytes unchanged from that run. All 13 parser POM/manifest versions and matching engine dependency validated. git diff --check passed.",
+  "full_tycho_release_verified": false,
+  "maven_artifacts_published": false,
+  "tags_created": false,
+  "root_docs_tools": "Outside both Git histories; updated locally."
+}

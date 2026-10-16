@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-15",
+  "action": "Committed and pushed both code repositories at user request.",
+  "branch": "redmine-19600",
+  "repositories": [
+    {
+      "repository": "rule-engine",
+      "commit": "a6ba32ca1bbe2c2a1187d699512e9f3e61e0fc13",
+      "remote": "https://git.act21.io/products/rule-engine.git",
+      "remote_head_verified": true,
+      "files_changed": 47
+    },
+    {
+      "repository": "rule-engine-expression-parser",
+      "commit": "126a95f62b712b7ba55d4138c90f284faf0391ba",
+      "remote": "https://git.act21.io/products/rule-engine-expression-parser.git",
+      "remote_head_verified": true,
+      "files_changed": 13
+    }
+  ],
+  "verification": "Both normal pushes succeeded and git ls-remote confirmed each remote branch exactly matches its new local HEAD. Staged whitespace checks passed after two indentation-only fixes in the test. Earlier focused checks passed 44 existing engine plus 22 registration tests; the latest diagnostic-output test passed across seven invalid workbooks. No new behavioral changes were made for the commits.",
+  "excluded_local_edits": [
+    "Eclipse .classpath files in both repositories",
+    "Standalone parser main experiment and its imports (feature changes in this same file were committed separately)",
+    "Excel lock files"
+  ],
+  "scope_notes": "Includes the 39 documented XLSX resources, including the preserved user Dates.xlsx experiment, test code and fixture guide. Workspace-root docs/tools are outside both Git repositories and remain local. Maven versions were not bumped and no Maven artifacts were published."
+}

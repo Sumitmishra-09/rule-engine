@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-15",
+  "result": "PASS",
+  "command": "python tools/registration_check.py --offline --test RegisteredFunctionsTest#wrongNamesCountsAndTypesFailDuringGridCompilation",
+  "tests": 1,
+  "invalid_workbooks": 7,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "change": "Capture and print the detailed exception returned by assertThrows in the invalid-function test. Production behavior unchanged. User edits commenting the clear-and-return identity assertion and printing codes were preserved.",
+  "limitation": "Prints all descriptions supplied by existing validation; the unknown-function fixture includes one empty description followed by a conversion diagnostic, recorded verbatim.",
+  "files": [
+    {
+      "path": "rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/RegisteredFunctionsTest.java",
+      "sha256": "50933adfe338d3e2d08b2852ce66215db5e822203f0ea096174bede540cfe2c4"
+    },
+    {
+      "path": "output/function-registration/invalid-function-diagnostics-build.log",
+      "sha256": "7746884d5014abcb1608c03aadab28c454fb1586faf6a0d3aaabaa2d003e2053"
+    },
+    {
+      "path": "output/function-registration/invalid-function-diagnostics-tests.xml",
+      "sha256": "ca56531fdd1bf687df67601b9bb1aedb91a9eb8ecaf9e21ab36b589ff5de114e"
+    },
+    {
+      "path": "docs/evidence/invalid-function-diagnostics.txt",
+      "sha256": "90b988b250d3a9c9b7f9924a393b6f697376dc886f30c528c6297e3dacaa8859"
+    }
+  ]
+}

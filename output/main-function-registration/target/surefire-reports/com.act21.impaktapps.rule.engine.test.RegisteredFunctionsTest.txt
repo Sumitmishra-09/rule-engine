@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.act21.impaktapps.rule.engine.test.RegisteredFunctionsTest
+-------------------------------------------------------------------------------
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 26.04 s -- in com.act21.impaktapps.rule.engine.test.RegisteredFunctionsTest

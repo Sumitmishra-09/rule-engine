@@ -1,0 +1,61 @@
+{
+  "feature_branch": "feature/registered-functions-direct-calls",
+  "versions": {
+    "rule-engine": "13.0.94",
+    "parser": "1.0.44"
+  },
+  "repositories": [
+    {
+      "repository": "rule-engine",
+      "head": "8eaa114626bfeb7e4ef3e651046da98c6fb314fa",
+      "branch": "feature/registered-functions-direct-calls",
+      "status": " M .classpath\n M pom.xml\n",
+      "user_edits": [
+        {
+          "path": ".classpath",
+          "sha256": "3340bdf4261e5bdfd7a0e58c1fbc0d1e7cc18a3f9c73594f30f41bdfdc4b5d7a"
+        },
+        {
+          "path": "pom.xml",
+          "sha256": "37e78cbb6539a82a3280ea358467cc2a35a4ae64108ff4bd94d0498285e14b6a",
+          "merged_path": "pom-merge\\merged.xml",
+          "merged_sha256": "ec0b2c62743668540cc88756d2ba66a03f99cc502c14f5f6373cb060e3610023"
+        }
+      ],
+      "remote_before": "8eaa114626bfeb7e4ef3e651046da98c6fb314fa\trefs/heads/feature/registered-functions-direct-calls\nff9aa7a11d34c3ee3bae9bbed547c3af1f625e19\trefs/heads/main\nf694d31bea1b6ac93db61760fe1be62348dec1ff\trefs/heads/redmine-19600\n"
+    },
+    {
+      "repository": "rule-engine-expression-parser",
+      "head": "1113fa3eaec8f5374565c671ed1417664be593f7",
+      "branch": "feature/registered-functions-direct-calls",
+      "status": " M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath\n M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath\n M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath\n M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath\n M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath\n M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath\n",
+      "user_edits": [
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath",
+          "sha256": "7a852b04ea211bcfa1fcbbcac82904826f33b18ab7eb19457b61636607452edf"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath",
+          "sha256": "0a3dfcc304ab5b0deff3cd0bebf9917b379eabf576c4e463edcb284e49d0bc32"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath",
+          "sha256": "ad7343738ed5de02f8c6205defa62e655f019ed5c7990f4e0fe46aa682b22026"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath",
+          "sha256": "ad7343738ed5de02f8c6205defa62e655f019ed5c7990f4e0fe46aa682b22026"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath",
+          "sha256": "0a3dfcc304ab5b0deff3cd0bebf9917b379eabf576c4e463edcb284e49d0bc32"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath",
+          "sha256": "9d15b43d91f8109002900431574421e348be9f062948ec7bcd6374a1971ecac8"
+        }
+      ],
+      "remote_before": "1113fa3eaec8f5374565c671ed1417664be593f7\trefs/heads/feature/registered-functions-direct-calls\ne3abbe0050d9f3d63ca3974bdb583319a97dd083\trefs/heads/main\ne4614287f57b5565d01ab01c60dd8d7e14871896\trefs/heads/redmine-19600\n"
+    }
+  ]
+}

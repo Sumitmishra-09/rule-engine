@@ -1,0 +1,22 @@
+class HelperFunctions{
+	function addAll(java.util.List<Any> list, ... Any values): void{}
+	function convertToString(Any arg): java.lang.String{}
+	function convertToInt(Any arg): java.lang.Integer{}
+	function convertToBigDecimal(Any arg): java.math.BigDecimal{}
+	function contains(java.lang.String value, ... java.lang.String candidates): java.lang.Boolean{}
+	function in(java.util.List<java.lang.String> list, ... java.lang.String candidates): java.lang.Boolean{}
+	function in(java.util.List<java.lang.Long> list, ... java.lang.Long candidates): java.lang.Boolean{}
+	function in(java.util.List<java.math.BigDecimal> list, ... java.math.BigDecimal candidates): java.lang.Boolean{}
+	function in(java.util.List<java.lang.Integer> list, ... java.lang.Integer candidates): java.lang.Boolean{}
+	function in(Any val, ... Any vals): java.lang.Boolean{}
+	function max(... java.lang.Long args): java.lang.Long{}
+	function max(... java.lang.Integer args): java.lang.Integer{}
+	function max(... java.math.BigDecimal args): java.math.BigDecimal{}
+	function min(... java.lang.Long args): java.lang.Long{}
+	function min(... java.lang.Integer args): java.lang.Integer{}
+	function min(... java.math.BigDecimal args): java.math.BigDecimal{}
+	function avg(... java.lang.Long args): java.math.BigDecimal{}
+	function avg(... java.lang.Integer args): java.math.BigDecimal{}
+	function avg(... java.math.BigDecimal args): java.math.BigDecimal{}
+	function diffDays(java.util.Date date1, java.util.Date date2): java.lang.Long{}
+}

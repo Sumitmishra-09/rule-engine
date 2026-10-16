@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+<modelVersion>4.0.0</modelVersion><groupId>local.verification</groupId>
+<artifactId>function-registration-check</artifactId><version>1.0-SNAPSHOT</version>
+<properties><maven.compiler.source>17</maven.compiler.source><maven.compiler.target>17</maven.compiler.target>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding></properties>
+<repositories><repository><id>ImpaktAppsRepository</id>
+<url>https://artifactory.act21.io/artifactory/act21_internal_repo</url></repository></repositories>
+<dependencies><dependency><groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.17</version>
+		</dependency>
+		<dependency><groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.17</version>
+		</dependency>
+		<dependency><groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>33.1.0-jre</version>
+		</dependency>
+		<dependency><groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+		
+		<dependency><groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency><groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.20.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency><groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.20.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency><groupId>com.act21</groupId>
+			<artifactId>java-compiler</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<dependency><groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.9.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency><groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.9.3</version>
+		</dependency>
+		<dependency><groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.24.2</version>
+		</dependency>
+		<dependency><groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.14.2</version>
+		</dependency>
+		<dependency><groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.15.2</version>
+		</dependency>
+		<dependency><groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.15.2</version>
+		</dependency>
+		<dependency><groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.35</version>
+		</dependency>
+	<dependency><groupId>org.eclipse.xtext</groupId><artifactId>org.eclipse.xtext</artifactId><version>2.28.0</version></dependency><dependency><groupId>org.eclipse.xtext</groupId><artifactId>org.eclipse.xtext.xbase</artifactId><version>2.28.0</version></dependency><dependency><groupId>org.eclipse.xtend</groupId><artifactId>org.eclipse.xtend.lib</artifactId><version>2.28.0</version></dependency><dependency><groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId><version>3.12.0</version></dependency><dependency><groupId>org.apache.commons</groupId><artifactId>commons-text</artifactId><version>1.9</version></dependency><dependency><groupId>org.json</groupId><artifactId>json</artifactId><version>20210307</version></dependency></dependencies>
+
+
+	
+<build><testSourceDirectory>D:/hyperform_3.0_backend/rule-engine/main-worktrees/rule-engine/src/test/java</testSourceDirectory>
+<resources><resource><directory>D:/hyperform_3.0_backend/rule-engine/output/main-direct-only-check/sources-yse9wczx/dsl</directory><excludes><exclude>**/*.java</exclude><exclude>**/*.xtend</exclude></excludes></resource><resource><directory>D:/hyperform_3.0_backend/rule-engine/output/main-direct-only-check/sources-yse9wczx/model</directory><excludes><exclude>**/*.java</exclude><exclude>**/*.xtend</exclude></excludes></resource><resource><directory>D:/hyperform_3.0_backend/rule-engine/main-worktrees/rule-engine/src/main/resources</directory><excludes><exclude>**/*.java</exclude><exclude>**/*.xtend</exclude></excludes></resource></resources><testResources><testResource>
+<directory>D:/hyperform_3.0_backend/rule-engine/main-worktrees/rule-engine/src/test/resources</directory></testResource></testResources>
+<plugins><plugin><groupId>org.codehaus.mojo</groupId><artifactId>build-helper-maven-plugin</artifactId>
+<version>3.4.0</version><executions><execution><phase>generate-sources</phase><goals><goal>add-source</goal></goals>
+<configuration><sources><source>D:/hyperform_3.0_backend/rule-engine/output/main-direct-only-check/sources-yse9wczx/dsl</source><source>D:/hyperform_3.0_backend/rule-engine/output/main-direct-only-check/sources-yse9wczx/model</source><source>D:/hyperform_3.0_backend/rule-engine/output/main-direct-only-check/sources-yse9wczx/runtime</source><source>D:/hyperform_3.0_backend/rule-engine/output/main-direct-only-check/sources-yse9wczx/engine</source></sources></configuration></execution></executions></plugin>
+<plugin><groupId>org.eclipse.xtend</groupId><artifactId>xtend-maven-plugin</artifactId><version>2.28.0</version>
+<executions><execution><goals><goal>compile</goal></goals></execution></executions>
+<configuration><javaSourceVersion>11</javaSourceVersion>
+<outputDirectory>D:/hyperform_3.0_backend/rule-engine/output/main-direct-only-check/xtend-gen</outputDirectory></configuration></plugin>
+<plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.10.1</version>
+<configuration><proc>none</proc></configuration></plugin>
+<plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.2.5</version>
+<configuration><workingDirectory>D:/hyperform_3.0_backend/rule-engine/main-worktrees/rule-engine</workingDirectory></configuration></plugin>
+</plugins></build></project>

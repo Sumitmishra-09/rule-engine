@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.act21.rule.engine.dsl.expression.ui.tests
+Bundle-ManifestVersion: 2
+Bundle-Name: com.act21.rule.engine.dsl.expression.ui.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.44
+Bundle-SymbolicName: com.act21.rule.engine.dsl.expression.ui.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.act21.rule.engine.dsl.expression.ui,
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing,
+ org.eclipse.xtext.xbase.junit,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext.ui.testing,
+ org.eclipse.ui.workbench;resolution:=optional,
+ org.eclipse.xtext.xbase.ui.testing
+Import-Package: org.junit.jupiter.api;version="[5.1.0,6.0.0)",
+ org.junit.jupiter.api.extension;version="[5.1.0,6.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: com.act21.rule.engine.dsl.ui.tests;x-internal=true

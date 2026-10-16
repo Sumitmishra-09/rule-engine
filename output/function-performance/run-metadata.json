@@ -1,0 +1,43 @@
+{
+  "compile_command": [
+    "C:\\Program Files\\jdk-17.0.9\\bin\\javac.exe",
+    "-cp",
+    "C:\\Users\\Sumit_Mishra\\.m2\\repository\\org\\openjdk\\jmh\\jmh-core\\1.35\\jmh-core-1.35.jar;C:\\Users\\Sumit_Mishra\\.m2\\repository\\org\\openjdk\\jmh\\jmh-generator-annprocess\\1.35\\jmh-generator-annprocess-1.35.jar;C:\\Users\\Sumit_Mishra\\.m2\\repository\\net\\sf\\jopt-simple\\jopt-simple\\5.0.4\\jopt-simple-5.0.4.jar;C:\\Users\\Sumit_Mishra\\.m2\\repository\\org\\apache\\commons\\commons-math3\\3.6.1\\commons-math3-3.6.1.jar",
+    "-processorpath",
+    "C:\\Users\\Sumit_Mishra\\.m2\\repository\\org\\openjdk\\jmh\\jmh-core\\1.35\\jmh-core-1.35.jar;C:\\Users\\Sumit_Mishra\\.m2\\repository\\org\\openjdk\\jmh\\jmh-generator-annprocess\\1.35\\jmh-generator-annprocess-1.35.jar;C:\\Users\\Sumit_Mishra\\.m2\\repository\\net\\sf\\jopt-simple\\jopt-simple\\5.0.4\\jopt-simple-5.0.4.jar;C:\\Users\\Sumit_Mishra\\.m2\\repository\\org\\apache\\commons\\commons-math3\\3.6.1\\commons-math3-3.6.1.jar",
+    "-d",
+    "D:\\hyperform_3.0_backend\\rule-engine\\output\\function-performance\\classes",
+    "D:\\hyperform_3.0_backend\\rule-engine\\rule-engine-expression-parser\\com.act21.rule.engine.dsl.expression.parent\\com.act21.rule.engine.dsl.expression\\src\\com\\act21\\rule\\engine\\dsl\\expression\\functions\\FunctionRegistry.java",
+    "D:\\hyperform_3.0_backend\\rule-engine\\output\\function-performance\\InvocationBenchmark.java"
+  ],
+  "benchmark_command": [
+    "C:\\Program Files\\jdk-17.0.9\\bin\\java.exe",
+    "-cp",
+    "D:\\hyperform_3.0_backend\\rule-engine\\output\\function-performance\\classes;C:\\Users\\Sumit_Mishra\\.m2\\repository\\org\\openjdk\\jmh\\jmh-core\\1.35\\jmh-core-1.35.jar;C:\\Users\\Sumit_Mishra\\.m2\\repository\\org\\openjdk\\jmh\\jmh-generator-annprocess\\1.35\\jmh-generator-annprocess-1.35.jar;C:\\Users\\Sumit_Mishra\\.m2\\repository\\net\\sf\\jopt-simple\\jopt-simple\\5.0.4\\jopt-simple-5.0.4.jar;C:\\Users\\Sumit_Mishra\\.m2\\repository\\org\\apache\\commons\\commons-math3\\3.6.1\\commons-math3-3.6.1.jar",
+    "org.openjdk.jmh.Main",
+    "local.benchmark.InvocationBenchmark",
+    "-f",
+    "2",
+    "-wi",
+    "3",
+    "-i",
+    "3",
+    "-w",
+    "500ms",
+    "-r",
+    "500ms",
+    "-t",
+    "1",
+    "-jvmArgs",
+    "-Xms256m -Xmx256m",
+    "-prof",
+    "gc",
+    "-rf",
+    "json",
+    "-rff",
+    "D:\\hyperform_3.0_backend\\rule-engine\\output\\function-performance\\results.json"
+  ],
+  "registry_sha256": "efd353fd897b9baaf5a3c9901823239eead15966d6ed1a85050f9891470f8aba",
+  "benchmark_sha256": "dbe15d600025a0273da004b2fa659898c064057b2ff74871cb96be0763369160",
+  "scope": "Tiny public instance Long add(Long,Long), rotating preallocated inputs, boxed result. No workbook parsing, grid conditions, batch traversal, conversions, varargs or concurrency. Short local JMH experiment; not production latency/throughput evidence."
+}

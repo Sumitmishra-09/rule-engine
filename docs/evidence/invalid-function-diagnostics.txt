@@ -1,0 +1,9 @@
+Expected validation failure: Invalid [invalid/UnknownFunction.xlsx]: A2: ; A2: Error: Cannot convert { missing(number ) } to { String } in input cell
+Expected validation failure: Invalid [invalid/MissingArgument.xlsx]: A2: Function positive expects 1 arguments, got 0; A2: Error: Cannot convert { positive( ) } to { String } in input cell
+Expected validation failure: Invalid [invalid/ExtraArgument.xlsx]: A2: Function positive expects 1 arguments, got 2; A2: Error: Cannot convert { positive(number , number ) } to { String } in input cell
+Expected validation failure: Invalid [invalid/WrongType.xlsx]: A2: Function positive argument 1 expects java.lang.Long, got java.lang.String; A2: Error: Cannot convert { positive(text ) } to { String } in input cell
+Expected validation failure: Invalid [invalid/UnexpectedArgument.xlsx]: A2: Function constant expects 0 arguments, got 1; A2: Error: Cannot convert { constant(number ) } to { String } in input cell
+Expected validation failure: Invalid [invalid/PrimitiveNull.xlsx]: A2: Function primitive argument 1 expects java.lang.Long, got null; A2: Error: Cannot convert { primitive( null ) } to { String } in input cell
+Expected validation failure: Invalid [invalid/QualifiedWrongType.xlsx]: A2: Function positive argument 1 expects java.lang.Long, got java.lang.String
+
+PASS: 1 test covering 7 invalid workbook fixtures; 0 failures/errors/skips.

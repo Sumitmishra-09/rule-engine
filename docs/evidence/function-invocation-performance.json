@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-16",
+  "result": "COMPLETED",
+  "scope": "Local exploratory invocation microbenchmark using the current FunctionRegistry source; no production code changes.",
+  "jmh_version": "1.35",
+  "jdk_version": "17.0.9",
+  "vm_name": "Java HotSpot(TM) 64-Bit Server VM",
+  "vm_version": "17.0.9+11-LTS-201",
+  "settings": {
+    "forks": 2,
+    "threads": 1,
+    "warmup_iterations": 3,
+    "measurement_iterations": 3,
+    "iteration_duration": "500ms",
+    "heap": "-Xms256m -Xmx256m",
+    "profiler": "gc"
+  },
+  "operation": "Public instance Long add(Long,Long), rotating preallocated arguments above the Long cache range; result consumed by JMH. Reflection/method handles resolved in trial setup. Exact handle bound to the same function target.",
+  "measurements": [
+    {
+      "benchmark": "boundHandleExact",
+      "ns_per_operation": 7.82946023017789,
+      "reported_score_error_ns": 0.746907063252695,
+      "bytes_per_operation": 24.00403952904911
+    },
+    {
+      "benchmark": "boundHandleGeneric",
+      "ns_per_operation": 215.51108447777563,
+      "reported_score_error_ns": 40.02649078459012,
+      "bytes_per_operation": 248.0459694611748
+    },
+    {
+      "benchmark": "cachedReflection",
+      "ns_per_operation": 16.54673163462213,
+      "reported_score_error_ns": 7.28808896024363,
+      "bytes_per_operation": 48.00811624054523
+    },
+    {
+      "benchmark": "currentRegistry",
+      "ns_per_operation": 76.20383014155854,
+      "reported_score_error_ns": 20.78716997803878,
+      "bytes_per_operation": 120.02086992897658
+    },
+    {
+      "benchmark": "directCall",
+      "ns_per_operation": 4.929760313124302,
+      "reported_score_error_ns": 0.5291162788685458,
+      "bytes_per_operation": 24.003931957343198
+    }
+  ],
+  "limits": [
+    "Not a grid throughput or latency benchmark; excludes Excel/Xtext compilation, matching, batches and output actions.",
+    "Short two-fork experiment with visible timing variation; allocation figures include the boxed Long result and supporting invocation allocations.",
+    "Tests only one fixed-arity signature/target and no runtime numeric widening, varargs, list mutation or concurrent compilation.",
+    "The proposed direct-call/typed-handle paths are standalone comparisons, not implemented engine backends. No claimed end-to-end speedup.",
+    "JMH completed successfully; the Python post-processing initially used the wrong profiler-key prefix and was corrected without rerunning the benchmark."
+  ],
+  "files": [
+    {
+      "path": "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java",
+      "sha256": "efd353fd897b9baaf5a3c9901823239eead15966d6ed1a85050f9891470f8aba"
+    },
+    {
+      "path": "output/function-performance/InvocationBenchmark.java",
+      "sha256": "dbe15d600025a0273da004b2fa659898c064057b2ff74871cb96be0763369160"
+    },
+    {
+      "path": "output/function-performance/run.py",
+      "sha256": "cff6271c021616214c5c2094e9085ecbb6a57373107b2ded57fe4ecc8310deb0"
+    },
+    {
+      "path": "output/function-performance/run.log",
+      "sha256": "f92ec1b02822bcfe09c440b58073223f1f40787be0b711c844982e0540d34e85"
+    },
+    {
+      "path": "output/function-performance/run-metadata.json",
+      "sha256": "b17ca0a92403bfd529bfe8bc795c3fa684813ed738c7d4fdcfadffc946dc72a6"
+    },
+    {
+      "path": "docs/evidence/function-invocation-jmh.json",
+      "sha256": "9a2a3cbd877b542ee1fb497e921cdd18019bceed09f9df56a9308f4b126b26ae"
+    }
+  ],
+  "references": [
+    "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/invoke/MethodHandle.html",
+    "https://github.com/openjdk/jmh"
+  ]
+}

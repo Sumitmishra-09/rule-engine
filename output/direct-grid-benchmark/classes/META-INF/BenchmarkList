@@ -1,0 +1,2 @@
+JMH S 35 local.benchmark.DirectGridBenchmark S 77 local.benchmark.jmh_generated.DirectGridBenchmark_directGeneratedGrid_jmhTest S 19 directGeneratedGrid S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E M 1 4 rows 2 8 xAA===== 8 xAAMAADA U 11 NANOSECONDS E E 
+JMH S 35 local.benchmark.DirectGridBenchmark S 79 local.benchmark.jmh_generated.DirectGridBenchmark_registryGeneratedGrid_jmhTest S 21 registryGeneratedGrid S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E M 1 4 rows 2 8 xAA===== 8 xAAMAADA U 11 NANOSECONDS E E 

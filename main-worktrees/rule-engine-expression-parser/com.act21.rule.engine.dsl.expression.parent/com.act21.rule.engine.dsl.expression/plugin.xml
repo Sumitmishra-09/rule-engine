@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.act21.com/rule/engine/dsl/Expression"
+			class = "com.act21.rule.engine.dsl.expression.ExpressionPackage"
+			genModel = "model/generated/Expression.genmodel" />
+	</extension>
+</plugin>

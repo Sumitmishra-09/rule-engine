@@ -1,0 +1,36 @@
+diff --git a/.classpath b/.classpath
+index 83822d9..78035f2 100644
+--- a/.classpath
++++ b/.classpath
+@@ -6,12 +6,6 @@
+ 			<attribute name="maven.pomderived" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+-		<attributes>
+-			<attribute name="maven.pomderived" value="true"/>
+-			<attribute name="optional" value="true"/>
+-		</attributes>
+-	</classpathentry>
+ 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+ 		<attributes>
+ 			<attribute name="test" value="true"/>
+@@ -37,6 +31,5 @@
+ 			<attribute name="maven.pomderived" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry kind="lib" path="C:/Users/Prakhar/Downloads/de.visualrules.ui.editor_6.8.3.R011/de.visualrules.ui.editor_6.8.3.R011.jar"/>
+ 	<classpathentry kind="output" path="target/classes"/>
+ </classpath>
+diff --git a/pom.xml b/pom.xml
+index 818c8e2..b8594da 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -34,6 +34,7 @@
+ 			<artifactId>guava</artifactId>
+ 			<version>33.1.0-jre</version>
+ 		</dependency>
++		
+ 		<dependency>
+ 			<groupId>com.act21.rule.engine.dsl.expression</groupId>
+ 			<artifactId>com.act21.rule.engine.dsl.expression.runtime</artifactId>

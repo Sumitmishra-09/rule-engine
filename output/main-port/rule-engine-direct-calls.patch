@@ -1,0 +1,105 @@
+diff --git a/src/main/java/com/act21/impaktapps/rule/engine/compiler/Generator.java b/src/main/java/com/act21/impaktapps/rule/engine/compiler/Generator.java
+index d53b55d..98058f7 100644
+--- a/src/main/java/com/act21/impaktapps/rule/engine/compiler/Generator.java
++++ b/src/main/java/com/act21/impaktapps/rule/engine/compiler/Generator.java
+@@ -13,6 +13,7 @@ import com.act21.impaktapps.rule.engine.table.DtCell;
+ import com.act21.impaktapps.rule.engine.validation.ValidationMessage;
+ import com.act21.impaktapps.rule.engine.validation.ValidationService;
+ import com.act21.rule.engine.dsl.expression.functions.FunctionRegistry;
++import com.act21.rule.engine.dsl.expression.functions.FunctionCallBindings;
+ 
+ public class Generator {
+ 
+@@ -32,6 +33,7 @@ public class Generator {
+ 	List<DtCell> postExclusionVertical = new ArrayList<>();
+ 	
+ 	private ValidationService validationService = new ValidationService();
++	private FunctionCallBindings functionCalls;
+ 
+ 	public Generator() {
+ 
+@@ -43,6 +45,7 @@ public class Generator {
+ 
+ 		H_BIT_COUNT = 0;
+ 		V_BIT_COUNT = 0;
++		functionCalls = new FunctionCallBindings(Thread.currentThread().getContextClassLoader());
+ 
+ 		for (DtCell cell : decisionTable.getVertical()) {
+ 			getInitialDecisionCells(cell, postExclusionVertical);
+@@ -84,9 +87,6 @@ public class Generator {
+ 		String generatedClassName = decisionTable.getName() + decisionTable.getBatchNo();
+ 		String registryType = FunctionRegistry.class.getName();
+ 		sb.append("private final " + registryType + " registeredFunctions;" + NEW_LINE);
+-		sb.append("public " + generatedClassName + "() { this(" + registryType + ".empty()); }" + NEW_LINE);
+-		sb.append("public " + generatedClassName + "(" + registryType + " functions) { "
+-				+ "this.registeredFunctions = java.util.Objects.requireNonNull(functions); }" + NEW_LINE);
+ 		Stream.iterate(0, i -> i + 1).limit(H)
+ 				.forEach(n -> sb.append(" private  final int H_" + n + "= " + n + ";" + NEW_LINE));
+ 		Stream.iterate(0, i -> i + 1).limit(V)
+@@ -180,6 +180,11 @@ public class Generator {
+ 		StringBuilder assignFnqs = new StringBuilder();
+ 		generateAssignFnqs(decisionTable, H, V, assignFnqs, request, className, messages);
+ 		sb.append(assignFnqs);
++		sb.append(functionCalls.declarations());
++		sb.append("public " + generatedClassName + "() { this(" + registryType + ".empty()); }" + NEW_LINE);
++		sb.append("public " + generatedClassName + "(" + registryType + " functions) { "
++				+ "this.registeredFunctions = java.util.Objects.requireNonNull(functions);" + NEW_LINE
++				+ functionCalls.initializers() + "}" + NEW_LINE);
+ 
+ 		sb.append("}");
+ 
+@@ -226,7 +231,7 @@ public class Generator {
+ 			stringBuilder.append(String.format("%s(Commons.log(ruleStats,%d,%d,\"%s\") && %s) { " + NEW_LINE,
+ 					determineConditionType(request.getDecisionMatchType(), i), cell.getRowStartIndex(),
+ 					cell.getColStartIndex(), cell.getCellRef(),
+-					request.getExpressionParser().generateCode(cell, request)));
++					request.getExpressionParser().generateCode(cell, request, functionCalls)));
+ 			}catch (Exception e) {
+ 				messages.add(validationService.prepareValidationMessage(cell, "ERROR", "High",
+ 						"Unable to parse the expression"));
+@@ -273,7 +278,7 @@ public class Generator {
+ 			stringBuilder.append(String.format("%s(Commons.log(ruleStats,%d,%d,\"%s\") && %s) { " + NEW_LINE,
+ 					determineConditionType(request.getDecisionMatchType(), i), cell.getRowStartIndex(),
+ 					cell.getColStartIndex(), cell.getCellRef(),
+-					request.getExpressionParser().generateCode(cell, request)));
++					request.getExpressionParser().generateCode(cell, request, functionCalls)));
+ 			}catch (Exception e) {
+ 				messages.add(validationService.prepareValidationMessage(cell, "ERROR", "High",
+ 						"Unable to parse the expression"));
+@@ -429,7 +434,7 @@ public class Generator {
+ 	private void appendSetterExpression(StringBuilder builder, String property, String content,
+ 			RuleCreationRequest request, DtCell cell, List<ValidationMessage> messages) {
+ 		try {
+-			builder.append(request.getExpressionParser().generateCode(cell, request) + ';'
++			builder.append(request.getExpressionParser().generateCode(cell, request, functionCalls) + ';'
+ 					+ NEW_LINE);
+ 		} catch (Exception e) {
+ 			messages.add(validationService.prepareValidationMessage(cell, "ERROR", "High",
+diff --git a/src/main/java/com/act21/impaktapps/rule/engine/table/StatefulExpressionParser.java b/src/main/java/com/act21/impaktapps/rule/engine/table/StatefulExpressionParser.java
+index 1d56f13..a8ae697 100644
+--- a/src/main/java/com/act21/impaktapps/rule/engine/table/StatefulExpressionParser.java
++++ b/src/main/java/com/act21/impaktapps/rule/engine/table/StatefulExpressionParser.java
+@@ -18,6 +18,7 @@ import com.act21.rule.engine.dsl.expression.runtime.ExpressionParser;
+ import com.act21.rule.engine.dsl.expression.runtime.VariableSchema;
+ import com.act21.rule.engine.dsl.expression.util.Type;
+ import com.act21.rule.engine.dsl.expression.functions.FunctionRegistry;
++import com.act21.rule.engine.dsl.expression.functions.FunctionCallBindings;
+ 
+ public class StatefulExpressionParser {
+ 
+@@ -50,10 +51,15 @@ public class StatefulExpressionParser {
+ 	}
+ 
+ 	public String generateCode(DtCell cell, RuleCreationRequest request) {
++		return generateCode(cell, request, null);
++	}
++
++	public String generateCode(DtCell cell, RuleCreationRequest request, FunctionCallBindings bindings) {
+ 		try {
+ 			this.expressionParser.parse(convertToExpression(cell));
+ 			Map<String, Object> args = new HashMap<String, Object>();
+ 			args.put("isIgnoreCase", request.isIgnoreCase());
++			args.put(FunctionCallBindings.CONTEXT_KEY, bindings);
+ 			return this.expressionParser.generateCode(args);
+ 		} catch (Exception e) {
+ 			LOGGER.log(Level.ERROR, e);

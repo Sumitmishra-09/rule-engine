@@ -1,0 +1,1394 @@
+{
+  "generated_utc": "2026-10-16T09:45:39.137549+00:00",
+  "repositories": [
+    {
+      "path": "main-worktrees/rule-engine",
+      "head": "b39c51646627dc4c532d1bf20a0d9a9ef60e52b5",
+      "branch": "feature/registered-functions-direct-calls",
+      "origin": "https://git.act21.io/products/rule-engine.git"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser",
+      "head": "4e2829465f61d9761a0995dc50413948fc2b5755",
+      "branch": "feature/registered-functions-direct-calls",
+      "origin": "https://git.act21.io/products/rule-engine-expression-parser.git"
+    }
+  ],
+  "source_files": 246,
+  "workbooks": 97,
+  "lock_files_ignored": 7,
+  "files": [
+    {
+      "path": "main-worktrees/rule-engine/.classpath",
+      "sha256": "70f091c4ad7c8ee1cccc056309178d872c52656d0ea68ce9f359b8fc19732747"
+    },
+    {
+      "path": "main-worktrees/rule-engine/.gitignore",
+      "sha256": "1fc834910235382ceab3105c94f303b11c6f5b8e3382945eca24f2452e02f92d"
+    },
+    {
+      "path": "main-worktrees/rule-engine/.project",
+      "sha256": "b1d30b5a76c83c050751dd625734932d968c8232469927d6d3d5e032053f6c9f"
+    },
+    {
+      "path": "main-worktrees/rule-engine/pom.xml",
+      "sha256": "bcf6581b3dad382bafacd4390b6154162149d808bf502f07f20db24a080bae02"
+    },
+    {
+      "path": "main-worktrees/rule-engine/README.md",
+      "sha256": "374d239d46ceee7de5a6bc7e7782152bafee698a56c45077cbfab1c06f19ad7e"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/api/DecisionMatchType.java",
+      "sha256": "c8513e5e44002a7dd1d4d70d48b9fcd2fe38075291e2bc7e88b57ebf96c6afaf"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/api/PropertySchema.java",
+      "sha256": "40daf22e2ced22531f75bf434f275f79fe9fdf1f27e122d4a3e9b27771ce7368"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/api/Rule.java",
+      "sha256": "e876d5ce546fdc1cf0bb9d8f9d667c68f2ad40499d78f93d7e47abc06d341da9"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/api/RuleCreationRequest.java",
+      "sha256": "e8300b0da12bf342259ff38d79d3fb15590bfc933b5ee59f088f41df9397d596"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/api/RuleStatistics.java",
+      "sha256": "95008a387c9269f713db02bc780f772853dde32843ade47789373c5d6ff5fe88"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/api/RuleStream.java",
+      "sha256": "789595b86b3719ff5973272c978b2365ebedbdebf2bfea2a455c8f6bd3bf4049"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/api/Schema.java",
+      "sha256": "dcc12790d0d5c73070c4b79392d3fee111b772c02c72fe5e874980414aeabac0"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/cache/GridFactory.java",
+      "sha256": "af3defc27f4986f23b85187316b5e2a43e894e85b1b50e3bf8ba4708f1dd30f9"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/cache/GridIdentifier.java",
+      "sha256": "a85c7c6d0f37d9b5826c3555ceb8568a43e06cabb172df9756edab2fc181c1a0"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/commons/Commons.java",
+      "sha256": "c003ef420adcd499eecd10b17a96843d513d9d41fcb22ec4af11a44ac3439b24"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/commons/Constants.java",
+      "sha256": "d16823c13478505a34f858dad6c8770e1be8df541d463a023c22d955f5ffb58e"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/compiler/Compiler.java",
+      "sha256": "02c1312f9f7bfd43222638e5be7456739a9a39f39d9f68713e1471f54f15a1c1"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/compiler/Generator.java",
+      "sha256": "7a2b47403b1685ca8e0c5e3e2d62a57371d9edd2c3eab4b0732eb203b9f52ece"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/exception/ParsingException.java",
+      "sha256": "5ed129340208ee7b75170fd1135c39fa8ec247c940de47da5e7d1ccea7ac9bf5"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/handler/SheetHandler.java",
+      "sha256": "eada685b5bc40679eec8005cee355d15b4f7a26957925b60af0c2fb648d94132"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/migrator/Migrator.java",
+      "sha256": "b15360d9002e235977759b46217fd47fae850b4599db8d4165becfd829bbe9a7"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/migrator/MigratorService.java",
+      "sha256": "a3f9cff7a31bdf8f9df19c5aed11502d5b61572394f2b338bb856246e39f03fe"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/service/ExcelWriter.java",
+      "sha256": "8defe9c9210d5f941037c7c81ad9feb702176d5233d8f657405aaabc7bcbde8c"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/service/RuleDataFormatter.java",
+      "sha256": "71541f65010a76580e4c19928ac7c1bf82e15607416a84853db7781c9c449037"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/service/RuleService.java",
+      "sha256": "21fdb046693ece60912d26caf2ee2471fa61d1896a9f35920181bba5fd8a090a"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/table/DecisionTable.java",
+      "sha256": "c020023fba325971a21c6f474a3bd3383648ede17c823ae5dfca0227ce5f13cc"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/table/DecisionTableParser.java",
+      "sha256": "17f862f4082d899d525987e1f7b31f9348b9dc4a06c5fcac1f83f2fed648881b"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/table/DtCell.java",
+      "sha256": "ca3c22fd761df43f205b4c47581a8b0f3c12692cbdb1af309798d8281fc70861"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/table/DtCellType.java",
+      "sha256": "bccc205e8c83e9baa84c14695f0f56022a825cc29f78d77ebd38c377a8b58242"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/table/ExpressionParser.java",
+      "sha256": "c4f57a9b36b040f48b3929dee813f3c01ebe4160ae5ff752883b21c05515b28a"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/table/StatefulExpressionParser.java",
+      "sha256": "d358580b6ec3897154528925ecec9d004b78d9513be6d6c982c6a886d84e779d"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/validation/ValidationMessage.java",
+      "sha256": "4570baafdc3c9760c2d56dfd918557958679cbc25e2a5cd4c52660431d6df200"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/validation/ValidationService.java",
+      "sha256": "2486328af01b9da1fb0ed74ac2d92b43339baf963e8c7b51d29a09ffef9dcb61"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/DecisionParserTests.java",
+      "sha256": "156a6d41926717e7df68cfd39b68f7f55cfcb0f6d6e441cd695619d6f2ac3734"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/DirectFunctionCallsTest.java",
+      "sha256": "f91b83babaa4c352cdf5c45453d68b969bfc4e3af3401dab222b7d737a7623dd"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/disbursal_cases.java",
+      "sha256": "a515f5d43ddff807ec253a26bf6d7aa6b6ee0c4fd24755e71e9ed4b13bb4bc36"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/Dt.java",
+      "sha256": "e631b6f2175405279ffc4940bf2a893c9132f1d10856418bb8e4ce324a705378"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/GridRule.java",
+      "sha256": "4a715ca859030509ee5fb8733723910c873fee466648c16f9c658f4f46e583cf"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/ImdDataUsgi.java",
+      "sha256": "94f0985dc9dc36d3c1063f098994a7e592a1c9ef903b9513fc860737bfbc3fb1"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/RegisteredFunctionFact.java",
+      "sha256": "63ffceaa1ca2263001b1a852cb19f31fd478476d658aecae3a65ed7a228e11cc"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/RegisteredFunctionsTest.java",
+      "sha256": "ddb6aca5af879c356e532532ed21eb2d683625e62fc61529bfccc8c1fc2d62d9"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/ulip_payout_slab1.java",
+      "sha256": "04edff8736b9fb8ceb8786d56032d409842e5342795642b3a419351fcac9507a"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/usgi.java",
+      "sha256": "b24f5f62c172d3af1f93face84ec93ce7141ed9bd2ae75b4d493cf37811306b8"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/Variable.java",
+      "sha256": "a38c9fbaac3ef73997b036e83ccc0b62dad388d5797fe2d4ade840c5525018af"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/README.md",
+      "sha256": "e3e1fc5f247271788f782df09bf2270ee3d08c751698050feaf9b1f26ada5dac"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/date_range1.java",
+      "sha256": "46ad5f4bd0cc2b05d0addba558dbc58e9cda85a9f835483c5ddd392b32cb1eb2"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/diffDays_date1.java",
+      "sha256": "286bf71eb820b59ad19c4ef6e39db6f6a2941102605898b825428bfe0f8b40af"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/diffDays_date21.java",
+      "sha256": "81d011a71085ab2c412a35d0e77dfb3674a880f923c5b2bc5d416127bb5d0336"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/exception_master_broker1.java",
+      "sha256": "c14457a0f53d5622d1514a96c58fc1ee5e24694443dfb01fa5da59c129b489b7"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/exception_master_broker2.java",
+      "sha256": "74e7772caeaed20370fc31585e32eb6fd70b794f99a335f039c2bcf36498c2c4"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/finalCalc1.java",
+      "sha256": "028e7aefb921bbfe241f4799d52a82ec792c4d098d4cfdd796de6f6adba95e2e"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/for_batch_201.java",
+      "sha256": "2e37a1f241291d997256ddaa0111bc77f2a4d04c387a389896eef517557fe0e7"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/for_batch_202.java",
+      "sha256": "51aa16f465f4c51c88b5dc794c72efb5c3e52685bec7b22ba372927d74c6e1cd"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/for_batch_203.java",
+      "sha256": "90eb260e6d02b8594367b3f00b55d81d18a6627eeccd814cb29bcdef319e5b75"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/loanPointsPerKRule1.java",
+      "sha256": "8466f401bf50d64bf6ef703051e4665ec1c47324c6636e283a8a2e8b8fbfcb92"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/matchAll1.java",
+      "sha256": "f16d2bbaabca164e51948a519553517e84fb3f337dd1f7c808cd2cadb22c71ee"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/merged11.java",
+      "sha256": "e568031d28061c02f4718db414da853e018266dbdb1e428a30b54b2910632768"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/merged1_with_expression1.java",
+      "sha256": "dbf3d198317b75c939cb13367b538b49aacc14a138477f76278a8bb608119397"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/Performance_grid_v21.java",
+      "sha256": "dbc170c7aeba5c9e0e0d8a36ccc549ee89bf3038f985b6706cb824697c8c158c"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/tw_agency_test21.java",
+      "sha256": "5e362f6ac39ae15bf74a8d143a4adffefc9f839886b70817fd5bfd34458f5a5a"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src-gen/ulip_payout_slab1.java",
+      "sha256": "06a3a89c6b341f7eca40e96052b3026b905fc38490014121aef22842fcbeef7b"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/.gitignore",
+      "sha256": "5cbf3f07132adeb725d47bc229b52b7a9c6d127fcc08e86b719188d206402ce9"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/.project",
+      "sha256": "29e6c3b64a0ecde13ef6dc01fd0a4680f332b02a54a2e7a535b2851f055067c5"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath",
+      "sha256": "6585e899baf1dbfa0612b1040c74d1e253e78af14465533321857a4430c41e09"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.project",
+      "sha256": "bfc305958a5ea509a1c90e56c3546c4fde4b2f7e454eeb3f2dfb834b358417b7"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/build.properties",
+      "sha256": "0ac91814a518531729cc91f9f604be2e206a08a4d7d7d8beb668c54760c969d1"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/META-INF/MANIFEST.MF",
+      "sha256": "837fc3fd43d7c39bb87f6de2548c1508d2433f93e36d4f8a888f8f6eca58c827"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/plugin.xml",
+      "sha256": "02b3c17bf8214a04373ca9b1edc08b819ed18d90f1ca473796b974b21e913305"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/pom.xml",
+      "sha256": "9ccb51c7943cf085dc487c56ca220f04ae296f34549cb7ad129c34c42f325256"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/datatype/BasicDatatype.java",
+      "sha256": "e9e6ec65aab2b59e3ab0029802193d4634898200854ebabc9a23b69b664d5fcb"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/datatype/TypeCastHandler.xtend",
+      "sha256": "280668c63706908221899e79b35f5e55638ce3e5ef86c2b4e3e0cf86c49e9cb1"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/datatype/TypeSystem.java",
+      "sha256": "a28271fe654ee9bf5edbee2ce7e08369ff3ecf09989d270f1fd748cb05a74768"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/conventions/NamingConventions.java",
+      "sha256": "664b00b17b194a44ea15e5b734454eb601aa18dd7ac850922901d3a24cd5c04c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/AssignExpressionConverter.xtend",
+      "sha256": "bac90ab624f62d069c2f462b67fffb2637adf399dac386d83b334563d217d1d5"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/DecideExpressionConverter.xtend",
+      "sha256": "bb21562146e5ea61ca9410a087574f90729ba4949efa37a126e546d370bb7d9a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/NumericalExpressionConveter.xtend",
+      "sha256": "6691b8b8067d514bce3016616e35f1dca4d1e983bb8e64873435e8a84aed95e8"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionCallBindings.java",
+      "sha256": "36f9891c7edc5ad371cc6321cdbebf7e2df7d172d9e974f4f35ae9f92734a644"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java",
+      "sha256": "5ad14f7aa639a7be0ad63f2568fbf00148efbc384f1129b7628b2ab0986603cb"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/RegisteredFunctionTypes.java",
+      "sha256": "f9c12d7dfa67387137b6f0ba02540d6611f9ccc6894e788c92e9334e5e4be372"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/util/HelperFunctionModel.txt",
+      "sha256": "cfa91b0083293f2b248275e2eac278e2e70b4aa65249c2bdbccf502e484945d8"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/util/InBuiltLibrary.java",
+      "sha256": "b954ae4fb6a2c622a9f557ea19fe1748aafecf8d61e140ac8379bcca5e6d0e78"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/util/Utils.java",
+      "sha256": "0ab6d66b6839ba8734ab4dd62707316c44aacae52f228f1769669f5fd9383b31"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/Expression.xtext",
+      "sha256": "3274f8de0acaa13989a626b78ca754f36334a4b134fe0e43668e3c909b181039"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/ExpressionRuntimeModule.java",
+      "sha256": "e05fb7dea328d831a7ec545fa99d55b9ab2f9afdab6b3032f2c832ddaef81433"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/ExpressionStandaloneSetup.java",
+      "sha256": "5ec8b1acfa7378179a9307b06c2ec0da650617510f6d8e58c80fd5b7f4b63bac"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/GenerateExpression.mwe2",
+      "sha256": "40fce0e240b8edac16bc997ad138d9d1f129e407746d774e9a3dc1fc9ef1e183"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend",
+      "sha256": "971ded88bb81582b7f1c30fb508d9342214c965c2c5240b46a95a2aeb88c4c4a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/GeneratorContext.java",
+      "sha256": "08d2e0aa9b23b4dbf01e10037fe35c04a3efb4eadc8f77b52e6f62bf6696e381"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/linking/ExpressionLinkingService.java",
+      "sha256": "1146d167cd99585d19c74729192035c27736397a852b4e849da71dfd3073205b"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/scoping/ExpressionScopeProvider.java",
+      "sha256": "10068ce16ed3a1bc66caa3686a95e262d41948c8aa5f298a4b6ec80d4a6d00bf"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/scoping/RuleEngineImportedNamespaceAwareLocalScopeProvider.java",
+      "sha256": "5b1b41194b1ff4f985f9544c9cc7e2ed1c29cf5a8b669ad23b84f9fc0e7caa00"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/validation/DecideExpressionValidator.java",
+      "sha256": "5e42f1094083d3b1c184fb008399c9c13ed63c6edf0a2b478a236e2f2ef65a1d"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/validation/ExpressionLoadOptions.java",
+      "sha256": "bd36b2606d36082045623c8387794974ea6dfb580149bc7acfdafacea6ceb4b4"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/validation/ExpressionValidator.java",
+      "sha256": "4c3c997641f47e9786abbe6844752944c8289fb263ab8dac040b9ed523e6d771"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/validation/ValidationResult.java",
+      "sha256": "f15ac0b2105bb6b12dbf30290cb19c6f945ecb5ac6ab1390e24e6b8b4be5ade4"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/AbstractExpressionRuntimeModule.java",
+      "sha256": "0bd5ada826fec97be594d9b2d4a320d79d78d75fcb0d4a1aff59805708abba9c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/ExpressionStandaloneSetupGenerated.java",
+      "sha256": "66e57f090ee5c37819e13c018e1a5d67cf410d38f3b462a5b475ce7230c2bd32"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/AllLiteral.java",
+      "sha256": "072d34f4edeec7e62ca54c98f7d22c7a57cd081368f1241c554a10d254d3f3f9"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/Argument.java",
+      "sha256": "da2082dbea63d2a653cfd6a8b1a39e0ad61f205093386c34d9d48939ebf78dda"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/ArrayExpression.java",
+      "sha256": "3b0f16e2a7caac5f1a32674fcaec4ab5d232ec6ba38c8879e4304ca2041fff8d"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/Assign.java",
+      "sha256": "f2e930450650f67b5f8ff18fd5a73273999c86b944e1c555d06dd19abd8f93b1"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/AssignmentOperator.java",
+      "sha256": "af4d5961cbaa741df324898dffe42957c1d5d6474f325606ca9ae8e425767e9d"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/BoolLiteral.java",
+      "sha256": "08984505e6c74156eb5b7e7fe49075e077a3267fb58ec10d26ee3dddd5e0618f"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/Class.java",
+      "sha256": "3b389fb244647eff36674531a4447d8f4c2352f898894ad4ae68bf3b4949874a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/DateLiteral.java",
+      "sha256": "be792ab9d24a51379ca06804adadd9cc5d5b7e0d8244e943507130b1262a250c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/Decide.java",
+      "sha256": "6b2c52ba6c46d0434bf1cec1c127bbbad82a239eedbcd11b36a9b8f170e6fd01"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/DecimalLiteral.java",
+      "sha256": "54242ad044dd95d1372c6754ca4f38ce77e5ebadb20526cc85b6a5582ddfef32"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/ElementReferenceExpression.java",
+      "sha256": "9e706b20b1ec535ff18b9893dab2b3515c8f4de33c1e028f61ef65d9726bed77"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/Expression.java",
+      "sha256": "297a640a200848917f6dfc394cc9c1444d178cffe65a74b0401f92392599a4a1"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/FeatureCall.java",
+      "sha256": "4b8b4deac47c5ffbce9eddfb9a08a2973efbce391485d3e7764dcbcf09f1582c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/FunctionDeclaration.java",
+      "sha256": "7425c8d29125004981e00246de6e878decc1eb5d81d3f5848bb3af9be456ba97"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/AllLiteralImpl.java",
+      "sha256": "0e2650e8e112dcc7bd51a43bb319c056482d83c26ec357332aa3cda9de36370c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/ArgumentImpl.java",
+      "sha256": "1733ee17fe61fb8389ee77625d0c9faa8731a00c57b120035cdb28d50cdc2715"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/ArrayExpressionImpl.java",
+      "sha256": "d3b2a29fe2f408128ec5214bcb288644efde61a3035b5b0b3a2cefd9da76150a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/AssignImpl.java",
+      "sha256": "dfda7e310543605d871c13284a5fc5a291ec4d265a2c670ed720ad3ce64ef495"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/BoolLiteralImpl.java",
+      "sha256": "5ccfc47029d0318c6e6f43f2b589d4481a36908ea55dfae5dd9452add43b5836"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/ClassImpl.java",
+      "sha256": "89f6899c43032edb526e295a7335da6e00738ee7af6746d71fdea794bf88f9d7"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/DateLiteralImpl.java",
+      "sha256": "7b116e502212cc4c949a929f95bcc74f65c437055bbf5c4003c7c36a1a3cd29f"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/DecideImpl.java",
+      "sha256": "66fb96fc66c2cfeae57389dc7d8323200babc508337b513dedf3f7e98aac4e91"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/DecimalLiteralImpl.java",
+      "sha256": "7c2f2e667f242ce90124374a0bfee2183de27bedf86edc9f7e8cd3f0f463ba84"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/ElementReferenceExpressionImpl.java",
+      "sha256": "4036389863994ee5e070da0d9efc61193ec011ce882f706390a650845901b1e6"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/ExpressionImpl.java",
+      "sha256": "2d4fca2fa29bc87e6ca4579058a15c8ed14b7c61ce82c441ceb45c267262ba75"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/FeatureCallImpl.java",
+      "sha256": "2590c260cd4cebcef9fb12df58825a57980688bcf6fcf87350e50dfe319758a1"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/FunctionDeclarationImpl.java",
+      "sha256": "91c27a35966ea512f0df72ea091da9d95ed7a9f80748204d50db0408ac91eedd"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/IntLiteralImpl.java",
+      "sha256": "e5d98364ad8384ba2fd193a5d48b968036fb22a66ac7569d5a0558c4aaae4f9a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/LiteralExpressionImpl.java",
+      "sha256": "2e7cb37a1f71a824e0df8c86f70357a933c2255e8d487b8ed989b4b15d383c0f"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/LiteralImpl.java",
+      "sha256": "d97b580cc1355d52058033edfd2887b94c95d05ecd75471f68aef99caf7c9a2b"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/LogicalAndExpressionImpl.java",
+      "sha256": "47d78de20a7070beff564da6ab16852f2286090f16c72b400363fe2aa8605e79"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/LogicalNotExpressionImpl.java",
+      "sha256": "d3d80940f46df307748fe0bf65784205b17320acad16818f455b7d6616049c2a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/LogicalOrExpressionImpl.java",
+      "sha256": "d4a144a008a937971657d6d4fab942a8cd0d731e35ed78cfc24ef0c2f1d49cdf"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/LogicalRelationExpressionImpl.java",
+      "sha256": "85cdcbe47b36516ab740f7aca6d892e012133c9c3e48f7b8c5c083113cd8b91d"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/ModelFactoryImpl.java",
+      "sha256": "7ca0b466ff9fc8a1834bf784cd9fb62d7106711284ae69f395c1eea3558a3ab4"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/ModelImpl.java",
+      "sha256": "04d4b933d31276a4b20d3e267c2be2f902a220086cd158b67b3ac431b52a889e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/ModelPackageImpl.java",
+      "sha256": "3b04b51e7b1b040f60bf8f6a425be52fceb595baf0a2eaa65b836891e29a7af5"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/NamedElementImpl.java",
+      "sha256": "3b7a87ab4fc499006566c923cb76d5fbdd21b9c16098ff3391f45402bb973657"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/NullLiteralImpl.java",
+      "sha256": "20c5c7bfe1aa4c61c379b2aed4a313c9255e1f478609ce285b779679ee6e2212"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/NumericalExpressionImpl.java",
+      "sha256": "93f47aa526f87e518e6ecacfebdab5b37e588eccc19e3ac768bc82536f6b4c8a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/NumericalUnaryExpressionImpl.java",
+      "sha256": "b955344f168653bb5ce7391ece3e3d909acb9c14e751ceff742b1bc7a694ebe9"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/ParameterImpl.java",
+      "sha256": "6e6cbca8eb084fde3012da468f2cb76c6738543cab67bdb13dc8fa2efddd0f2e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/ParenthesizedExpressionImpl.java",
+      "sha256": "74457f54afea37b8544691dd52d7b4294207e5581459d6ceabb35b3e9ddd9f1e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/PassLiteralImpl.java",
+      "sha256": "7a00a3575508acccf1353a26d33ca4cd780528540b08538016cd55e5685c9965"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/RangeExpressionImpl.java",
+      "sha256": "57d5c9aad4c78c8b7877eab21cb52787c919db26056d27ee42bf2af337278bbe"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/RelationalUnaryExpressionImpl.java",
+      "sha256": "988cb69fb3e0b8642a7b6f8604607c323554d748a4f5f12841a6cb7a8147c2ea"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/StatementImpl.java",
+      "sha256": "f2eab90a7f7f71f9a0f285bc894878ea462a30648291fdeccc0597b351e5f82d"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/StringLiteralImpl.java",
+      "sha256": "a5a675bf40abce5fc4c3d559d6a88b6c087a5b5923687cb2e67071a278dcd959"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/TypeReferenceImpl.java",
+      "sha256": "7d7c9718ec51a4c0e94518c7112c3768211c647bb5c114107918fc5ceab4f79d"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/impl/VariableDeclarationImpl.java",
+      "sha256": "be0ff49addea07b0b1009b34f2ec57b48159583593982f55c721c17dc0ee73af"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/IntLiteral.java",
+      "sha256": "b2bd6a08de10a722b6778e1e50a69ac6faf22a26f4a817a86547a0c71e74c05f"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/Literal.java",
+      "sha256": "8257dafef0cdc9f5152e85196887334282fea499154a2c36d519b9cda58b8dfe"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/LiteralExpression.java",
+      "sha256": "036a71814e06c83939fab58af456bc260249d99872523e824c53512df17dcea1"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/LogicalAndExpression.java",
+      "sha256": "29882b3074359bc9018e4c0a776b19e5c83c0ced5af42608161f29971e8e8d77"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/LogicalNotExpression.java",
+      "sha256": "31e0b3f7e538e043832f21ef64fd042a959e4bbce9f45fa9524fbee90721aa9c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/LogicalOrExpression.java",
+      "sha256": "61d0e1d40403f006ed9d9d9f0c54c9ff873c680215b5cfc0c0e856dc813a5737"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/LogicalRelationExpression.java",
+      "sha256": "867ef5f7be360ec50663229a81c66f0f2a9c8d3d7d5f0776b0adcb4251b9bde2"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/Model.java",
+      "sha256": "cf595da72f4b75c40ed8bd95aef057acdeadec742f8d056523ddfaf596eb99d6"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/ModelFactory.java",
+      "sha256": "b4902676e0aaa3d85c64b8f7fabe81c6889c343084c0223bd553a21b2fe4a5cd"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/ModelPackage.java",
+      "sha256": "d1d28245c4b1ab2fe69f7c82ce62a3bb0a80ca739d2d35a48efc3e8509fdc733"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/NamedElement.java",
+      "sha256": "d7f2e738ebfca3119e37330a93dcd10c7d5d6c7a1c752dbb8bd084851e795534"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/NullLiteral.java",
+      "sha256": "a0c83ee5e2e643f9a0ab3345ec2f3ee4964426cddf02bb2561165bfe4827cd37"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/NumericalExpression.java",
+      "sha256": "85e4d0f5c450ccbba80678cf6539c16d9eed7783006fa5b5c6cd52a9696b73c5"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/NumericalOperator.java",
+      "sha256": "42aad9dd87be337852d4410aa73c01a0714db168581d214da2b789dba47a897c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/NumericalUnaryExpression.java",
+      "sha256": "93849e943d82c63cff0438952a35b564e2fa4f7896d6faff1b2b79e614ba9602"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/NumericUnaryOperator.java",
+      "sha256": "d6d754ed2935dc7b913e1cd2498dabc94fcd22174a85950d3beee76f917f207c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/Parameter.java",
+      "sha256": "5708bfb73b098e072ef980309ed89b98f320050c670a9515cda594c4b250a9c2"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/ParenthesizedExpression.java",
+      "sha256": "ff1211b9755aa97ad4ecd8050e1fa3e224bbd0ea0bf50d5addc716d1f2ee75a4"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/PassLiteral.java",
+      "sha256": "54e51a38fce677736a4f1d5a751ce46e85359d4621e72bbaa922f3856fed1cb0"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/PostFixOperator.java",
+      "sha256": "99fab91c6307b7212c5ac50102a85c999673e6b131fc61c4a1f06dd87cdbfe4d"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/RangeExpression.java",
+      "sha256": "305d9d541ee3fbf20d5551186b171ebb5778fcc355668c1bd8b2d8c9dcbfbbaa"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/RelationalOperator.java",
+      "sha256": "ba005361ad81e22f36a4b14b290dfe91b007b8eaab6d2b299403617113d932d8"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/RelationalUnaryExpression.java",
+      "sha256": "25637a18e6df49b7a9c871c6672291e3a533d7e561d314a10838fe221759f0d5"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/RelationalUnaryOperator.java",
+      "sha256": "e841e170c12085370e968d5ac33998c98c241e4967159dd8d6544ee349852aa5"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/ShiftOperator.java",
+      "sha256": "ceafe8f62c6782773e7d2d63364c21e1d7fbab30f61e9ae74280014de3635a1f"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/Statement.java",
+      "sha256": "3a1885b3ee5f082282819f1ab76ceac17415abc3b1561f2c4cf4667e75244291"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/StringLiteral.java",
+      "sha256": "10fe2e00abf9a3a7f7635f4910023a1ece853dccc4e7a1f0f0f9dc5bf6e75d1c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/TypeReference.java",
+      "sha256": "0ef7420cd8b791eabdeff58bf19e9ca2cb2df877aef4c89631b22e1f7acb020d"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/util/ModelAdapterFactory.java",
+      "sha256": "b51062da0a261099349c99f5da4fc542479892d9f0a8050569c1999fb745c650"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/util/ModelSwitch.java",
+      "sha256": "31efe2048cc239a886fe3f4980ccfe95f20d93de979fe339f05918788291a90e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/model/VariableDeclaration.java",
+      "sha256": "73b068c1b4a63e2b6b9e9c6efe48de21eea3636e7c9d3d8a2979cb8aa070dd69"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/parser/antlr/ExpressionAntlrTokenFileProvider.java",
+      "sha256": "712b3048044c6b0424da0767ddfb0f972c11c20794793b64b84904ec168db61b"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/parser/antlr/ExpressionParser.java",
+      "sha256": "6b50be794337383d2d3cc3a9102fd6fea7537c7661c37afcca82b3fa1f424369"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/parser/antlr/internal/InternalExpressionLexer.java",
+      "sha256": "5bad9d40712eecef5e489dc2774732b88cfc778c345a0d5fbdbb9175e4bcb3b3"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/parser/antlr/internal/InternalExpressionParser.java",
+      "sha256": "a7d995f312129a23bd6373e16ad259538511b9a1e11df198a700e1ffaf110f36"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/scoping/AbstractExpressionScopeProvider.java",
+      "sha256": "5be57ac5d4569c22e5ae4f0792aa5ad8445067d380696d0f3e9d17f4e5356919"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/serializer/ExpressionSemanticSequencer.java",
+      "sha256": "ad530e2da95e04292b88d132ff3dd7b4c3466c9d270a3d4df6da026d53c3b761"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/serializer/ExpressionSyntacticSequencer.java",
+      "sha256": "7902be608f62107c1831711ba692b506da7afc53812d7d04c48e2d4429587aec"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/services/ExpressionGrammarAccess.java",
+      "sha256": "f7c994646426204b9d467b15bc269f6545422394caf84e444a06bb3463e0ba73"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/validation/AbstractExpressionValidator.java",
+      "sha256": "431b75cf41847cbe050cb15e7a58d29cab0c0c30a1eac494ca8a1629b25e2089"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/validation/ExpressionConfigurableIssueCodesProvider.java",
+      "sha256": "0356d48c0f44ab399ed46a569404314cf47b9b58afccd9a97dc6a5780ba061d4"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath",
+      "sha256": "6585e899baf1dbfa0612b1040c74d1e253e78af14465533321857a4430c41e09"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.project",
+      "sha256": "2e979304528a642db054d386cc4863bb4b03f78e20d5a1922ce90e7f75807040"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/build.properties",
+      "sha256": "d37ac4592f4b7e9b03dff6f80c3f6ff9638eb16c2c325aa404ab0866820c8adb"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/META-INF/MANIFEST.MF",
+      "sha256": "14d6c6dd22780fa5971091fd1cd8fa92bdd0dcf7d4f964b485b09c5d2429759d"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/pom.xml",
+      "sha256": "d9a132006496e2c00d0cb2f892d57ffa7552d35c008367109a2b803bc398eb32"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/src/com/act21/rule/engine/dsl/ide/ExpressionIdeModule.java",
+      "sha256": "3eb9b46716fc4e624a1fa66e7d11e38876878c252525dcbf610feeceb67e44ac"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/src/com/act21/rule/engine/dsl/ide/ExpressionIdeSetup.java",
+      "sha256": "bba51a393e1dc3bd4eb5a85f8b684b5e24fa9f3597bcde56ec2cfc4bbb7b5aa8"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/src-gen/com/act21/rule/engine/dsl/ide/AbstractExpressionIdeModule.java",
+      "sha256": "0dc08f12295fd3fca679856901c1644fafae5ca19ce45d4e12fe1225a8aa1eb4"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/src-gen/com/act21/rule/engine/dsl/ide/contentassist/antlr/ExpressionParser.java",
+      "sha256": "2eb81224c45d739cb09958c843446208c8aa914b977f1c822a8fa53f20d71e7c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/src-gen/com/act21/rule/engine/dsl/ide/contentassist/antlr/internal/InternalExpressionLexer.java",
+      "sha256": "86ad9039f84c14aeb8badf458a20e489d7996178290ba2f3f8a2277a7a314159"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/src-gen/com/act21/rule/engine/dsl/ide/contentassist/antlr/internal/InternalExpressionParser.java",
+      "sha256": "0ba7f3793153327891bb6704970897645847215e43b22a9ea336c57f55259e2c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/src-gen/com/act21/rule/engine/dsl/ide/contentassist/antlr/PartialExpressionContentAssistParser.java",
+      "sha256": "92dcd51e9c2c1a94e32696d78be195bc70a9eab0d6afac0f911088c1a8fac74b"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath",
+      "sha256": "5cb07870e99308f3b3db519cc9afd191e15884b2ca947a5d899a3d598fa3f0f7"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.project",
+      "sha256": "54b9b5ae30339031d7e0ae022180e4edca3a54daaaabcf45a6b55720322f6819"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/pom.xml",
+      "sha256": "20cbea2e4203d1fb018e0b6944e80061cc6b7469210873bbe2de67d2d89398df"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java",
+      "sha256": "503c05168e1085bbf1aa5536ee4822c1b41585ebf7844babd8b2295a89e7add1"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/HelperFunctions.java",
+      "sha256": "d98dbfe88e020154b9cf0db1e608a5f1f15a2f2a07218d45c3ab3a9be91dc541"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/RequestDataResourceBuilder.java",
+      "sha256": "3cc44382161c240a435a90dbfce4706ccfb98b35b7917f8436978b6333373b30"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/Type.java",
+      "sha256": "ce6e636346fc7c7fdb97d28b8f9739d01d4a67499f5f38eb6a601a5d5162687c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/VariableSchema.java",
+      "sha256": "1c3aea17321a730b62ae725ccdb2622fc3c09d0a5a13ca33f6003f1cf07b3cd3"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.target/.project",
+      "sha256": "a9f59be7dc5f3e7249a2247b74c1e14e4598f2eadbda6f9b2a4c43b1af88e617"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.target/com.act21.rule.engine.dsl.expression.target.target",
+      "sha256": "a0f9c4f96764d54a83a09139cb08eae8c7c6437228751d51fa08042c71942c06"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.target/com.act21.rule.engine.dsl.expression.target.tpd",
+      "sha256": "e35f9543b339cd973678244dfbc92282f393bd1eef7dd2c4bc56316606a746e7"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.target/pom.xml",
+      "sha256": "fd71288757a8bc2cc9d42a5dd7ecb281ffa8b4b22f380d6c48883d819ae592f6"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath",
+      "sha256": "435bed4e639406f9d391f53a92435215f9901a050c515c5922406125be5b7a0c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.project",
+      "sha256": "a98bbf40b57a9eb602b11b732c063d3aed85f98d181bed538562d08006686ac8"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/build.properties",
+      "sha256": "d37ac4592f4b7e9b03dff6f80c3f6ff9638eb16c2c325aa404ab0866820c8adb"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/META-INF/MANIFEST.MF",
+      "sha256": "610453d6ac5dafb87e40f19fa6d4a0dc4b5fd05780ce9be313d2f24e21e2744e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/pom.xml",
+      "sha256": "d70b0f4d755931998d1a403459bdcb64f367beb2c9b1526d43ce82b57471a56a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/src/com/act21/rule/engine/dsl/tests/ExpressionParsingTest.xtend",
+      "sha256": "0306ffe2eb20d7c86cbc0d70abc4f87b85875b0d20d95980ead8d20d083f217e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/src/com/act21/rule/engine/dsl/tests/ExpressionParsingTest0.xtend",
+      "sha256": "5ddf171f21f054e1a4c8c0c977260f92d929d3d55af589987e49f8e5c743906e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/src/com/act21/rule/engine/dsl/tests/ExpressionValidationTest.xtend",
+      "sha256": "5158f41fed1da15844881a24345f3d21c29733d4c0a72582017551cc426b1491"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/src-gen/com/act21/rule/engine/dsl/tests/ExpressionInjectorProvider.java",
+      "sha256": "54843a8f0129c819ebd9b887e8f59ec4f0ce7ea6ca184575449b7b9a1c7c2070"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath",
+      "sha256": "6585e899baf1dbfa0612b1040c74d1e253e78af14465533321857a4430c41e09"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.project",
+      "sha256": "65bbc401d5df418458dbc10f8f9bf24f8efcc5b847d8d0fd5ef3819e56d035f7"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/build.properties",
+      "sha256": "00be55357b3ff143ab8e608c21f9db8120bf8a6ad5a1bb43372fbf634c20aeff"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/META-INF/MANIFEST.MF",
+      "sha256": "6fbdb0f33bd8413f6fc916a66e7d50ae5a0b539acc6ae605aab5bc4004dc7a9e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/plugin.xml",
+      "sha256": "8a1ebd3d89b5d1087be4e8db16d853a642631d93743311f1d079217081ea3a2a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/pom.xml",
+      "sha256": "1e313bdfa602e1a5d73ac2237cafa34e2bc44b79348165ad878ae62eb40b4d4b"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src/com/act21/rule/engine/dsl/ui/contentassist/ExpressionProposalProvider.java",
+      "sha256": "cd401804f3854eb74b184bdb574da713b0725a1c84654011f067c2396d236a6e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src/com/act21/rule/engine/dsl/ui/ExpressionUiModule.java",
+      "sha256": "676839fa9112e23102423f99b8220f91ceb541893103fecfd1acca25411be0f3"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src/com/act21/rule/engine/dsl/ui/labeling/ExpressionDescriptionLabelProvider.java",
+      "sha256": "04ee0e1cbaa540e050ff18a40652b70fd08850eddcf85f191183a23c2b510e8a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src/com/act21/rule/engine/dsl/ui/labeling/ExpressionLabelProvider.java",
+      "sha256": "047db263bcc4d5e89e7885595205c80e38c948397a48e9ab30709689eabf1620"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src/com/act21/rule/engine/dsl/ui/outline/ExpressionOutlineTreeProvider.java",
+      "sha256": "f21f67abbd68d496c96d2931a6298fb6a650c3a94beb5d5e673cd799245aaf1b"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src/com/act21/rule/engine/dsl/ui/quickfix/ExpressionQuickfixProvider.java",
+      "sha256": "91d32fef6f6ca6c218dc7dd9fd671e47a0e1c9a809c1bda7b46b4c4249100645"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src-gen/com/act21/rule/engine/dsl/expression/ui/internal/ExpressionActivator.java",
+      "sha256": "de6179e61288074c8c79cfe6a114d899824caef64c4b05c75a30131a9575261a"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src-gen/com/act21/rule/engine/dsl/ui/AbstractExpressionUiModule.java",
+      "sha256": "9ce76cb062eefbbcfe2bfa0e3a3af5207b61287a8d9e8ed70da5d269fe6c2f39"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src-gen/com/act21/rule/engine/dsl/ui/contentassist/AbstractExpressionProposalProvider.java",
+      "sha256": "3cab171ce4b927d1455f83987d5c1e2cd93011a9e60f5ee45c0485331d0e9c62"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src-gen/com/act21/rule/engine/dsl/ui/ExpressionExecutableExtensionFactory.java",
+      "sha256": "0d5187621fb755639b053fd2f0d7ae588858d6eb99ffc14d6f013eb87bf0d878"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/src-gen/com/act21/rule/engine/dsl/validation/ExpressionValidatorConfigurationBlock.java",
+      "sha256": "c6417d2fdbf49061f23f0760fb95e5a79aef0d35446a00750137dce8c44c8035"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath",
+      "sha256": "757774ffd352be42f8064d0d36f0916ce2ac26ae111ac1b976c28b00058d6d32"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.project",
+      "sha256": "6a8bff9424add66433c3ab1c1773ed33319222b3e111f9bc2eff2497cf4a3e4e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/build.properties",
+      "sha256": "d37ac4592f4b7e9b03dff6f80c3f6ff9638eb16c2c325aa404ab0866820c8adb"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/META-INF/MANIFEST.MF",
+      "sha256": "2c27dae7bf93b1d6c071c0e88ff137059af31959de9ae39da89300fba47ecd3e"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/pom.xml",
+      "sha256": "da5ef334b667f46643f8840971c6c8368b768b52b05507e9cc1b8a4ee0d7216c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/src-gen/com/act21/rule/engine/dsl/ui/tests/ExpressionUiInjectorProvider.java",
+      "sha256": "d0ad5dab5155f44968d29982b92f300c2721a0f9b0d65fb4ef0f7a94adefdcfb"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/pom.xml",
+      "sha256": "1c799326a3b5599c1c5ec8fe4fca6041bf186fa6bafa8c3ad597ddd15af7a39c"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/README.md",
+      "sha256": "ef6824b041fe9fdf152e5da6a20a8ae0215c5f384b7aacaf7f4cd03c4c6575ae"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+      "sha256": "79e1f610c1a2e39f6c001477727aaecd01d9cd585ff63e98544cf6a0f50c9274"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+      "sha256": "acb4f99d480e3396a0b48abd239c843f2e9a23f2e56b70b3fda74de4c21cf0e5"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+      "sha256": "53747084d557285e07e7d8076ee5bb94b1bca87d3f9e7c84f251b963410fb6d4"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+      "sha256": "d4c54eee26a30e9a569d12d3c1a1178ebf5a58d8c40383a18baaab99cd58e51b"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/persistency_multiplier.xlsx",
+      "sha256": "82e304dd048e924cb20c77f596263977b28d44b12e36e041afc683ea2c33a73f"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+      "sha256": "710004919815207e8d6ff64b745b04480f4260c3725703f1b508b33be3ae5b28"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+      "sha256": "247da58b81098b736a08079a607954b84c1267cfb4230296a168b0e952fd280b"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+      "sha256": "7fd5cf1766fbdffef942fcfe1fb6f810e3d27f51cfdd9478652fe7492aa6a2a5"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+      "sha256": "24f2c29a75371f7ad705f78f9ee298b64b03f53c20fa69fe8af101836ece04a6"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/incentive/sm_persistency_multiplier.xlsx",
+      "sha256": "23f564316697df844f6c5d88646bc5ac35e8527fc2779cdd2022250ed283202c"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+      "sha256": "864b3619e988767de45765a06c885fdaa336d26b6332c98ca59d66c29eba9580"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/incentive/sm_wfylp_slab.xlsx",
+      "sha256": "6eafceed14665b80fb1a0809f2b2c27e17f23343432cc7184e8a0572c6ff0c5c"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+      "sha256": "2de90c8e0c1fc19e51e1424b2fe44219ede22be7809b4fcbc413319359365a24"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+      "sha256": "a7c5309017d833708e0784d7848fb48b5dbcc8d8eef6ebde662ff04c027d81cc"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+      "sha256": "d085b85b6b5c4c82671f6bc61e8c0a3ad0a0c523bbfa9f6dddc0e1bf4218b020"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+      "sha256": "4a8022a080e6834c9f5acddf09a5b6ee9a1aabcbe164a146b68ad9514e8f34f3"
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+      "sha256": "4b2b4b5527f2c8449b4b4214f74cea8ad944783ef19d079b29218e6f1937da12"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/assignTest.xlsx",
+      "sha256": "421d90bf5858e7189c6728ec7518486a0656aa836ddbb4ddbdab8f5999f5c25f"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/avg_BigDecimal.xlsx",
+      "sha256": "97e8972f8976df62ca4302ba88c389a333536601a7ffc13159fb397a5888e0d9"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/avg_Long.xlsx",
+      "sha256": "3b207c151a05d4dda868122cb957e33312b8018cf2fd3e62d7474b44513caa4c"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/Book1.xlsx",
+      "sha256": "3915ed6c0918c0a2a20337bec77ad8c04ef5a68a23b7f2715e04af8c7784ef6d"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/checkNull.xlsx",
+      "sha256": "a176b9e1f871e438675652003e1b55a51ce31db59d00e42875a9a7593585f090"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/childMerge.xlsx",
+      "sha256": "235ebd3a321521a0f720679c08214bfcd15eed6da6e8f8fe5a269f481f5c162e"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/commission_grid_6_4_with_100k_rows.xlsx",
+      "sha256": "8d5722fdcd1b15021d6f0fe737ac7ddc911a3dc8584159cadf6ebada96be0ba0"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/date_range.xlsx",
+      "sha256": "557ed06970e0a4d7c780ea2df155cbb57e839a73fb376a3d3256d091e2a1eeba"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/dateCheck.xlsx",
+      "sha256": "b5d99fe8426bc8657adeb1b8c8ab43826ba1e61022b5174da1e38127aa2c87fc"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/diffDays_date.xlsx",
+      "sha256": "36d5452dc1f1c407b3dfa44e4e6468186aa26505b17ac3b1f655947b0873e17d"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/diffDays_date2.xlsx",
+      "sha256": "ba314dace53b11273c6f9ef98e78bc844efcbc681a781ff47c468dcc56de5e1c"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/empty_test.xlsx",
+      "sha256": "caf6015231c0adfc5613c7d7329fd43452d280e45d2397bb7c2b6832434de38b"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/exception_master_broker.xlsx",
+      "sha256": "863cb32b2fa3200d602bd1389a2b7b1bfec17d494160706ea6aadfacbc238f60"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/exception_master_health.xlsx",
+      "sha256": "13d0a12c2b792cbf1f2c10572c25bc6bdecef70118f35fc88a907d9d53353dde"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/exception_master_health_missing_header.xlsx",
+      "sha256": "d1e43001ea3dc2a148a1e67982b2f94f528e8ae9d4d7c83abdff57efa4f9ff94"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/finalCalc.xlsx",
+      "sha256": "6fa3059757c286ddd44e76a3e3a0983377ec27c0f6c3e90cfb8639842b1d5d14"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/finalCalc_conditional_assign.xlsx",
+      "sha256": "39b96224434026e6106505820b234c52d76dc4a8422b4c130f15fd2d920a43f7"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/for_batch_20.xlsx",
+      "sha256": "5b7a8a4652162a402d4033589a2adc9be0259c43fba2e489a2b4c5ada74c08e3"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/loanPointsPerKRule.xlsx",
+      "sha256": "32e76e9ccd4bf3341772b733bd1263d962d4ccaef458e6fbf561e1e1b0cb9844"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/matchAll.xlsx",
+      "sha256": "0e9268cbf823c391c1fa4781e4528e08bb5a194d3dc0e786dceaac313c641eeb"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/max_BigDecimal.xlsx",
+      "sha256": "1041ae1a69abef88e35b512085252cb6d194f21604d4b518cbd2e986bf23b568"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/max_Long.xlsx",
+      "sha256": "f6273c8bc8dd481f9f5d9dc232e4cc2ace033112e099b52e0cd3e1ceafe16b38"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/merged1.xlsx",
+      "sha256": "5877e070bd6d8fc9307bfbb724384dd59201fc5d3708b67609f3c0fd191b0192"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/merged1_duplicate_ids.xlsx",
+      "sha256": "33ea9bdec8cf6afeb8d5a3727fd012f18d9bc9d98762cb1762a478fe7f557faa"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/merged1_with_expression.xlsx",
+      "sha256": "39dd1a12f144fc226f17fc244a1358c1d43fc82fb00dcf17ca6a68e0ab601af6"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/merged1_wrong_horizontal.xlsx",
+      "sha256": "428cec638f9c4cfe0fa29856cd13a1a7929c5ec779d9021f9d2607007b835770"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/min_BigDecimal.xlsx",
+      "sha256": "8d73b3b480d055a45b98e09f844984f921fc2afcb98c6243d2a5fb81d585159d"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/min_Long.xlsx",
+      "sha256": "327a7d06a717038f72c393e6feaa0b8db26b1e88e5cf1912adcbb8fd04559405"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/newCarMerged.xlsx",
+      "sha256": "8e8c15850db884c96ccb6d2e296255c06afe65f61de1f6999f0594c6db088e25"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/notOperatorTest.xlsx",
+      "sha256": "3ee6eeac17c7242bc18eb2554e4278434bf389dc1270ae041145e25b6ed45dd6"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/Performance_grid_v2.xlsx",
+      "sha256": "eae9366ec3d6bf3df005afa3bc31cd7a38cfe4ee607dedfbdd531b92954ac918"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/persistency_13_slab.xlsx",
+      "sha256": "ad428277e48d382ccba958a62d0eb8a44a40446a0984138e396a509b94b397ac"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/preferrd_referred_broker.xlsx",
+      "sha256": "c44716ccaba8e6bcc72f4325fe7d073e63406b17076053d0358ff58817430a28"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/preferred_referred_master.xlsx",
+      "sha256": "8166219e3d8c3c9aef1feb4094839a8638bdb306e7008cc5364ba17a8cb69316"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/product_credit_grid.xlsx",
+      "sha256": "d93b2c04bdc202d6db9ea65cee686963d4ba490e09c97115450f19ed78892383"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Batched.xlsx",
+      "sha256": "6e116ba40cd357733cf8dc0d855a8bda9b96c0bfd56c185b58728963cd44e3cb"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/BatchedListResult.xlsx",
+      "sha256": "1fbe7ececde9f10ee4f8dcd2aa8dc9611269e4433f277cefb22e42e3451e55b5"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/BooleanOutput.xlsx",
+      "sha256": "609ae608866219f972f536f09dbf3185bfd557e9c7683823dd10e0deafc3ca30"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/BuiltIn.xlsx",
+      "sha256": "fe0f7175c513527a7b4f46c77be9118361dc4d2f6b6cc68a8a5d31ddf32f345a"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/ChoiceNumber.xlsx",
+      "sha256": "43e6a124fa22acc0caa81c2e63d36354107aedcdf04ee1d5a3d432ec9d30b691"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/ChoiceText.xlsx",
+      "sha256": "3833fff5f216862382ae47492eb6be8879cdf2b70db8a3b514a4d05e2a16582b"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/CleanAndGetCodes.xlsx",
+      "sha256": "505fc0437464554d7c7d8731473fcb93545cbcb15237a4a057d600e023b37226"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Dates-3.xlsx",
+      "sha256": "b7c189a0ae35399518990e7466a98d58b6466ce6923da989fe9e4aef375aa4e7"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Dates.xlsx",
+      "sha256": "dc36f69b7d957d567712d0fdb6246560e8e4850fdbfcd7435051d22517d8699d"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/EmptyListResult.xlsx",
+      "sha256": "006b1207a803bd821c234b8c1ff89f40f9fdd9a8d7db5ee34a50c5aeca4abb86"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/EmptyVarargs.xlsx",
+      "sha256": "ab9d8d9afae0253a3ae632d82ebafdb2e1f4ae7c22ec722cc5ef154bd53d56a6"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Failing.xlsx",
+      "sha256": "18b432d8c7a5d6269c7fd8c7a46c634f109ed71002df8f9425a45ff111802786"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/ExtraArgument.xlsx",
+      "sha256": "ed4619c04cc4a664ab20066e187e06c8ad385a941dac46091a9cac06d4674170"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/ListResultToScalar.xlsx",
+      "sha256": "39d0560b59d0de85803f95bb2d0593007d33598f146cea35f6d9bbc53a9bc729"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/MissingArgument.xlsx",
+      "sha256": "9c428a310015fca6e8aa47981b98910691576f31ab17b7118067cd453f96e361"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/PrimitiveNull.xlsx",
+      "sha256": "4598695d093373af7eed685ef01e1f28151787254295c16ed935e818dff36ab9"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/QualifiedWrongType.xlsx",
+      "sha256": "28a9371fefea81e497bd0407752a3258564170b05d267164eff6d269c586ef96"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/UnexpectedArgument.xlsx",
+      "sha256": "a5caa8b1af5cd48b77aca250e8cc3190f76eb52d10e180b8a895cbfcc5d9aa3c"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/UnknownFunction.xlsx",
+      "sha256": "e8d362f81062643bc2304ae587ce41281c887fd293d1b7657c16db3484d6f56a"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/WrongListElement.xlsx",
+      "sha256": "940688bee24273a9d3734564c551aace763068aeb7a128064cb4b8a562e3ecd4"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/WrongType.xlsx",
+      "sha256": "b0fc97b508dcb4ac7db9173ea61bd95e4e71f0274b57d64e4104a5caf271f0e7"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/ListArgument.xlsx",
+      "sha256": "642fe0ac700c929c0dad5ac5a748703669e56a7a07c1d1863713c93b9fd00408"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/ListResult.xlsx",
+      "sha256": "ef865855593de8aa7ffa5987b07298827fb58e9882737fc9f13eab121cf10088"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/LongListResult.xlsx",
+      "sha256": "ada7e8de38e85084dea9d2553ca3e4158d9c323705a7c296846f00ef5a7847b6"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/NestedListResult.xlsx",
+      "sha256": "facb8e278a058998323b4ccc4864edc73fc4030ccd82bf6928a4bd0b34de89eb"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/NullArgument.xlsx",
+      "sha256": "c18c8900d3b4188ac9a3eaff2a84a78c406d9961d578be5e5ab21376dbe02e89"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/NullListResult.xlsx",
+      "sha256": "fc48e50ca8301dd2e83353ea46a7c5c63a59f39f67925d7f61fb27d41385641b"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Predicate.xlsx",
+      "sha256": "522ce81a340fdbe4108b659abf4b90fefedabce60497ae65ecaed3cae2b16500"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/PredicateAnd.xlsx",
+      "sha256": "2f603b085048029ff931fdb9c89e4f0844f7cff842b8787a06c701eab136779c"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/PredicateNegated.xlsx",
+      "sha256": "a6adfc31114bc02e0659a61ab20c5ed0c2ca8015b40db07ad1bf3a4b429f1ec7"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/PredicateOr.xlsx",
+      "sha256": "356c332e43b64a33b8e2e8a41752d27bdce92edcd83ed2bf7ede0a7b14a74656"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/PredicateParenthesized.xlsx",
+      "sha256": "88b6ba263b87e08e05c8d04d42b210f32a221fb6fe083b633091120da4487abf"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/PredicateQualified.xlsx",
+      "sha256": "2b35d2fe5aa52f7662115957d79a64d170bf2014318b95257bbe25c26f6e6213"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/QualifiedListResult.xlsx",
+      "sha256": "e25a87493f51cc1195fbd79df78bb5d7e4b04b7e534228abb860c43f04637166"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Tag.xlsx",
+      "sha256": "992a9def29dc51c604ccbae6098357411fcb9560549694558ab33c1f8d77f395"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Varargs.xlsx",
+      "sha256": "8e4c8190e90601ab559b355e759f13438993d3931f8f2feb587bb585cbab1fff"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/WidenDecimal.xlsx",
+      "sha256": "a0260a2fdb45a133fa0cfa7b58d7f19530dff5dd425952aa29861ed02a588990"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/WidenLong.xlsx",
+      "sha256": "fdbbba0c3f56cc07ffd876b0b47b739f123aedac6c0c8bff5b7ed2db4d88ccf6"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Zero.xlsx",
+      "sha256": "96ced4cebfc7f5c4b9238fe2f99c7d147b05eddace14ba03afb928f901fdefd0"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/restrictedChars.xlsx",
+      "sha256": "621501b01e0c04858a6ff9fa6dcb533d834a41bf349accaaef105822c431318e"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/specialchannelgrid161usednew.xlsx",
+      "sha256": "86a2e9dae791b64dc1a2d9088efc4c3e2d008b872194d733a23bc32f5a29d3fd"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/standard_policy_eligiblity.xlsx",
+      "sha256": "5b3b5aabb4279c7837bd7bf459a1c15576f7ed08414e3cf02f327c8de6dc490a"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/template_test.xlsx",
+      "sha256": "f4f40c932e46e2f0f129874d99525b5784905c960e4568a7e343feb6e34ac421"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/tw_agency_test2.xlsx",
+      "sha256": "695d23074c6f5292ee472b21123d987075496e0aab1a342466d0a76f8a90be61"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/ulip_payout_slab.xlsx",
+      "sha256": "ad42e36c969a3a893edd63b95da13464f570a029fd8da31ef84c8804656d7d2c"
+    }
+  ]
+}

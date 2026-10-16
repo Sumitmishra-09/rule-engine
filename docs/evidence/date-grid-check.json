@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-15",
+  "result": "PASS",
+  "command": "python tools/registration_check.py --offline --test RegisteredFunctionsTest",
+  "tests": 15,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": "55.76",
+  "scope": "Reproduced invalid generated Java from grid name Dates-3, then corrected only test grid name/expected output and test-helper diagnostics. Preserved user toDate implementation and Excel contents; no production source changes in this follow-up.",
+  "reproduction_command": "python tools/registration_check.py --offline --test RegisteredFunctionsTest#dateFieldsAndNestedStaticFunctionExecute",
+  "reproduction_log": "../../output/function-registration/date-grid-name-failure.log",
+  "reproduction_log_sha256": "851623d769a52a64b561e186b3c14abcd7509713ed2801e329785bf11081d711",
+  "full_log": "../../output/function-registration/date-grid-build.log",
+  "log_sha256": "76ddea4dc4a76e9b8cc652fb8955de71458e4641c5a43d3438b84db8c82d2221",
+  "cases": [
+    "dateFieldsAndNestedStaticFunctionExecute",
+    "oldFactoryAndBuiltInHeaderShorthandStillExecute",
+    "numericWideningIsTheSameInValidationAndInvocation",
+    "cacheHitDoesNotRebuildTheRequest",
+    "typedListParameterExecutes",
+    "invalidRegistrationsFailBeforeAnyGridIsLoaded",
+    "registryIsReusedAcrossGridsAndFactoriesRemainIsolated",
+    "outputBooleanAndQualifiedCallsUseExplicitArguments",
+    "functionFailureRetainsCauseAndGridCellContext",
+    "booleanCallsNeverReceiveTheYellowTextHeader",
+    "differentSignaturesWithTheSameNameRemainIsolatedDuringConcurrentCompilation",
+    "wrongNamesCountsAndTypesFailDuringGridCompilation",
+    "nullReferenceIsPassedToTheFunction",
+    "zeroArgumentsAndEmptyVarargsExecute",
+    "everyGeneratedBatchReceivesTheRegistry"
+  ],
+  "grid_name": "Dates3",
+  "fixture": "registered-functions/Dates-3.xlsx",
+  "expected_result": 38,
+  "expression": "twice(diffMonth(endDate,toDate(\"15/01/2025\")))",
+  "current_files": [
+    {
+      "path": "rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/RegisteredFunctionsTest.java",
+      "sha256": "9823e77c235d91947f9fea7ac9fbf756998ebfd4ac29793c3a9fbfce31196086"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/Dates-3.xlsx",
+      "sha256": "b7c189a0ae35399518990e7466a98d58b6466ce6923da989fe9e4aef375aa4e7"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/Dates.xlsx",
+      "sha256": "dc36f69b7d957d567712d0fdb6246560e8e4850fdbfcd7435051d22517d8699d"
+    }
+  ]
+}

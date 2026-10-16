@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-16T13:05:02.342164",
+  "action": "Restore both local and remote redmine-19600 branches to exact pre-feature commits at user request.",
+  "push_method": "Explicit force-with-lease against the verified previous redmine head in each repository.",
+  "backup_branch": "backup/redmine-19600-before-rollback-20261016",
+  "local_backup_directory": "D:\\hyperform_3.0_backend\\rule-engine\\output\\redmine-rollback-20261016",
+  "repositories": [
+    {
+      "repository": "rule-engine",
+      "removed_feature_head": "a6ba32ca1bbe2c2a1187d699512e9f3e61e0fc13",
+      "restored_local_and_remote_head": "f694d31bea1b6ac93db61760fe1be62348dec1ff",
+      "remote_main_unchanged": "ff9aa7a11d34c3ee3bae9bbed547c3af1f625e19",
+      "remote_feature_unchanged": "8eaa114626bfeb7e4ef3e651046da98c6fb314fa",
+      "feature_worktree_clean": true,
+      "user_edits_preserved": [
+        {
+          "path": ".classpath",
+          "sha256": "3340bdf4261e5bdfd7a0e58c1fbc0d1e7cc18a3f9c73594f30f41bdfdc4b5d7a",
+          "preservation": "byte-for-byte"
+        }
+      ]
+    },
+    {
+      "repository": "rule-engine-expression-parser",
+      "removed_feature_head": "126a95f62b712b7ba55d4138c90f284faf0391ba",
+      "restored_local_and_remote_head": "e4614287f57b5565d01ab01c60dd8d7e14871896",
+      "remote_main_unchanged": "e3abbe0050d9f3d63ca3974bdb583319a97dd083",
+      "remote_feature_unchanged": "1113fa3eaec8f5374565c671ed1417664be593f7",
+      "feature_worktree_clean": true,
+      "user_edits_preserved": [
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath",
+          "sha256": "7a852b04ea211bcfa1fcbbcac82904826f33b18ab7eb19457b61636607452edf",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java",
+          "sha256": "23587c9ad69eb3eda7fb29be4e4e8740a20e7a808e26ca67420f0820038f85b7",
+          "preservation": "same added/removed lines relative to restored base"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath",
+          "sha256": "0a3dfcc304ab5b0deff3cd0bebf9917b379eabf576c4e463edcb284e49d0bc32",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath",
+          "sha256": "ad7343738ed5de02f8c6205defa62e655f019ed5c7990f4e0fe46aa682b22026",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath",
+          "sha256": "ad7343738ed5de02f8c6205defa62e655f019ed5c7990f4e0fe46aa682b22026",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath",
+          "sha256": "0a3dfcc304ab5b0deff3cd0bebf9917b379eabf576c4e463edcb284e49d0bc32",
+          "preservation": "byte-for-byte"
+        },
+        {
+          "path": "com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath",
+          "sha256": "9d15b43d91f8109002900431574421e348be9f062948ec7bcd6374a1971ecac8",
+          "preservation": "byte-for-byte"
+        }
+      ]
+    }
+  ],
+  "validation": "Remote/local heads checked; main and new feature branches unchanged; backup refs retained; user .classpath bytes and standalone parser experiment changes preserved. No new source implementation was introduced and tests were not rerun."
+}

@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-16T15:09:28.474823",
+  "scope": "User-selected direct-only custom functions; reflection invocation fallback removed.",
+  "repositories": "Local uncommitted changes on feature/registered-functions-direct-calls in both main worktrees.",
+  "original_worktrees_observed": [
+    {
+      "repository": "rule-engine",
+      "observed_branch": "feature/registered-functions-direct-calls",
+      "observed_head": "8eaa114626bfeb7e4ef3e651046da98c6fb314fa",
+      "redmine_ref_unchanged": "f694d31bea1b6ac93db61760fe1be62348dec1ff",
+      "status": " M .classpath\n M pom.xml\n",
+      "note": "Original directories were observed switched to feature since the rollback evidence; this cleanup did not modify their files."
+    },
+    {
+      "repository": "rule-engine-expression-parser",
+      "observed_branch": "feature/registered-functions-direct-calls",
+      "observed_head": "1113fa3eaec8f5374565c671ed1417664be593f7",
+      "redmine_ref_unchanged": "e4614287f57b5565d01ab01c60dd8d7e14871896",
+      "status": " M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath\n M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath\n M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath\n M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath\n M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath\n M com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath\n",
+      "note": "Original directories were observed switched to feature since the rollback evidence; this cleanup did not modify their files."
+    }
+  ],
+  "removed": [
+    "FunctionRegistry.invoke",
+    "Definition.invoke and reflective varargs packing",
+    "Runtime reflection conversion helper",
+    "Generated registeredFunctions.invoke fallback expressions",
+    "Duplicate argument type inference/validation in compileRegisteredFunction"
+  ],
+  "retained": "Registration-time method reflection, immutable registry metadata/targets, direct-call bindings, DSL type adapter, built-ins and list append helpers.",
+  "new_errors": [
+    "Missing custom generation bindings",
+    "Non-public/unnameable declaring or enclosing class",
+    "Unexported declaring package",
+    "Missing or incompatible compilation class loader or unavailable class bytecode",
+    "More than 254 generated wrapper arguments"
+  ],
+  "command": "python tools/registration_check.py --workspace main-worktrees --output output/main-direct-only-check --offline --test 'RegisteredFunctionsTest,DirectFunctionCallsTest,DecisionParserTests'",
+  "reports": [
+    {
+      "name": "com.act21.impaktapps.rule.engine.test.DecisionParserTests",
+      "tests": "35",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "76.082"
+    },
+    {
+      "name": "com.act21.impaktapps.rule.engine.test.DirectFunctionCallsTest",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "13.133"
+    },
+    {
+      "name": "com.act21.impaktapps.rule.engine.test.RegisteredFunctionsTest",
+      "tests": "22",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "27.194"
+    }
+  ],
+  "tested_source_files_matched": 56,
+  "changed_file_hashes": [
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/table/StatefulExpressionParser.java",
+      "sha256": "d358580b6ec3897154528925ecec9d004b78d9513be6d6c982c6a886d84e779d"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/DirectFunctionCallsTest.java",
+      "sha256": "f91b83babaa4c352cdf5c45453d68b969bfc4e3af3401dab222b7d737a7623dd"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/RegisteredFunctionsTest.java",
+      "sha256": "ddb6aca5af879c356e532532ed21eb2d683625e62fc61529bfccc8c1fc2d62d9"
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/README.md",
+      "sha256": "e3e1fc5f247271788f782df09bf2270ee3d08c751698050feaf9b1f26ada5dac"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionCallBindings.java",
+      "sha256": "36f9891c7edc5ad371cc6321cdbebf7e2df7d172d9e974f4f35ae9f92734a644"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java",
+      "sha256": "5ad14f7aa639a7be0ad63f2568fbf00148efbc384f1129b7628b2ab0986603cb"
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend",
+      "sha256": "971ded88bb81582b7f1c30fb508d9342214c965c2c5240b46a95a2aeb88c4c4a"
+    }
+  ],
+  "full_tycho_release_reactor_verified": false,
+  "artifacts_published": false,
+  "performance": "Direct execution shape unchanged; no new benchmark claim. Historical comparison requires the removed invoke API and pre-cleanup source/builds."
+}

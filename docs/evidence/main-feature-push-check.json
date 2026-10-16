@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-16",
+  "branch": "feature/registered-functions-direct-calls",
+  "repositories": [
+    {
+      "repository": "rule-engine",
+      "worktree": "D:\\hyperform_3.0_backend\\rule-engine\\main-worktrees\\rule-engine",
+      "commit": "8eaa114626bfeb7e4ef3e651046da98c6fb314fa",
+      "main_base": "ff9aa7a11d34c3ee3bae9bbed547c3af1f625e19",
+      "redmine_head_unchanged": "a6ba32ca1bbe2c2a1187d699512e9f3e61e0fc13",
+      "remote_head_verified": true,
+      "preserved_user_edit_hashes_match_prior_snapshot": [
+        "rule-engine/.classpath"
+      ]
+    },
+    {
+      "repository": "rule-engine-expression-parser",
+      "worktree": "D:\\hyperform_3.0_backend\\rule-engine\\main-worktrees\\rule-engine-expression-parser",
+      "commit": "1113fa3eaec8f5374565c671ed1417664be593f7",
+      "main_base": "e3abbe0050d9f3d63ca3974bdb583319a97dd083",
+      "redmine_head_unchanged": "126a95f62b712b7ba55d4138c90f284faf0391ba",
+      "remote_head_verified": true,
+      "preserved_user_edit_hashes_match_prior_snapshot": [
+        "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath",
+        "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java",
+        "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath",
+        "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath",
+        "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath",
+        "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath",
+        "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath"
+      ]
+    }
+  ],
+  "verification": "Both normal pushes succeeded. git ls-remote verified feature, main and redmine heads after push. Each feature branch has one commit directly on the fetched main base; main/redmine remote heads remain unchanged. Both feature worktrees are clean.",
+  "tests": "66 main-source tests passed (35 original, 22 registration, 9 direct calls).",
+  "scope": "Registry/list-return feature and direct invocation ported to main; duplicate plural parser reactor deleted at explicit user request. Grammar, core TypeSystem/runtime Type, built-in model, original main tests and active release POM versions were not imported from redmine.",
+  "excluded": "Original user .classpath edits, standalone parser experiment and Excel lock files stay in original redmine worktrees. Root docs/tools are outside both Git repositories. No artifacts published.",
+  "generated_output_note": "The first redmine test run refreshed ignored engine src-gen Java source dumps; original tracked source and user edits were restored/preserved."
+}

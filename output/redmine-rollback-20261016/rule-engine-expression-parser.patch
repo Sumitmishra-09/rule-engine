@@ -1,0 +1,245 @@
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath
+index 68418c7..3594213 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/.classpath
+@@ -1,20 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <classpath>
+-	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+-		<attributes>
+-			<attribute name="test" value="true"/>
+-			<attribute name="optional" value="true"/>
+-			<attribute name="maven.pomderived" value="true"/>
+-		</attributes>
+-	</classpathentry>
+-	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="src/test/resources">
+-		<attributes>
+-			<attribute name="test" value="true"/>
+-			<attribute name="maven.pomderived" value="true"/>
+-		</attributes>
+-	</classpathentry>
+-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-16">
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+ 		<attributes>
++			<attribute name="module" value="true"/>
+ 			<attribute name="maven.pomderived" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java
+index 8a357e8..1e121e1 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java
+@@ -2,6 +2,9 @@ package com.act21.rule.engine.dsl.expression.runtime;
+ 
+ import java.io.ByteArrayInputStream;
+ import java.io.IOException;
++import java.util.Arrays;
++import java.util.HashMap;
++import java.util.HashSet;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.Set;
+@@ -21,6 +24,7 @@ import org.eclipse.xtext.validation.Issue;
+ import com.act21.rule.engine.dsl.ExpressionStandaloneSetup;
+ import com.act21.rule.engine.dsl.expression.functions.FunctionRegistry;
+ import com.act21.rule.engine.dsl.expression.util.InBuiltLibrary;
++import com.act21.rule.engine.dsl.expression.util.Type;
+ import com.act21.rule.engine.dsl.generator.ExpressionGenerator;
+ import com.act21.rule.engine.dsl.generator.GeneratorContext;
+ import com.act21.rule.engine.dsl.validation.ExpressionLoadOptions;
+@@ -67,24 +71,24 @@ public class ExpressionParser {
+ 		resourceSet.addLoadOption(ExpressionLoadOptions.RESTRICTED_CHARS, restrictedChars);
+ 	}
+ 
+-//	public static void main(String[] args) throws IOException {
+-//		Map<String, VariableSchema> input = new HashMap<String, VariableSchema>();
+-//		// input.put("a", new VariableSchema("java.lang.Long", null, false, null));
+-//		input.put("d", new VariableSchema(new Type("java.util.List", Arrays.asList(new Type("java.lang.Long", null))),
+-//				null, null));
+-//		input.put("c", new VariableSchema(new Type("java.lang.String", null), null, null));
+-//		input.put("d", new VariableSchema(new Type("java.lang.Long", null), null, null));
+-//		input.put("b", new VariableSchema(new Type("java.math.BigDecimal", null), null, null));
+-//		Set<String> rcs = new HashSet<String>();
+-//		rcs.add(".");
+-//
+-//		ExpressionParser parser = new ExpressionParser(input, rcs);
+-//		// String b = "\"15.00& - 19.99&\"";
+-//		// System.out.println(String.format(b ));
+-//		parser.parse("if c : !contains(\"efgh\",\"agaga\")");
+-//		System.out.println(parser.validate());
+-//		System.out.println(parser.generateCode(null));
+-//	}
++	public static void main(String[] args) throws IOException {
++		Map<String, VariableSchema> input = new HashMap<String, VariableSchema>();
++		// input.put("a", new VariableSchema("java.lang.Long", null, false, null));
++		input.put("d", new VariableSchema(new Type("java.util.List", Arrays.asList(new Type("java.lang.Long", null))),
++				null, null));
++		input.put("c", new VariableSchema(new Type("java.lang.String", null), null, null));
++		input.put("d", new VariableSchema(new Type("java.lang.Long", null), null, null));
++		input.put("b", new VariableSchema(new Type("java.math.BigDecimal", null), null, null));
++		Set<String> rcs = new HashSet<String>();
++		rcs.add(".");
++
++		ExpressionParser parser = new ExpressionParser(input, rcs);
++		// String b = "\"15.00& - 19.99&\"";
++		// System.out.println(String.format(b ));
++		parser.parse("if c : !in(d,\"efgh\",\"agaga\")&&contains(c,\"qw\")");
++		System.out.println(parser.validate());
++		System.out.println(parser.generateCode(null));
++	}
+ 
+ 	public void parse(String expression) {
+ 		exprResource.unload();
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath
+index 8d2d853..9891e06 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/.classpath
+@@ -1,13 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <classpath>
+-	<classpathentry kind="src" path="src"/>
+-	<classpathentry kind="src" path="src-gen"/>
+-	<classpathentry kind="src" path="xtend-gen"/>
+-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+-		<attributes>
+-			<attribute name="module" value="true"/>
+-		</attributes>
+-	</classpathentry>
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
+ 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
++	<classpathentry kind="src" path="src/"/>
++	<classpathentry kind="src" path="src-gen/"/>
++	<classpathentry kind="src" path="xtend-gen/"/>
+ 	<classpathentry kind="output" path="target/classes"/>
+ </classpath>
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath
+index ef9742d..574a486 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/.classpath
+@@ -1,21 +1,21 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <classpath>
+-	<classpathentry kind="src" output="target/test-classes" path="src">
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
++	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
++	<classpathentry kind="src" path="src/">
+ 		<attributes>
+ 			<attribute name="test" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry kind="src" output="target/test-classes" path="src-gen">
++	<classpathentry kind="src" path="src-gen/">
+ 		<attributes>
+ 			<attribute name="test" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry kind="src" output="target/test-classes" path="xtend-gen">
++	<classpathentry kind="src" path="xtend-gen/">
+ 		<attributes>
+ 			<attribute name="test" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
+-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+ 	<classpathentry kind="output" path="target/classes"/>
+ </classpath>
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath
+index b9041cb..574a486 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/.classpath
+@@ -1,25 +1,21 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <classpath>
+-	<classpathentry kind="src" output="target/test-classes" path="src">
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
++	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
++	<classpathentry kind="src" path="src/">
+ 		<attributes>
+ 			<attribute name="test" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry kind="src" output="target/test-classes" path="src-gen">
++	<classpathentry kind="src" path="src-gen/">
+ 		<attributes>
+ 			<attribute name="test" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry kind="src" output="target/test-classes" path="xtend-gen">
++	<classpathentry kind="src" path="xtend-gen/">
+ 		<attributes>
+ 			<attribute name="test" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+-		<attributes>
+-			<attribute name="module" value="true"/>
+-		</attributes>
+-	</classpathentry>
+-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+ 	<classpathentry kind="output" path="target/classes"/>
+ </classpath>
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath
+index 8d2d853..9891e06 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/.classpath
+@@ -1,13 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <classpath>
+-	<classpathentry kind="src" path="src"/>
+-	<classpathentry kind="src" path="src-gen"/>
+-	<classpathentry kind="src" path="xtend-gen"/>
+-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+-		<attributes>
+-			<attribute name="module" value="true"/>
+-		</attributes>
+-	</classpathentry>
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
+ 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
++	<classpathentry kind="src" path="src/"/>
++	<classpathentry kind="src" path="src-gen/"/>
++	<classpathentry kind="src" path="xtend-gen/"/>
+ 	<classpathentry kind="output" path="target/classes"/>
+ </classpath>
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath
+index 8d2d853..f4bbb38 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/.classpath
+@@ -1,13 +1,33 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <classpath>
+-	<classpathentry kind="src" path="src"/>
+-	<classpathentry kind="src" path="src-gen"/>
+-	<classpathentry kind="src" path="xtend-gen"/>
+-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+ 		<attributes>
+-			<attribute name="module" value="true"/>
++			<attribute name="maven.pomderived" value="true"/>
+ 		</attributes>
+ 	</classpathentry>
+ 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
++	<classpathentry kind="src" output="target/classes" path="src">
++		<attributes>
++			<attribute name="optional" value="true"/>
++			<attribute name="maven.pomderived" value="true"/>
++		</attributes>
++	</classpathentry>
++	<classpathentry kind="src" output="target/classes" path="src-gen">
++		<attributes>
++			<attribute name="optional" value="true"/>
++			<attribute name="maven.pomderived" value="true"/>
++		</attributes>
++	</classpathentry>
++	<classpathentry kind="src" output="target/classes" path="xtend-gen">
++		<attributes>
++			<attribute name="optional" value="true"/>
++			<attribute name="maven.pomderived" value="true"/>
++		</attributes>
++	</classpathentry>
++	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
++		<attributes>
++			<attribute name="maven.pomderived" value="true"/>
++		</attributes>
++	</classpathentry>
+ 	<classpathentry kind="output" path="target/classes"/>
+ </classpath>

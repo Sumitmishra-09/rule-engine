@@ -1,0 +1,7 @@
+0    [main] ERROR mf.mwe2.launch.runtime.Mwe2Launcher  - IS_OSGI_RUNNING
+java.lang.NoSuchFieldError: IS_OSGI_RUNNING
+	at org.eclipse.emf.ecore.impl.EPackageRegistryImpl.createGlobalRegistry(EPackageRegistryImpl.java:56)
+	at org.eclipse.emf.ecore.EPackage$Registry.<clinit>(EPackage.java:75)
+	at org.eclipse.emf.mwe2.language.Mwe2StandaloneSetupGenerated.createInjectorAndDoEMFRegistration(Mwe2StandaloneSetupGenerated.java:38)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.run(Mwe2Launcher.java:75)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.main(Mwe2Launcher.java:36)

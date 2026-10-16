@@ -1,0 +1,198 @@
+{
+  "date": "2026-10-15",
+  "result": "PASS",
+  "tests": 66,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "scope": "Current-source focused build using real Xtend 2.28 generation and Java 17. Two commands establish 44 legacy and 22 registration tests passing; full Tycho release reactor remains unverified. No version bump or publication.",
+  "commands": [
+    {
+      "command": "python tools/registration_check.py --offline --test 'RegisteredFunctionsTest,DecisionParserTests'",
+      "log": {
+        "path": "output/function-registration/list-return-initial-build.log",
+        "sha256": "09af5b8a43e99744c264881148abe3240677f5213dd10bb2b4129f802dcd1852"
+      },
+      "outcome": "44 legacy tests passed; 21 of 22 registration tests passed. The new negative-type test incorrectly expected ExecutionException instead of UncheckedExecutionException. Corrected only that test import/assertion before the next run.",
+      "passed_suite": {
+        "name": "com.act21.impaktapps.rule.engine.test.DecisionParserTests",
+        "tests": "44",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "92.794",
+        "report": {
+          "path": "output/function-registration/list-return-legacy-tests.xml",
+          "sha256": "7b6bccae86cc3fe96d0a6c2a4bfb8fd03dbf164a9e813671998acf7eeee80010"
+        },
+        "cases": [
+          "testcase10",
+          "testcase11",
+          "testcase12",
+          "testcase13",
+          "testcase14",
+          "testcase15",
+          "testcase16",
+          "testcase17",
+          "testcase18",
+          "testcase19",
+          "testcase20",
+          "testcase21",
+          "testcase22",
+          "testcase23",
+          "testcase24",
+          "testcase25",
+          "testcase26",
+          "testcase27",
+          "testcase28",
+          "testcase29",
+          "testcase30",
+          "testcase31",
+          "testcase32",
+          "testcase33",
+          "testcase34",
+          "testcase55",
+          "testcase56",
+          "testcase57",
+          "testcase58",
+          "testcase59",
+          "testcase60",
+          "testcase61",
+          "testcase62",
+          "testcase63",
+          "testcase64",
+          "testcase1",
+          "testcase2",
+          "testcase3",
+          "testcase4",
+          "testcase5",
+          "testcase6",
+          "testcase7",
+          "testcase8",
+          "testcase9"
+        ]
+      }
+    },
+    {
+      "command": "python tools/registration_check.py --offline --test RegisteredFunctionsTest",
+      "log": {
+        "path": "output/function-registration/list-return-build.log",
+        "sha256": "11dfef4d8231850f08f249c35cee6bbc83d6fbbfbd39755a75277ab24fd2862d"
+      },
+      "outcome": "22 registration tests passed, including all seven new list-return tests and the date test using grid name Dates3 and file Dates-3.xlsx. Production sources unchanged from previous command.",
+      "passed_suite": {
+        "name": "com.act21.impaktapps.rule.engine.test.RegisteredFunctionsTest",
+        "tests": "22",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "51.68",
+        "report": {
+          "path": "output/function-registration/list-return-registration-tests.xml",
+          "sha256": "618019aed8ba04dd6ac0e78a57265b3babf23536459d977b2cb1f3cad9504972"
+        },
+        "cases": [
+          "listResultsAppendElementsToExistingAndNullTargets",
+          "listResultTypeMismatchesFailWithAndWithoutValidation",
+          "dateFieldsAndNestedStaticFunctionExecute",
+          "longListResultsKeepTheirElementType",
+          "oldFactoryAndBuiltInHeaderShorthandStillExecute",
+          "numericWideningIsTheSameInValidationAndInvocation",
+          "cacheHitDoesNotRebuildTheRequest",
+          "typedListParameterExecutes",
+          "invalidRegistrationsFailBeforeAnyGridIsLoaded",
+          "registryIsReusedAcrossGridsAndFactoriesRemainIsolated",
+          "listResultCanBePassedToAnotherFunction",
+          "outputBooleanAndQualifiedCallsUseExplicitArguments",
+          "functionFailureRetainsCauseAndGridCellContext",
+          "booleanCallsNeverReceiveTheYellowTextHeader",
+          "listResultsAppendAcrossGeneratedBatches",
+          "differentSignaturesWithTheSameNameRemainIsolatedDuringConcurrentCompilation",
+          "wrongNamesCountsAndTypesFailDuringGridCompilation",
+          "nullReferenceIsPassedToTheFunction",
+          "emptyAndNullListResultsAddNoElements",
+          "cleanAndGetCodesDoesNotAppendTheSameListTwice",
+          "zeroArgumentsAndEmptyVarargsExecute",
+          "everyGeneratedBatchReceivesTheRegistry"
+        ]
+      }
+    }
+  ],
+  "behavior": [
+    "Typed List<supported scalar> return signatures are accepted; raw, wildcard and nested lists remain rejected.",
+    "List-valued blue outputs append returned elements to a mutable destination, initializing it if null.",
+    "Null and empty return values add no elements; a null destination becomes an empty mutable list.",
+    "Returning the same destination list skips self-append, allowing cleanAndGetCodes(values) to clear/repopulate without duplicates.",
+    "List element types must match exactly. Incompatible list/scalar outputs fail with validation enabled or disabled.",
+    "Nested calls, qualified/parenthesized calls, repeated execution and generated batch propagation execute successfully.",
+    "Old scalar/array addAll behavior is retained; appendList is generated internally and is not a new Excel builtin."
+  ],
+  "current_files": [
+    {
+      "path": "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java",
+      "sha256": "efd353fd897b9baaf5a3c9901823239eead15966d6ed1a85050f9891470f8aba"
+    },
+    {
+      "path": "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/AssignExpressionConverter.xtend",
+      "sha256": "2b18606ff420615dddeae2a7f091ab10593e194681af291ee8321e46c671ac24"
+    },
+    {
+      "path": "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend",
+      "sha256": "585ba679f328f9015217a6525160383b83a66c766627d79d2296e24b935d4029"
+    },
+    {
+      "path": "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/HelperFunctions.java",
+      "sha256": "1a671af87a48ed9065423230673de44d191bd6d451968f88537d3fc48922b38c"
+    },
+    {
+      "path": "rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/RegisteredFunctionsTest.java",
+      "sha256": "c56963502e6bd6eb2828f7690ac51c1c43982842547dd07ba5aebd0d2a94198f"
+    },
+    {
+      "path": "rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/RegisteredFunctionFact.java",
+      "sha256": "88de7a5025361fb92e4d6a7fddc9ebbde2c419da605ca2dff704f1b5a286961c"
+    }
+  ],
+  "new_workbooks": [
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/ListResult.xlsx",
+      "sha256": "ef865855593de8aa7ffa5987b07298827fb58e9882737fc9f13eab121cf10088"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/QualifiedListResult.xlsx",
+      "sha256": "e25a87493f51cc1195fbd79df78bb5d7e4b04b7e534228abb860c43f04637166"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/CleanAndGetCodes.xlsx",
+      "sha256": "505fc0437464554d7c7d8731473fcb93545cbcb15237a4a057d600e023b37226"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/EmptyListResult.xlsx",
+      "sha256": "006b1207a803bd821c234b8c1ff89f40f9fdd9a8d7db5ee34a50c5aeca4abb86"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/NullListResult.xlsx",
+      "sha256": "fc48e50ca8301dd2e83353ea46a7c5c63a59f39f67925d7f61fb27d41385641b"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/NestedListResult.xlsx",
+      "sha256": "facb8e278a058998323b4ccc4864edc73fc4030ccd82bf6928a4bd0b34de89eb"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/LongListResult.xlsx",
+      "sha256": "ada7e8de38e85084dea9d2553ca3e4158d9c323705a7c296846f00ef5a7847b6"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/BatchedListResult.xlsx",
+      "sha256": "1fbe7ececde9f10ee4f8dcd2aa8dc9611269e4433f277cefb22e42e3451e55b5"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/invalid/WrongListElement.xlsx",
+      "sha256": "940688bee24273a9d3734564c551aace763068aeb7a128064cb4b8a562e3ecd4"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/invalid/ListResultToScalar.xlsx",
+      "sha256": "39d0560b59d0de85803f95bb2d0593007d33598f146cea35f6d9bbc53a9bc729"
+    }
+  ]
+}

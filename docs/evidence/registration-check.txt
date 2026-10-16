@@ -1,0 +1,12 @@
+Command: python tools/registration_check.py --offline --test 'RegisteredFunctionsTest,DecisionParserTests'
+
+[INFO] --- xtend:2.28.0:compile (default) @ function-registration-check ---
+[INFO] Compiling 148 source files to D:\hyperform_3.0_backend\rule-engine\output\function-registration\target\classes
+[INFO] Compiling 10 source files to D:\hyperform_3.0_backend\rule-engine\output\function-registration\target\test-classes
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 70.96 s -- in com.act21.impaktapps.rule.engine.test.DecisionParserTests
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.63 s -- in com.act21.impaktapps.rule.engine.test.RegisteredFunctionsTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+
+Full Tycho attempt: output/registration-parser-build.log; blocked while resolving Tycho OSGi runtime, before tests.
+No published artifacts or version bumps.

@@ -1,0 +1,25 @@
+com.act21.rule.engine.dsl.GenerateExpression
+0    [main] INFO  text.xtext.generator.XtextGenerator  - Initializing Xtext generator
+15   [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.xtext.common.types.TypesPackage'
+466  [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - No project file found for D:\hyperform_3.0_backend\rule-engine\output\main-parser-generation\sources-6w68l3ts\com.act21.rule.engine.dsl.expression.parent\com.act21.rule.engine.dsl.expression\src. The folder was neither an Eclipse 'bin' folder, nor a Maven 'target/classes' folder, nor a Gradle bin/main folder
+469  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project com.act21.rule.engine.dsl.expression at 'file:/D:/hyperform_3.0_backend/rule-engine/output/main-parser-generation/sources-6w68l3ts/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/'
+469  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project com.act21.rule.engine.dsl.expression.tests at 'file:/D:/hyperform_3.0_backend/rule-engine/output/main-parser-generation/sources-6w68l3ts/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.tests/'
+469  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project com.act21.rule.engine.dsl.expression.ide at 'file:/D:/hyperform_3.0_backend/rule-engine/output/main-parser-generation/sources-6w68l3ts/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ide/'
+469  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project com.act21.rule.engine.dsl.expression.ui at 'file:/D:/hyperform_3.0_backend/rule-engine/output/main-parser-generation/sources-6w68l3ts/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui/'
+469  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering project com.act21.rule.engine.dsl.expression.ui.tests at 'file:/D:/hyperform_3.0_backend/rule-engine/output/main-parser-generation/sources-6w68l3ts/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.ui.tests/'
+485  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Using resourceSet registry. The registered Packages will not be registered in the global EPackage.Registry.INSTANCE!
+931  [main] INFO  clipse.emf.mwe.utils.GenModelHelper  - Registered GenModel 'http://www.eclipse.org/Xtext/Xbase/XAnnotations' from 'platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel'
+938  [main] INFO  clipse.emf.mwe.utils.GenModelHelper  - Registered GenModel 'http://www.eclipse.org/xtext/xbase/Xtype' from 'platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel'
+966  [main] INFO  clipse.emf.mwe.utils.GenModelHelper  - Registered GenModel 'http://www.eclipse.org/xtext/xbase/Xbase' from 'platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel'
+966  [main] INFO  clipse.emf.mwe.utils.GenModelHelper  - Registered GenModel 'http://www.eclipse.org/xtext/common/JavaVMTypes' from 'platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel'
+1595 [main] INFO  text.xtext.generator.XtextGenerator  - Generating com.act21.rule.engine.dsl.Expression
+2180 [main] INFO  nerator.ecore.EMFGeneratorFragment2  - Generating EMF model code
+2287 [main] INFO  clipse.emf.mwe.utils.GenModelHelper  - Registered GenModel 'http://www.act21.com/rule/engine/dsl/Expression' from 'platform:/resource/com.act21.rule.engine.dsl.expression/model/generated/Expression.genmodel'
+warning(200): D:/hyperform_3.0_backend/rule-engine/output/main-parser-generation/sources-6w68l3ts/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/parser/antlr/internal/InternalExpression.g:639:3: Decision can match input such as "RULE_ID '.' RULE_ID '<' RULE_ID '.' RULE_ID '>' {RULE_ID, '(', '<'..'>', ']'..'-', '<='..'+'}" using multiple alternatives: 1, 2
+As a result, alternative(s) 2 were disabled for that input
+warning(200): D:/hyperform_3.0_backend/rule-engine/output/main-parser-generation/sources-6w68l3ts/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/parser/antlr/internal/InternalExpression.g:768:3: Decision can match input such as "RULE_ID '.' RULE_ID '<' RULE_ID '.' RULE_ID {EOF, RULE_ID, 'let'..'(', '}'..'<', 'class'..'if', '['..'-', '&&'..'||', '<='..'%'}" using multiple alternatives: 1, 2
+As a result, alternative(s) 2 were disabled for that input
+warning(200): D:/hyperform_3.0_backend/rule-engine/output/main-parser-generation/sources-6w68l3ts/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src-gen/com/act21/rule/engine/dsl/parser/antlr/internal/InternalExpression.g:1349:2: Decision can match input such as "'[' RULE_BOOL '-' RULE_BOOL ']'" using multiple alternatives: 4, 5
+As a result, alternative(s) 5 were disabled for that input
+12551 [main] INFO  text.xtext.generator.XtextGenerator  - Generating common infrastructure
+12607 [main] INFO  .emf.mwe2.runtime.workflow.Workflow  - Done.

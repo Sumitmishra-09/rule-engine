@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.act21.rule.engine.dsl.expression
+Bundle-ManifestVersion: 2
+Bundle-Name: com.act21.rule.engine.dsl.expression
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.41
+Bundle-SymbolicName: com.act21.rule.engine.dsl.expression; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ org.eclipse.jdt.core,
+ org.eclipse.emf.mwe2.launch;bundle-version="2.13.0",
+ com.google.inject
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: com.act21.rule.engine.dsl.services,
+ com.act21.rule.engine.dsl.expression.functions,
+ com.act21.rule.engine.dsl.generator,
+ com.act21.rule.engine.dsl.parser.antlr.internal,
+ com.act21.rule.engine.dsl.validation,
+ com.act21.rule.engine.dsl.scoping,
+ com.act21.rule.engine.dsl.serializer,
+ com.act21.rule.engine.dsl,
+ com.act21.rule.engine.dsl.parser.antlr,
+ com.act21.rule.engine.dsl.model,
+ com.act21.rule.engine.dsl.model.util,
+ com.act21.rule.engine.dsl.model.impl
+Import-Package: com.act21.rule.engine.dsl.validation,
+ org.apache.log4j,
+ org.eclipse.xtext.ui.resource

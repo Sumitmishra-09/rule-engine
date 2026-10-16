@@ -1,0 +1,792 @@
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java
+index 40d1aaf..8a357e8 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java
+@@ -19,6 +19,7 @@ import org.eclipse.xtext.validation.IResourceValidator;
+ import org.eclipse.xtext.validation.Issue;
+ 
+ import com.act21.rule.engine.dsl.ExpressionStandaloneSetup;
++import com.act21.rule.engine.dsl.expression.functions.FunctionRegistry;
+ import com.act21.rule.engine.dsl.expression.util.InBuiltLibrary;
+ import com.act21.rule.engine.dsl.generator.ExpressionGenerator;
+ import com.act21.rule.engine.dsl.generator.GeneratorContext;
+@@ -38,13 +39,19 @@ public class ExpressionParser {
+ 	private InBuiltLibrary builtInLibrary;
+ 
+ 	public ExpressionParser(Map<String, VariableSchema> schema, Set<String> restrictedChars) throws IOException {
++		this(schema, restrictedChars, FunctionRegistry.empty());
++	}
++
++	public ExpressionParser(Map<String, VariableSchema> schema, Set<String> restrictedChars,
++			FunctionRegistry functions) throws IOException {
+ 		synchronized (ExpressionParser.class) {
+ 			injector = new ExpressionStandaloneSetup().createInjectorAndDoEMFRegistration();
+-			this.initiate(schema, restrictedChars);
++			this.initiate(schema, restrictedChars, functions);
+ 		}
+ 	}
+ 
+-	private void initiate(Map<String, VariableSchema> schema, Set<String> restrictedChars) throws IOException {
++	private void initiate(Map<String, VariableSchema> schema, Set<String> restrictedChars,
++			FunctionRegistry functions) throws IOException {
+ 		injector = new ExpressionStandaloneSetup().createInjectorAndDoEMFRegistration();
+ 		resourceSet = injector.getInstance(XtextResourceSet.class);
+ 		generator = injector.getInstance(ExpressionGenerator.class);
+@@ -56,7 +63,7 @@ public class ExpressionParser {
+ 		// Load RequestData class
+ 		requestDataResourceBuiler = new RequestDataResourceBuilder(serializer, resourceSet);
+ 		requestDataResourceBuiler.initialize(schema);
+-		builtInLibrary.initialize(resourceSet);
++		builtInLibrary.initialize(resourceSet, functions);
+ 		resourceSet.addLoadOption(ExpressionLoadOptions.RESTRICTED_CHARS, restrictedChars);
+ 	}
+ 
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/HelperFunctions.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/HelperFunctions.java
+index 638b210..03cb4cb 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/HelperFunctions.java
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/HelperFunctions.java
+@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
+ import java.time.LocalDate;
+ import java.time.ZoneId;
+ import java.time.temporal.ChronoUnit;
++import java.util.ArrayList;
+ import java.util.Collections;
+ import java.util.Date;
+ import java.util.List;
+@@ -226,6 +227,17 @@ public class HelperFunctions {
+ 		return list;
+ 	}
+ 
++	/** Append a list-valued output; a function may already have modified and returned the target. */
++	public static <T> List<T> appendList(List<T> target, List<? extends T> values) {
++		if (target == null) {
++			target = new ArrayList<>();
++		}
++		if (values != null && target != values) {
++			target.addAll(values);
++		}
++		return target;
++	}
++
+ 	public static boolean contains(String val, String... candidates) {
+ 		if (val == null || candidates == null) {
+ 			return false;
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/META-INF/MANIFEST.MF b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/META-INF/MANIFEST.MF
+index c3195d8..db10ae1 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/META-INF/MANIFEST.MF
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/META-INF/MANIFEST.MF
+@@ -19,6 +19,7 @@ Require-Bundle: org.eclipse.xtext,
+  com.google.inject
+ Bundle-RequiredExecutionEnvironment: JavaSE-17
+ Export-Package: com.act21.rule.engine.dsl.services,
++ com.act21.rule.engine.dsl.expression.functions,
+  com.act21.rule.engine.dsl.generator,
+  com.act21.rule.engine.dsl.parser.antlr.internal,
+  com.act21.rule.engine.dsl.validation,
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/datatype/TypeCastHandler.xtend b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/datatype/TypeCastHandler.xtend
+index 4dd127c..402ca0d 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/datatype/TypeCastHandler.xtend
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/datatype/TypeCastHandler.xtend
+@@ -25,10 +25,11 @@ class TypeCastHandler {
+ 		if (targetType === null) {
+ 			return expression;
+ 		}
++		val library = inBuiltLibrary.forContext(expression);
+ 		var featureCall = ModelFactory.eINSTANCE.createFeatureCall;
+ 
+ 		var erd = ModelFactory.eINSTANCE.createElementReferenceExpression;
+-		erd.reference = inBuiltLibrary.getClass("HelperFunctions")
++		erd.reference = library.getClass("HelperFunctions")
+ 		featureCall.owner = erd;
+ 		featureCall.operationCall = true;
+ 		var argument = ModelFactory.eINSTANCE.createArgument;
+@@ -37,15 +38,15 @@ class TypeCastHandler {
+ 
+ 		switch (targetType.baseType) {
+ 			case BasicDatatype.INT: {
+-				featureCall.feature = inBuiltLibrary.getFunction("HelperFunctions.convertToInt");
++				featureCall.feature = library.getFunction("HelperFunctions.convertToInt");
+ 				return featureCall;
+ 			}
+ 			case BasicDatatype.STRING: {
+-				featureCall.feature = inBuiltLibrary.getFunction("HelperFunctions.convertToString");
++				featureCall.feature = library.getFunction("HelperFunctions.convertToString");
+ 				return featureCall;
+ 			}
+ 			case BasicDatatype.DECIMAL: {
+-				featureCall.feature = inBuiltLibrary.getFunction("HelperFunctions.convertToBigDecimal");
++				featureCall.feature = library.getFunction("HelperFunctions.convertToBigDecimal");
+ 				return featureCall;
+ 			}
+ 			default:
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/AssignExpressionConverter.xtend b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/AssignExpressionConverter.xtend
+index 69622a3..7e9fc38 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/AssignExpressionConverter.xtend
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/AssignExpressionConverter.xtend
+@@ -1,6 +1,8 @@
+ package com.act21.rule.engine.dsl.expression.converter
+ 
+ import com.act21.rule.engine.dsl.datatype.TypeCastHandler
++import com.act21.rule.engine.dsl.datatype.BasicDatatype
++import com.act21.rule.engine.dsl.datatype.TypeSystem
+ import com.act21.rule.engine.dsl.expression.util.InBuiltLibrary
+ import com.act21.rule.engine.dsl.model.ArrayExpression
+ import com.act21.rule.engine.dsl.model.Expression
+@@ -36,6 +38,11 @@ class AssignExpressionConverter {
+ 		if (exp === null) {
+ 			return exp;
+ 		}
++		// Keep list results typed: validation checks the destination and generation appends their elements.
++		val valueType = TypeSystem.inferType(exp);
++		if (valueType !== null && BasicDatatype.LIST.equals(valueType.baseType)) {
++			return exp;
++		}
+ 		switch (exp.class) {
+ 			case ArrayExpressionImpl: {
+ 				return createAddAll(lhs, lhsType, (exp as ArrayExpression).elements);
+@@ -83,7 +90,7 @@ class AssignExpressionConverter {
+ 		var featureCall = ModelFactory.eINSTANCE.createFeatureCall;
+ 
+ 		var erd = ModelFactory.eINSTANCE.createElementReferenceExpression;
+-		erd.reference = inBuiltLibrary.getClass("HelperFunctions")
++		erd.reference = inBuiltLibrary.getClass("HelperFunctions", lhs)
+ 		featureCall.owner = erd;
+ 		featureCall.operationCall = true;
+ 
+@@ -94,7 +101,7 @@ class AssignExpressionConverter {
+ 		argument.value = lhsErd;
+ 		featureCall.arguments.add(argument);
+ 
+-		featureCall.feature = inBuiltLibrary.getFunction('HelperFunctions.addAll');
++		featureCall.feature = inBuiltLibrary.getFunction('HelperFunctions.addAll', lhs);
+ 
+ 		for (var idx = 0; idx < expressions.length; idx++) {
+ 			argument = ModelFactory.eINSTANCE.createArgument;
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/DecideExpressionConverter.xtend b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/DecideExpressionConverter.xtend
+index a75ecd2..ced4519 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/DecideExpressionConverter.xtend
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/DecideExpressionConverter.xtend
+@@ -107,6 +107,11 @@ class DecideExpressionConverter {
+ 			case ElementReferenceExpressionImpl: {
+ 				var expression = exp;
+ 				var expType = TypeSystem.inferType(exp);
++				// Registered functions always receive exactly the arguments written in the cell.
++				if (inBuiltLibrary.getRegisteredFunction((exp as ElementReferenceExpression).reference) !== null &&
++					BasicDatatype.BOOLEAN.equals(expType?.baseType)) {
++					return exp;
++				}
+ 				if ((exp as ElementReferenceExpression).operationCall === true && expType !== null &&
+ 					BasicDatatype.BOOLEAN.equals(expType.baseType)) {
+ 
+@@ -143,6 +148,10 @@ class DecideExpressionConverter {
+ 			}
+ 			case FeatureCallImpl: {
+ 				var expType = TypeSystem.inferType(exp);
++				if (inBuiltLibrary.getRegisteredFunction((exp as FeatureCall).feature) !== null &&
++					BasicDatatype.BOOLEAN.equals(expType?.baseType)) {
++					return exp;
++				}
+ 				if ((exp as FeatureCall).operationCall === true && expType !== null &&
+ 					BasicDatatype.BOOLEAN.equals(expType.baseType)) {
+ 					(exp as FeatureCall).arguments.add(0, createArgument(lhs));
+@@ -216,7 +225,7 @@ class DecideExpressionConverter {
+ 		var featureCall = ModelFactory.eINSTANCE.createFeatureCall;
+ 
+ 		var erd = ModelFactory.eINSTANCE.createElementReferenceExpression;
+-		erd.reference = inBuiltLibrary.getClass("HelperFunctions")
++		erd.reference = inBuiltLibrary.getClass("HelperFunctions", lhs)
+ 		featureCall.owner = erd;
+ 		featureCall.operationCall = true;
+ 
+@@ -227,7 +236,7 @@ class DecideExpressionConverter {
+ 		argument.value = erdExp;
+ 		featureCall.arguments.add(argument);
+ 
+-		featureCall.feature = inBuiltLibrary.getFunction("HelperFunctions.in");
++		featureCall.feature = inBuiltLibrary.getFunction("HelperFunctions.in", lhs);
+ 		for (var idx = 0; idx < expressions.length; idx++) {
+ 			argument = ModelFactory.eINSTANCE.createArgument;
+ 			argument.value = typeCastHandler.typeCast(expressions.get(idx), lhsType)
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java
+new file mode 100644
+index 0000000..2e75ff2
+--- /dev/null
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java
+@@ -0,0 +1,246 @@
++package com.act21.rule.engine.dsl.expression.functions;
++
++import java.lang.reflect.Array;
++import java.lang.reflect.InvocationTargetException;
++import java.lang.reflect.Method;
++import java.lang.reflect.Modifier;
++import java.lang.reflect.ParameterizedType;
++import java.lang.reflect.Type;
++import java.math.BigDecimal;
++import java.util.ArrayList;
++import java.util.Collection;
++import java.util.Collections;
++import java.util.Date;
++import java.util.LinkedHashMap;
++import java.util.List;
++import java.util.Map;
++import java.util.Objects;
++import java.util.Set;
++
++/**
++ * Application-owned, immutable bindings for explicitly registered Java methods.
++ * All grid arguments are explicit; registration never inserts a decision header.
++ * Target objects are retained and must support the application's concurrent calls.
++ */
++public final class FunctionRegistry {
++    public static final String MODEL_CLASS = "RegisteredFunctions";
++    private static final FunctionRegistry EMPTY = new FunctionRegistry(Collections.emptyMap());
++    private static final Set<String> RESERVED = Set.of("addAll", "convertToString", "convertToInt",
++            "convertToBigDecimal", "contains", "in", "max", "min", "avg", "diffDays",
++            "class", "function", "let", "assign", "if", "true", "false", "null", "ALL", "PASS", "upto",
++            "HelperFunctions", "RequestData", MODEL_CLASS);
++    private final Map<String, Definition> definitions;
++
++    private FunctionRegistry(Map<String, Definition> definitions) {
++        this.definitions = Collections.unmodifiableMap(new LinkedHashMap<>(definitions));
++    }
++
++    public static FunctionRegistry empty() {
++        return EMPTY;
++    }
++
++    public static Builder builder() {
++        return new Builder();
++    }
++
++    public Collection<Definition> getDefinitions() {
++        return definitions.values();
++    }
++
++    public Definition getDefinition(String name) {
++        Definition definition = definitions.get(name);
++        if (definition == null) {
++            throw new IllegalArgumentException("Unregistered function: " + name);
++        }
++        return definition;
++    }
++
++    /** Invoke the already resolved method; no method lookup occurs during execution. */
++    public Object invoke(String name, Object... arguments) {
++        return getDefinition(name).invoke(Objects.requireNonNull(arguments, "arguments"));
++    }
++
++    public static final class Builder {
++        private final Map<String, Definition> definitions = new LinkedHashMap<>();
++
++        public Builder register(String name, Object target, String methodName, Class<?>... parameterTypes) {
++            Objects.requireNonNull(target, "target");
++            return registerMethod(name, target, target.getClass(), methodName, parameterTypes, false);
++        }
++
++        public Builder registerStatic(String name, Class<?> owner, String methodName, Class<?>... parameterTypes) {
++            return registerMethod(name, null, Objects.requireNonNull(owner, "owner"), methodName, parameterTypes, true);
++        }
++
++        private Builder registerMethod(String name, Object target, Class<?> owner, String methodName,
++                Class<?>[] parameterTypes, boolean staticMethod) {
++            if (name == null || !name.matches("[a-zA-Z_][a-zA-Z_0-9]*") || RESERVED.contains(name)) {
++                throw new IllegalArgumentException("Invalid or reserved function name: " + name);
++            }
++            if (definitions.containsKey(name)) {
++                throw new IllegalArgumentException("Duplicate function name: " + name);
++            }
++            try {
++                Method method = owner.getMethod(methodName, parameterTypes);
++                if (Modifier.isStatic(method.getModifiers()) != staticMethod || !method.canAccess(target)) {
++                    throw new IllegalArgumentException("Function must be an accessible public "
++                            + (staticMethod ? "static" : "instance") + " method: " + method);
++                }
++                definitions.put(name, new Definition(name, target, method));
++                return this;
++            } catch (NoSuchMethodException e) {
++                throw new IllegalArgumentException("No matching public method for function: " + name, e);
++            }
++        }
++
++        /** Each build takes a snapshot; later builder changes cannot alter an existing registry. */
++        public FunctionRegistry build() {
++            return new FunctionRegistry(definitions);
++        }
++    }
++
++    /** Immutable signature shared by validation, declaration loading, and execution. */
++    public static final class Definition {
++        private final String name;
++        private final Object target;
++        private final Method method;
++        private final List<String> parameterTypes;
++        private final String returnType;
++
++        private Definition(String name, Object target, Method method) {
++            this.name = name;
++            this.target = target;
++            this.method = method;
++            List<String> types = new ArrayList<>();
++            Type[] parameters = method.getGenericParameterTypes();
++            for (int i = 0; i < parameters.length; i++) {
++                Type type = method.isVarArgs() && i == parameters.length - 1
++                        ? method.getParameterTypes()[i].getComponentType() : parameters[i];
++                types.add(languageType(type));
++            }
++            this.parameterTypes = Collections.unmodifiableList(types);
++            this.returnType = languageType(method.getGenericReturnType());
++        }
++
++        public String getName() {
++            return name;
++        }
++
++        public List<String> getParameterTypes() {
++            return parameterTypes;
++        }
++
++        public String getReturnType() {
++            return returnType;
++        }
++
++        public boolean isVarArgs() {
++            return method.isVarArgs();
++        }
++
++        private int fixedCount() {
++            return parameterTypes.size() - (isVarArgs() ? 1 : 0);
++        }
++
++        private void checkArity(int count) {
++            if (count < fixedCount() || (!isVarArgs() && count != fixedCount())) {
++                throw new IllegalArgumentException("Function " + name + " expects "
++                        + (isVarArgs() ? "at least " : "") + fixedCount() + " arguments, got " + count);
++            }
++        }
++
++        /** Only exact types, null references, and lossless numeric widening are accepted. */
++        public void validateArgumentTypes(List<String> actualTypes) {
++            checkArity(actualTypes.size());
++            for (int i = 0; i < actualTypes.size(); i++) {
++                int parameter = Math.min(i, parameterTypes.size() - 1);
++                String expected = parameterTypes.get(parameter);
++                String actual = actualTypes.get(i);
++                Class<?> javaType = parameterClass(parameter);
++                boolean compatible = expected.equals(actual)
++                        || ("null".equals(actual) && !javaType.isPrimitive())
++                        || (Long.class.getName().equals(expected) && Integer.class.getName().equals(actual))
++                        || (BigDecimal.class.getName().equals(expected)
++                            && (Integer.class.getName().equals(actual) || Long.class.getName().equals(actual)));
++                if (!compatible) {
++                    throw new IllegalArgumentException("Function " + name + " argument " + (i + 1)
++                            + " expects " + expected + ", got " + actual);
++                }
++            }
++        }
++
++        private Class<?> parameterClass(int index) {
++            Class<?> type = method.getParameterTypes()[index];
++            return isVarArgs() && index == parameterTypes.size() - 1 ? type.getComponentType() : type;
++        }
++
++        private Object invoke(Object[] arguments) {
++            checkArity(arguments.length);
++            Object[] packed = new Object[parameterTypes.size()];
++            for (int i = 0; i < fixedCount(); i++) {
++                packed[i] = convert(arguments[i], parameterClass(i));
++            }
++            if (isVarArgs()) {
++                Class<?> component = parameterClass(fixedCount());
++                Object tail = Array.newInstance(component, arguments.length - fixedCount());
++                for (int i = fixedCount(); i < arguments.length; i++) {
++                    Array.set(tail, i - fixedCount(), convert(arguments[i], component));
++                }
++                packed[fixedCount()] = tail;
++            }
++            try {
++                return method.invoke(target, packed);
++            } catch (InvocationTargetException e) {
++                Throwable cause = e.getCause();
++                if (cause instanceof Error) {
++                    throw (Error) cause;
++                }
++                throw new IllegalStateException("Function " + name + " failed", cause);
++            } catch (IllegalAccessException e) {
++                throw new IllegalStateException("Function " + name + " is inaccessible", e);
++            }
++        }
++
++        private Object convert(Object value, Class<?> targetType) {
++            Class<?> boxed = boxed(targetType);
++            if (value == null && !targetType.isPrimitive()) {
++                return null;
++            }
++            if (boxed.isInstance(value)) {
++                return value;
++            }
++            if (boxed == Long.class && value instanceof Integer) {
++                return ((Integer) value).longValue();
++            }
++            if (boxed == BigDecimal.class && (value instanceof Integer || value instanceof Long)) {
++                return BigDecimal.valueOf(((Number) value).longValue());
++            }
++            throw new IllegalArgumentException("Function " + name + " expects " + targetType.getTypeName()
++                    + ", got " + (value == null ? "null" : value.getClass().getTypeName()));
++        }
++    }
++
++    private static Class<?> boxed(Class<?> type) {
++        if (type == int.class) return Integer.class;
++        if (type == long.class) return Long.class;
++        if (type == boolean.class) return Boolean.class;
++        return type;
++    }
++
++    private static String languageType(Type type) {
++        if (type instanceof Class<?>) {
++            Class<?> boxed = boxed((Class<?>) type);
++            if (boxed == Integer.class || boxed == Long.class || boxed == Boolean.class
++                    || boxed == BigDecimal.class || boxed == String.class || boxed == Date.class) {
++                return boxed.getName();
++            }
++        } else if (type instanceof ParameterizedType) {
++            ParameterizedType parameterized = (ParameterizedType) type;
++            if (parameterized.getRawType() == List.class
++                    && parameterized.getActualTypeArguments()[0] instanceof Class<?>) {
++                return List.class.getName() + "<" + languageType(parameterized.getActualTypeArguments()[0]) + ">";
++            }
++        }
++        throw new IllegalArgumentException("Unsupported grid function type: " + type.getTypeName());
++    }
++}
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/RegisteredFunctionTypes.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/RegisteredFunctionTypes.java
+new file mode 100644
+index 0000000..a6d078a
+--- /dev/null
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/RegisteredFunctionTypes.java
+@@ -0,0 +1,25 @@
++package com.act21.rule.engine.dsl.expression.functions;
++
++import java.util.List;
++import java.util.stream.Collectors;
++
++import com.act21.rule.engine.dsl.datatype.TypeSystem;
++import com.act21.rule.engine.dsl.expression.util.Type;
++import com.act21.rule.engine.dsl.model.Argument;
++
++/** Converts inferred DSL types to the registry's framework-independent signature format. */
++public final class RegisteredFunctionTypes {
++    private RegisteredFunctionTypes() { }
++
++    public static void validate(FunctionRegistry.Definition function, List<Argument> arguments) {
++        function.validateArgumentTypes(arguments.stream()
++                .map(argument -> describe(TypeSystem.inferType(argument))).collect(Collectors.toList()));
++    }
++
++    private static String describe(Type type) {
++        if (type == null) return "unknown";
++        if (type.getTypeArguments().isEmpty()) return type.getBaseType();
++        return type.getBaseType() + "<" + type.getTypeArguments().stream()
++                .map(RegisteredFunctionTypes::describe).collect(Collectors.joining(",")) + ">";
++    }
++}
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/util/InBuiltLibrary.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/util/InBuiltLibrary.java
+index 123d9d5..d4d4918 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/util/InBuiltLibrary.java
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/util/InBuiltLibrary.java
+@@ -16,22 +16,94 @@ import org.eclipse.xtext.resource.XtextResourceSet;
+ import com.act21.rule.engine.dsl.model.Class;
+ import com.act21.rule.engine.dsl.model.FunctionDeclaration;
+ import com.act21.rule.engine.dsl.model.Model;
++import com.act21.rule.engine.dsl.model.NamedElement;
++import com.act21.rule.engine.dsl.model.Assign;
++import com.act21.rule.engine.dsl.model.Decide;
++import com.act21.rule.engine.dsl.model.ElementReferenceExpression;
++import com.act21.rule.engine.dsl.model.FeatureCall;
++import org.eclipse.emf.ecore.EObject;
++import com.act21.rule.engine.dsl.expression.functions.FunctionRegistry;
++import com.act21.rule.engine.dsl.expression.functions.FunctionRegistry.Definition;
+ import com.google.inject.Singleton;
+ 
+ @Singleton
+ public class InBuiltLibrary {
+ 
+ 	private XtextResourceSet resourceSet;
+-	private static Map<String, FunctionDeclaration> functionMap = new HashMap<>();
+-	private static Map<String, Class> classMap = new HashMap<String, Class>();
++	private final Map<String, FunctionDeclaration> functionMap = new HashMap<>();
++	private final Map<String, Class> classMap = new HashMap<String, Class>();
++	private FunctionRegistry functions = FunctionRegistry.empty();
+ 
+ 	public void initialize(XtextResourceSet resourceSet) throws IOException {
++		initialize(resourceSet, FunctionRegistry.empty());
++	}
++
++	public void initialize(XtextResourceSet resourceSet, FunctionRegistry functions) throws IOException {
+ 		this.resourceSet = (XtextResourceSet) resourceSet;
++		this.functions = java.util.Objects.requireNonNull(functions, "functions");
++		resourceSet.getLoadOptions().put(InBuiltLibrary.class.getName(), this);
++		functionMap.clear();
++		classMap.clear();
+ 		loadHelperFunction();
++		loadRegisteredFunctions();
+ 		loadClassMap();
+ 		loadFunctionMap();
+ 	}
+ 
++	private void loadRegisteredFunctions() throws IOException {
++		StringBuilder model = new StringBuilder("class " + FunctionRegistry.MODEL_CLASS + " {\n");
++		for (Definition function : functions.getDefinitions()) {
++			model.append("function ").append(function.getName()).append('(');
++			for (int i = 0; i < function.getParameterTypes().size(); i++) {
++				if (i > 0) model.append(',');
++				if (function.isVarArgs() && i == function.getParameterTypes().size() - 1) model.append("... ");
++				model.append(function.getParameterTypes().get(i)).append(" arg").append(i);
++			}
++			model.append(") : ").append(function.getReturnType()).append(" {}\n");
++		}
++		model.append('}');
++		XtextResource resource = (XtextResource) resourceSet.createResource(
++				URI.createFileURI(FunctionRegistry.MODEL_CLASS + UUID.randomUUID() + ".exp"));
++		resource.load(new ByteArrayInputStream(model.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8)), null);
++	}
++
++	public Definition getRegisteredFunction(NamedElement declaration) {
++		if (declaration instanceof FunctionDeclaration && declaration.eContainer() instanceof Class
++				&& FunctionRegistry.MODEL_CLASS.equals(((Class) declaration.eContainer()).getName())) {
++			return forContext(declaration).functions.getDefinition(declaration.getName());
++		}
++		return null;
++	}
++
++	/** EMF validators can outlive an injector; declarations belong to the expression's resource set. */
++	public InBuiltLibrary forContext(EObject context) {
++		for (EObject node = context; node != null; node = node.eContainer()) {
++			if (node.eResource() != null && node.eResource().getResourceSet() != null) {
++				Object library = node.eResource().getResourceSet().getLoadOptions().get(InBuiltLibrary.class.getName());
++				if (library instanceof InBuiltLibrary) return (InBuiltLibrary) library;
++			}
++			// Validation copies have no resource, but retain references to their schema/declarations.
++			if (node instanceof Decide) return forContext(((Decide) node).getName());
++			if (node instanceof Assign) return forContext(((Assign) node).getName());
++			if (node instanceof ElementReferenceExpression
++					&& ((ElementReferenceExpression) node).getReference() != null) {
++				return forContext(((ElementReferenceExpression) node).getReference());
++			}
++			if (node instanceof FeatureCall && ((FeatureCall) node).getFeature() != null) {
++				return forContext(((FeatureCall) node).getFeature());
++			}
++		}
++		return this;
++	}
++
++	public Class getClass(String name, EObject context) {
++		return forContext(context).getClass(name);
++	}
++
++	public FunctionDeclaration getFunction(String name, EObject context) {
++		return forContext(context).getFunction(name);
++	}
++
+ 	private void loadClassMap() {
+ 		this.resourceSet.getResources().forEach(resource -> {
+ 			if (!resource.getContents().isEmpty()) {
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend
+index 88974d6..4231e73 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend
+@@ -5,6 +5,10 @@ import com.act21.rule.engine.dsl.datatype.TypeSystem
+ import com.act21.rule.engine.dsl.expression.conventions.NamingConventions
+ import com.act21.rule.engine.dsl.expression.converter.AssignExpressionConverter
+ import com.act21.rule.engine.dsl.expression.converter.DecideExpressionConverter
++import com.act21.rule.engine.dsl.expression.util.InBuiltLibrary
++import com.act21.rule.engine.dsl.expression.functions.FunctionRegistry.Definition
++import com.act21.rule.engine.dsl.expression.functions.RegisteredFunctionTypes
++import java.util.List
+ import com.act21.rule.engine.dsl.model.AllLiteral
+ import com.act21.rule.engine.dsl.model.Argument
+ import com.act21.rule.engine.dsl.model.Assign
+@@ -22,6 +26,7 @@ import com.act21.rule.engine.dsl.model.LogicalAndExpression
+ import com.act21.rule.engine.dsl.model.LogicalOrExpression
+ import com.act21.rule.engine.dsl.model.LogicalRelationExpression
+ import com.act21.rule.engine.dsl.model.Model
++import com.act21.rule.engine.dsl.model.ModelFactory
+ import com.act21.rule.engine.dsl.model.NamedElement
+ import com.act21.rule.engine.dsl.model.NullLiteral
+ import com.act21.rule.engine.dsl.model.NumericUnaryOperator
+@@ -71,6 +76,8 @@ class ExpressionGenerator extends AbstractGenerator {
+ 	AssignExpressionConverter assignExpressionConverter
+ 	@Inject
+ 	DecideExpressionConverter decideExpressionConverter
++	@Inject
++	InBuiltLibrary inBuiltLibrary
+ 
+ 	override doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+ 		val statement = (resource.contents.get(0) as Model).statements.findFirst [
+@@ -100,6 +107,16 @@ class ExpressionGenerator extends AbstractGenerator {
+ 		var lhsType = TypeSystem.inferType(assignExp.name);
+ 		var exp = assignExpressionConverter.convert(assignExp.name, lhsType, assignExp.value);
+ 		var expType = TypeSystem.inferType(exp);
++		if (expType !== null && BasicDatatype.LIST.equals(expType.baseType)) {
++			// Also enforce the destination type when callers disable cell validation.
++			if (!expType.equals(lhsType)) {
++				throw new IllegalArgumentException('List result type does not match output ' + assignExp.name.name);
++			}
++			val currentValue = ModelFactory.eINSTANCE.createElementReferenceExpression;
++			currentValue.reference = assignExp.name;
++			return compileSetter(assignExp.name) + '(HelperFunctions.appendList(' +
++				compile(currentValue, context) + ',' + compile(exp, context) + '))';
++		}
+ 		if (exp instanceof FeatureCall && (exp as FeatureCall).isOperationCall && expType.equals(BasicDatatype.VOID)) {
+ 			return compile(exp, context);
+ 		}
+@@ -278,6 +295,11 @@ class ExpressionGenerator extends AbstractGenerator {
+ 	}
+ 
+ 	def compileElementReferenceExpression(ElementReferenceExpression elem, IGeneratorContext context) {
++		val registered = inBuiltLibrary.getRegisteredFunction(elem.reference);
++		if (registered !== null) {
++			if (!elem.operationCall) throw new IllegalArgumentException('Use ' + registered.name + '(...) to call a function');
++			return compileRegisteredFunction(registered, elem.arguments, context);
++		}
+ 		var result = '';
+ 		if (elem.reference instanceof ClassImpl) {
+ 			return elem.reference.name;
+@@ -305,6 +327,11 @@ class ExpressionGenerator extends AbstractGenerator {
+ 	}
+ 
+ 	def compileFeatureCall(FeatureCall expression, IGeneratorContext context) {
++		val registered = inBuiltLibrary.getRegisteredFunction(expression.feature);
++		if (registered !== null) {
++			if (!expression.operationCall) throw new IllegalArgumentException('Use ' + registered.name + '(...) to call a function');
++			return compileRegisteredFunction(registered, expression.arguments, context);
++		}
+ 		var result = "";
+ 		if (expression.feature instanceof VariableDeclaration) {
+ 			result += NamingConventions.toCanonicalName(compile(expression.owner, context));
+@@ -328,6 +355,13 @@ class ExpressionGenerator extends AbstractGenerator {
+ 		return result;
+ 	}
+ 
++	def String compileRegisteredFunction(Definition function, List<Argument> arguments, IGeneratorContext context) {
++		RegisteredFunctionTypes.validate(function, arguments);
++		val values = arguments.map[compile(it, context)].join(',');
++		return '((' + function.returnType + ') registeredFunctions.invoke("' + function.name +
++			'", new Object[]{' + values + '}))';
++	}
++
+ 	def compileArgument(Argument arg, IGeneratorContext context) {
+ 		return compile(arg.value, context);
+ 	}
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/linking/ExpressionLinkingService.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/linking/ExpressionLinkingService.java
+index 8bbf189..26453f3 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/linking/ExpressionLinkingService.java
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/linking/ExpressionLinkingService.java
+@@ -22,6 +22,9 @@ import org.eclipse.xtext.scoping.IScopeProvider;
+ import com.act21.rule.engine.dsl.datatype.TypeSystem;
+ import com.act21.rule.engine.dsl.expression.util.Type;
+ import com.act21.rule.engine.dsl.expression.util.Utils;
++import com.act21.rule.engine.dsl.expression.util.InBuiltLibrary;
++import com.act21.rule.engine.dsl.expression.functions.RegisteredFunctionTypes;
++import com.act21.rule.engine.dsl.expression.functions.FunctionRegistry;
+ import com.act21.rule.engine.dsl.model.Argument;
+ import com.act21.rule.engine.dsl.model.Decide;
+ import com.act21.rule.engine.dsl.model.ElementReferenceExpression;
+@@ -31,6 +34,9 @@ import com.act21.rule.engine.dsl.model.Parameter;
+ import com.google.inject.Inject;
+ 
+ public class ExpressionLinkingService extends DefaultLinkingService {
++	@Inject
++	private InBuiltLibrary inBuiltLibrary;
++
+ 	@Inject
+ 	@LinkingScopeProviderBinding
+ 	private IScopeProvider scopeProvider;
+@@ -40,6 +46,14 @@ public class ExpressionLinkingService extends DefaultLinkingService {
+ 
+ 	private List<EObject> getNodesForFunctionDeclarations(EObject context, EReference ref, INode node) {
+ 		final String crossRefString = getCrossRefNodeAsString(node);
++		// A schema field with the same name must not hide an explicitly called function.
++		var registeredClass = inBuiltLibrary.getClass(FunctionRegistry.MODEL_CLASS, context);
++		if (registeredClass != null) {
++			List<EObject> registered = registeredClass.getMembers().stream()
++					.filter(member -> member instanceof FunctionDeclaration && crossRefString.equals(member.getName()))
++					.map(member -> (EObject) member).collect(Collectors.toList());
++			if (!registered.isEmpty()) return registered;
++		}
+ 		final IScope scope = getScope(context, ref);
+ 		final QualifiedName qualifiedLinkName = qualifiedNameConverter.toQualifiedName(crossRefString);
+ 		final Iterable<IEObjectDescription> descriptions = scope.getElements(qualifiedLinkName);
+@@ -88,6 +102,16 @@ public class ExpressionLinkingService extends DefaultLinkingService {
+ 		return Collections.singletonList(result.stream().filter((elem) -> {
+ 			FunctionDeclaration functionDeclaration = ((FunctionDeclaration) elem);
+ 			List<Argument> arguments = new ArrayList<>(context.getArguments());
++			var registered = inBuiltLibrary.getRegisteredFunction(functionDeclaration);
++			if (registered != null) {
++				try {
++					RegisteredFunctionTypes.validate(registered, arguments);
++					return true;
++				} catch (IllegalArgumentException e) {
++					errors.add(new StringBuilder(e.getMessage()));
++					return false;
++				}
++			}
+ 			Argument headerArg = this.getHeaderArgument(context, functionDeclaration);
+ 
+ 			if (headerArg != null && !Utils.isParentLogicalExpression().test(context)) {
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/scoping/RuleEngineImportedNamespaceAwareLocalScopeProvider.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/scoping/RuleEngineImportedNamespaceAwareLocalScopeProvider.java
+index 7e3b274..2a3b145 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/scoping/RuleEngineImportedNamespaceAwareLocalScopeProvider.java
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/scoping/RuleEngineImportedNamespaceAwareLocalScopeProvider.java
+@@ -6,6 +6,7 @@ import java.util.List;
+ import org.eclipse.xtext.naming.QualifiedName;
+ import org.eclipse.xtext.scoping.impl.ImportNormalizer;
+ import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
++import com.act21.rule.engine.dsl.expression.functions.FunctionRegistry;
+ 
+ public class RuleEngineImportedNamespaceAwareLocalScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
+ 
+@@ -14,6 +15,7 @@ public class RuleEngineImportedNamespaceAwareLocalScopeProvider extends Imported
+ 		List<ImportNormalizer> temp = new ArrayList<>();
+ 		temp.add(new ImportNormalizer(QualifiedName.create("HelperFunctions"), true, ignoreCase));
+ 		temp.add(new ImportNormalizer(QualifiedName.create("RequestData"), true, ignoreCase));
++		temp.add(new ImportNormalizer(QualifiedName.create(FunctionRegistry.MODEL_CLASS), true, ignoreCase));
+ 		return temp;
+ 	}
+ }
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/validation/ExpressionValidator.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/validation/ExpressionValidator.java
+index 0741c9b..8fa7ef7 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/validation/ExpressionValidator.java
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/validation/ExpressionValidator.java
+@@ -17,6 +17,9 @@ import com.act21.rule.engine.dsl.datatype.TypeSystem;
+ import com.act21.rule.engine.dsl.expression.converter.AssignExpressionConverter;
+ import com.act21.rule.engine.dsl.expression.converter.DecideExpressionConverter;
+ import com.act21.rule.engine.dsl.expression.util.Utils;
++import com.act21.rule.engine.dsl.expression.util.InBuiltLibrary;
++import com.act21.rule.engine.dsl.expression.functions.RegisteredFunctionTypes;
++import com.act21.rule.engine.dsl.model.FeatureCall;
+ import com.act21.rule.engine.dsl.model.Assign;
+ import com.act21.rule.engine.dsl.model.Decide;
+ import com.act21.rule.engine.dsl.model.StringLiteral;
+@@ -29,6 +32,21 @@ import com.google.inject.Inject;
+  * https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
+  */
+ public class ExpressionValidator extends AbstractExpressionValidator {
++	@Inject
++	private InBuiltLibrary inBuiltLibrary;
++
++	@Check
++	public void validateRegisteredFeatureCall(FeatureCall call) {
++		var function = inBuiltLibrary.getRegisteredFunction(call.getFeature());
++		if (function != null) {
++			try {
++				RegisteredFunctionTypes.validate(function, call.getArguments());
++			} catch (IllegalArgumentException e) {
++				acceptError(e.getMessage(), call, null, INSIGNIFICANT_INDEX, null, null);
++			}
++		}
++	}
++
+ 
+ 	@Inject
+ 	private AssignExpressionConverter assignExpressionConverter;

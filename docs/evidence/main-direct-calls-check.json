@@ -1,0 +1,618 @@
+{
+  "date": "2026-10-16",
+  "branch": "feature/registered-functions-direct-calls",
+  "bases": {
+    "engine": "ff9aa7a11d34c3ee3bae9bbed547c3af1f625e19",
+    "parser": "e3abbe0050d9f3d63ca3974bdb583319a97dd083"
+  },
+  "command": "python tools/registration_check.py --workspace main-worktrees --output output/main-function-registration --offline --test 'RegisteredFunctionsTest,DirectFunctionCallsTest,DecisionParserTests'",
+  "suites": [
+    {
+      "name": "com.act21.impaktapps.rule.engine.test.DecisionParserTests",
+      "tests": "35",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "78.78"
+    },
+    {
+      "name": "com.act21.impaktapps.rule.engine.test.DirectFunctionCallsTest",
+      "tests": "9",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "11.488"
+    },
+    {
+      "name": "com.act21.impaktapps.rule.engine.test.RegisteredFunctionsTest",
+      "tests": "22",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "26.039"
+    }
+  ],
+  "total": 66,
+  "source_matches_tested_stage": true,
+  "changed_files": [
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/api/RuleCreationRequest.java",
+      "sha256": "e8300b0da12bf342259ff38d79d3fb15590bfc933b5ee59f088f41df9397d596",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/cache/GridFactory.java",
+      "sha256": "af3defc27f4986f23b85187316b5e2a43e894e85b1b50e3bf8ba4708f1dd30f9",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/compiler/Compiler.java",
+      "sha256": "02c1312f9f7bfd43222638e5be7456739a9a39f39d9f68713e1471f54f15a1c1",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/compiler/Generator.java",
+      "sha256": "7a2b47403b1685ca8e0c5e3e2d62a57371d9edd2c3eab4b0732eb203b9f52ece",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/main/java/com/act21/impaktapps/rule/engine/table/StatefulExpressionParser.java",
+      "sha256": "101037a2a6c4e5b4c863b1dcc2d35e1c6cbb19e11fb5d47112d89e70582c6f65",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/DirectFunctionCallsTest.java",
+      "sha256": "fc10eba7c80eb7b299adf8a7a1adb4ddf14ce0eb24ce5b1dfddc85316ead84e2",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/RegisteredFunctionFact.java",
+      "sha256": "63ffceaa1ca2263001b1a852cb19f31fd478476d658aecae3a65ed7a228e11cc",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/java/com/act21/impaktapps/rule/engine/test/RegisteredFunctionsTest.java",
+      "sha256": "7a003f7413927e8afe0b627d407d7c46af8e08544635086dc6e1e2309adf9ffa",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Batched.xlsx",
+      "sha256": "6e116ba40cd357733cf8dc0d855a8bda9b96c0bfd56c185b58728963cd44e3cb",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/BatchedListResult.xlsx",
+      "sha256": "1fbe7ececde9f10ee4f8dcd2aa8dc9611269e4433f277cefb22e42e3451e55b5",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/BooleanOutput.xlsx",
+      "sha256": "609ae608866219f972f536f09dbf3185bfd557e9c7683823dd10e0deafc3ca30",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/BuiltIn.xlsx",
+      "sha256": "fe0f7175c513527a7b4f46c77be9118361dc4d2f6b6cc68a8a5d31ddf32f345a",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/ChoiceNumber.xlsx",
+      "sha256": "43e6a124fa22acc0caa81c2e63d36354107aedcdf04ee1d5a3d432ec9d30b691",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/ChoiceText.xlsx",
+      "sha256": "3833fff5f216862382ae47492eb6be8879cdf2b70db8a3b514a4d05e2a16582b",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/CleanAndGetCodes.xlsx",
+      "sha256": "505fc0437464554d7c7d8731473fcb93545cbcb15237a4a057d600e023b37226",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Dates-3.xlsx",
+      "sha256": "b7c189a0ae35399518990e7466a98d58b6466ce6923da989fe9e4aef375aa4e7",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Dates.xlsx",
+      "sha256": "dc36f69b7d957d567712d0fdb6246560e8e4850fdbfcd7435051d22517d8699d",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/EmptyListResult.xlsx",
+      "sha256": "006b1207a803bd821c234b8c1ff89f40f9fdd9a8d7db5ee34a50c5aeca4abb86",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/EmptyVarargs.xlsx",
+      "sha256": "ab9d8d9afae0253a3ae632d82ebafdb2e1f4ae7c22ec722cc5ef154bd53d56a6",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Failing.xlsx",
+      "sha256": "18b432d8c7a5d6269c7fd8c7a46c634f109ed71002df8f9425a45ff111802786",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/ListArgument.xlsx",
+      "sha256": "642fe0ac700c929c0dad5ac5a748703669e56a7a07c1d1863713c93b9fd00408",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/ListResult.xlsx",
+      "sha256": "ef865855593de8aa7ffa5987b07298827fb58e9882737fc9f13eab121cf10088",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/LongListResult.xlsx",
+      "sha256": "ada7e8de38e85084dea9d2553ca3e4158d9c323705a7c296846f00ef5a7847b6",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/NestedListResult.xlsx",
+      "sha256": "facb8e278a058998323b4ccc4864edc73fc4030ccd82bf6928a4bd0b34de89eb",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/NullArgument.xlsx",
+      "sha256": "c18c8900d3b4188ac9a3eaff2a84a78c406d9961d578be5e5ab21376dbe02e89",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/NullListResult.xlsx",
+      "sha256": "fc48e50ca8301dd2e83353ea46a7c5c63a59f39f67925d7f61fb27d41385641b",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Predicate.xlsx",
+      "sha256": "522ce81a340fdbe4108b659abf4b90fefedabce60497ae65ecaed3cae2b16500",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/PredicateAnd.xlsx",
+      "sha256": "2f603b085048029ff931fdb9c89e4f0844f7cff842b8787a06c701eab136779c",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/PredicateNegated.xlsx",
+      "sha256": "a6adfc31114bc02e0659a61ab20c5ed0c2ca8015b40db07ad1bf3a4b429f1ec7",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/PredicateOr.xlsx",
+      "sha256": "356c332e43b64a33b8e2e8a41752d27bdce92edcd83ed2bf7ede0a7b14a74656",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/PredicateParenthesized.xlsx",
+      "sha256": "88b6ba263b87e08e05c8d04d42b210f32a221fb6fe083b633091120da4487abf",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/PredicateQualified.xlsx",
+      "sha256": "2b35d2fe5aa52f7662115957d79a64d170bf2014318b95257bbe25c26f6e6213",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/QualifiedListResult.xlsx",
+      "sha256": "e25a87493f51cc1195fbd79df78bb5d7e4b04b7e534228abb860c43f04637166",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/README.md",
+      "sha256": "4f5ceba0f0298a7d3a9ee653b5aced53e9796366dc941addb3fc48fdaa3b1bbb",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Tag.xlsx",
+      "sha256": "992a9def29dc51c604ccbae6098357411fcb9560549694558ab33c1f8d77f395",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Varargs.xlsx",
+      "sha256": "8e4c8190e90601ab559b355e759f13438993d3931f8f2feb587bb585cbab1fff",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/WidenDecimal.xlsx",
+      "sha256": "a0260a2fdb45a133fa0cfa7b58d7f19530dff5dd425952aa29861ed02a588990",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/WidenLong.xlsx",
+      "sha256": "fdbbba0c3f56cc07ffd876b0b47b739f123aedac6c0c8bff5b7ed2db4d88ccf6",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/Zero.xlsx",
+      "sha256": "96ced4cebfc7f5c4b9238fe2f99c7d147b05eddace14ba03afb928f901fdefd0",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/ExtraArgument.xlsx",
+      "sha256": "ed4619c04cc4a664ab20066e187e06c8ad385a941dac46091a9cac06d4674170",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/ListResultToScalar.xlsx",
+      "sha256": "39d0560b59d0de85803f95bb2d0593007d33598f146cea35f6d9bbc53a9bc729",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/MissingArgument.xlsx",
+      "sha256": "9c428a310015fca6e8aa47981b98910691576f31ab17b7118067cd453f96e361",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/PrimitiveNull.xlsx",
+      "sha256": "4598695d093373af7eed685ef01e1f28151787254295c16ed935e818dff36ab9",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/QualifiedWrongType.xlsx",
+      "sha256": "28a9371fefea81e497bd0407752a3258564170b05d267164eff6d269c586ef96",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/UnexpectedArgument.xlsx",
+      "sha256": "a5caa8b1af5cd48b77aca250e8cc3190f76eb52d10e180b8a895cbfcc5d9aa3c",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/UnknownFunction.xlsx",
+      "sha256": "e8d362f81062643bc2304ae587ce41281c887fd293d1b7657c16db3484d6f56a",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/WrongListElement.xlsx",
+      "sha256": "940688bee24273a9d3734564c551aace763068aeb7a128064cb4b8a562e3ecd4",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine/src/test/resources/registered-functions/invalid/WrongType.xlsx",
+      "sha256": "b0fc97b508dcb4ac7db9173ea61bd95e4e71f0274b57d64e4104a5caf271f0e7",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/ExpressionParser.java",
+      "sha256": "503c05168e1085bbf1aa5536ee4822c1b41585ebf7844babd8b2295a89e7add1",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/src/com/act21/rule/engine/dsl/expression/runtime/HelperFunctions.java",
+      "sha256": "d98dbfe88e020154b9cf0db1e608a5f1f15a2f2a07218d45c3ab3a9be91dc541",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/META-INF/MANIFEST.MF",
+      "sha256": "366fa2434ee7b2bde75ca428ddd794260915f4aaffd2f935668442428fee695f",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/datatype/TypeCastHandler.xtend",
+      "sha256": "280668c63706908221899e79b35f5e55638ce3e5ef86c2b4e3e0cf86c49e9cb1",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/AssignExpressionConverter.xtend",
+      "sha256": "bac90ab624f62d069c2f462b67fffb2637adf399dac386d83b334563d217d1d5",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/converter/DecideExpressionConverter.xtend",
+      "sha256": "bb21562146e5ea61ca9410a087574f90729ba4949efa37a126e546d370bb7d9a",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionCallBindings.java",
+      "sha256": "15fbdbf91c20867befa22314b17a39412fe8836f685d78e94b4c95977aaa7445",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java",
+      "sha256": "0b5f0969bb97bd9f80067f214f122f24770e120f76b5edf662b97950270aa7ae",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/RegisteredFunctionTypes.java",
+      "sha256": "f9c12d7dfa67387137b6f0ba02540d6611f9ccc6894e788c92e9334e5e4be372",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/util/InBuiltLibrary.java",
+      "sha256": "b954ae4fb6a2c622a9f557ea19fe1748aafecf8d61e140ac8379bcca5e6d0e78",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend",
+      "sha256": "218f80d898f345e3d328aaea8c9939801affa432836585a70856f6fdb99100d7",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/linking/ExpressionLinkingService.java",
+      "sha256": "1146d167cd99585d19c74729192035c27736397a852b4e849da71dfd3073205b",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/scoping/RuleEngineImportedNamespaceAwareLocalScopeProvider.java",
+      "sha256": "5b1b41194b1ff4f985f9544c9cc7e2ed1c29cf5a8b669ad23b84f9fc0e7caa00",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/validation/ExpressionValidator.java",
+      "sha256": "4c3c997641f47e9786abbe6844752944c8289fb263ab8dac040b9ed523e6d771",
+      "deleted": false
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/.project",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ide/.classpath",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ide/.project",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ide/META-INF/MANIFEST.MF",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ide/build.properties",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ide/pom.xml",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ide/src/com/act21/rule/engine/dsl/ide/ExpressionsIdeModule.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ide/src/com/act21/rule/engine/dsl/ide/ExpressionsIdeSetup.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.target/.project",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.target/com.act21.rule.engine.dsl.expressions.target.target",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.target/pom.xml",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.tests/.classpath",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.tests/.project",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.tests/META-INF/MANIFEST.MF",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.tests/build.properties",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.tests/pom.xml",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.tests/src/com/act21/rule/engine/dsl/tests/ExpressionsParsingTest.xtend",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui.tests/.classpath",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui.tests/.project",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui.tests/META-INF/MANIFEST.MF",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui.tests/build.properties",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui.tests/pom.xml",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/.classpath",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/.project",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/META-INF/MANIFEST.MF",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/build.properties",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/plugin.xml",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/pom.xml",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/src/com/act21/rule/engine/dsl/ui/ExpressionsUiModule.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/src/com/act21/rule/engine/dsl/ui/contentassist/ExpressionsProposalProvider.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/src/com/act21/rule/engine/dsl/ui/labeling/ExpressionsDescriptionLabelProvider.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/src/com/act21/rule/engine/dsl/ui/labeling/ExpressionsLabelProvider.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/src/com/act21/rule/engine/dsl/ui/outline/ExpressionsOutlineTreeProvider.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions.ui/src/com/act21/rule/engine/dsl/ui/quickfix/ExpressionsQuickfixProvider.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/.antlr-generator-3.2.0-patch.jar",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/.classpath",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/.launch/Generate Expressions (exp) Language Infrastructure.launch",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/.launch/Launch Runtime Eclipse.launch",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/.project",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/META-INF/MANIFEST.MF",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/build.properties",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/plugin.xml",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/pom.xml",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/src/com/act21/rule/engine/dsl/Expressions.xtext",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/src/com/act21/rule/engine/dsl/ExpressionsRuntimeModule.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/src/com/act21/rule/engine/dsl/ExpressionsStandaloneSetup.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/src/com/act21/rule/engine/dsl/GenerateExpressions.mwe2",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/src/com/act21/rule/engine/dsl/generator/ExpressionsGenerator.xtend",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/src/com/act21/rule/engine/dsl/scoping/ExpressionsScopeProvider.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/com.act21.rule.engine.dsl.expressions/src/com/act21/rule/engine/dsl/validation/ExpressionsValidator.java",
+      "sha256": null,
+      "deleted": true
+    },
+    {
+      "path": "main-worktrees/rule-engine-expression-parser/com.act21.rule.engine.dsl.expressions.parent/pom.xml",
+      "sha256": null,
+      "deleted": true
+    }
+  ],
+  "build_log": {
+    "path": "output/main-function-registration/build.log",
+    "sha256": "168ddcd6fae6782a0a8e2bcf9b0064c2fe8d8479bfb2fbf8d55a8f8338e00cb0"
+  },
+  "generation_log": {
+    "path": "output/main-parser-generation/generation.log",
+    "sha256": "54f77a1841a57617dc0b079941ae99dcaccae92156351603f1bf52e4b35d8bc4"
+  },
+  "limits": "Focused combined source build and actual Xtext/Xtend generation; full Tycho/UI release reactor unverified. No versions bumped or Maven artifacts published.",
+  "commits": {
+    "rule-engine": "8eaa114626bfeb7e4ef3e651046da98c6fb314fa",
+    "rule-engine-expression-parser": "1113fa3eaec8f5374565c671ed1417664be593f7"
+  },
+  "post_test_change": "Fixture README command/coverage text updated after tests; production source matches tested stage."
+}

@@ -1,0 +1,130 @@
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java
+index 2e75ff2..5cbe927 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/FunctionRegistry.java
+@@ -104,6 +104,7 @@ public final class FunctionRegistry {
+         private final String name;
+         private final Object target;
+         private final Method method;
++        private final Class<?>[] javaParameterTypes;
+         private final List<String> parameterTypes;
+         private final String returnType;
+ 
+@@ -111,11 +112,12 @@ public final class FunctionRegistry {
+             this.name = name;
+             this.target = target;
+             this.method = method;
++            this.javaParameterTypes = method.getParameterTypes();
+             List<String> types = new ArrayList<>();
+             Type[] parameters = method.getGenericParameterTypes();
+             for (int i = 0; i < parameters.length; i++) {
+                 Type type = method.isVarArgs() && i == parameters.length - 1
+-                        ? method.getParameterTypes()[i].getComponentType() : parameters[i];
++                        ? javaParameterTypes[i].getComponentType() : parameters[i];
+                 types.add(languageType(type));
+             }
+             this.parameterTypes = Collections.unmodifiableList(types);
+@@ -138,6 +140,29 @@ public final class FunctionRegistry {
+             return method.isVarArgs();
+         }
+ 
++        /** Metadata for typed Java generation; the application target is never recreated. */
++        public Object getTarget() {
++            return target;
++        }
++
++        public Class<?> getDeclaringType() {
++            return method.getDeclaringClass();
++        }
++
++        public String getMethodName() {
++            return method.getName();
++        }
++
++        public boolean isStatic() {
++            return Modifier.isStatic(method.getModifiers());
++        }
++
++        /** For a varargs parameter, returns its scalar component type. */
++        public Class<?> getJavaParameterType(int index) {
++            Class<?> type = javaParameterTypes[index];
++            return isVarArgs() && index == parameterTypes.size() - 1 ? type.getComponentType() : type;
++        }
++
+         private int fixedCount() {
+             return parameterTypes.size() - (isVarArgs() ? 1 : 0);
+         }
+@@ -156,7 +181,7 @@ public final class FunctionRegistry {
+                 int parameter = Math.min(i, parameterTypes.size() - 1);
+                 String expected = parameterTypes.get(parameter);
+                 String actual = actualTypes.get(i);
+-                Class<?> javaType = parameterClass(parameter);
++                Class<?> javaType = getJavaParameterType(parameter);
+                 boolean compatible = expected.equals(actual)
+                         || ("null".equals(actual) && !javaType.isPrimitive())
+                         || (Long.class.getName().equals(expected) && Integer.class.getName().equals(actual))
+@@ -169,19 +194,14 @@ public final class FunctionRegistry {
+             }
+         }
+ 
+-        private Class<?> parameterClass(int index) {
+-            Class<?> type = method.getParameterTypes()[index];
+-            return isVarArgs() && index == parameterTypes.size() - 1 ? type.getComponentType() : type;
+-        }
+-
+         private Object invoke(Object[] arguments) {
+             checkArity(arguments.length);
+             Object[] packed = new Object[parameterTypes.size()];
+             for (int i = 0; i < fixedCount(); i++) {
+-                packed[i] = convert(arguments[i], parameterClass(i));
++                packed[i] = convert(arguments[i], getJavaParameterType(i));
+             }
+             if (isVarArgs()) {
+-                Class<?> component = parameterClass(fixedCount());
++                Class<?> component = getJavaParameterType(fixedCount());
+                 Object tail = Array.newInstance(component, arguments.length - fixedCount());
+                 for (int i = fixedCount(); i < arguments.length; i++) {
+                     Array.set(tail, i - fixedCount(), convert(arguments[i], component));
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/RegisteredFunctionTypes.java b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/RegisteredFunctionTypes.java
+index a6d078a..7bcce81 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/RegisteredFunctionTypes.java
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/expression/functions/RegisteredFunctionTypes.java
+@@ -12,8 +12,12 @@ public final class RegisteredFunctionTypes {
+     private RegisteredFunctionTypes() { }
+ 
+     public static void validate(FunctionRegistry.Definition function, List<Argument> arguments) {
+-        function.validateArgumentTypes(arguments.stream()
+-                .map(argument -> describe(TypeSystem.inferType(argument))).collect(Collectors.toList()));
++        function.validateArgumentTypes(argumentTypes(arguments));
++    }
++
++    public static List<String> argumentTypes(List<Argument> arguments) {
++        return arguments.stream().map(argument -> describe(TypeSystem.inferType(argument)))
++                .collect(Collectors.toList());
+     }
+ 
+     private static String describe(Type type) {
+diff --git a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend
+index 4231e73..4353114 100644
+--- a/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend
++++ b/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression/src/com/act21/rule/engine/dsl/generator/ExpressionGenerator.xtend
+@@ -8,6 +8,7 @@ import com.act21.rule.engine.dsl.expression.converter.DecideExpressionConverter
+ import com.act21.rule.engine.dsl.expression.util.InBuiltLibrary
+ import com.act21.rule.engine.dsl.expression.functions.FunctionRegistry.Definition
+ import com.act21.rule.engine.dsl.expression.functions.RegisteredFunctionTypes
++import com.act21.rule.engine.dsl.expression.functions.FunctionCallBindings
+ import java.util.List
+ import com.act21.rule.engine.dsl.model.AllLiteral
+ import com.act21.rule.engine.dsl.model.Argument
+@@ -357,6 +358,11 @@ class ExpressionGenerator extends AbstractGenerator {
+ 
+ 	def String compileRegisteredFunction(Definition function, List<Argument> arguments, IGeneratorContext context) {
+ 		RegisteredFunctionTypes.validate(function, arguments);
++		val bindings = (context as GeneratorContext).additionalData.get(FunctionCallBindings.CONTEXT_KEY);
++		if (bindings instanceof FunctionCallBindings) {
++			return bindings.compileCall(function, RegisteredFunctionTypes.argumentTypes(arguments),
++				arguments.map[compile(it, context)].toList);
++		}
+ 		val values = arguments.map[compile(it, context)].join(',');
+ 		return '((' + function.returnType + ') registeredFunctions.invoke("' + function.name +
+ 			'", new Object[]{' + values + '}))';

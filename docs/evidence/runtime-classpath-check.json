@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-15",
+  "result": "PASS",
+  "reported_failure": "Eclipse JUnit generated rule failed to compile because HelperFunctions.appendList(List<String>,List<String>) was not found.",
+  "observations": [
+    "Current runtime source and target/classes/HelperFunctions.class both contain public static appendList(List,List).",
+    "Eclipse m2e workspace state resolves runtime 1.0.43 to the workspace Runtime/target/classes directory.",
+    "The current saved JUnit launch configuration uses the m2e classpath provider without a custom classpath.",
+    "Current Eclipse-generated AssignExpressionConverter.java and ExpressionGenerator.java exactly match the previously verified focused-build Xtend output.",
+    "Existing Eclipse-compiled cleanAndGetCodesDoesNotAppendTheSameListTwice passed when invoked reflectively with engine test/main, runtime and DSL target/classes directories followed by dependency JARs from the saved focused-test report.",
+    "The probe saw one HelperFunctions.class resource, from the workspace runtime output, with appendList present."
+  ],
+  "limits": "The failed Eclipse process classpath was not captured. Stale build state or an alternate launch classpath is inferred from the missing-method diagnostic; the exact earlier class artifact is unverified. The passing probe uses current Eclipse output with an explicitly assembled classpath, not an Eclipse JUnit launch. No production source, POM, workbook or Eclipse configuration was changed.",
+  "reproduction": "output/RuntimeClasspathProbe.java run with Java 17 source-file launcher and -ea; explicit classpath described above. It prints class origin/method/resources, then invokes the existing compiled test including its assertions.",
+  "files": [
+    {
+      "path": "output/RuntimeClasspathProbe.java",
+      "sha256": "291c4e49f4a6f80686d7a6da6af332d816dd97e01205c1fc99acfbff160314e6"
+    },
+    {
+      "path": "output/runtime-classpath-probe.log",
+      "sha256": "25162224e4f7b068460696676c3551be609828cefb696f066aeaec7dac9f11f3"
+    },
+    {
+      "path": "rule-engine-expression-parser/com.act21.rule.engine.dsl.expression.parent/com.act21.rule.engine.dsl.expression.Runtime/target/classes/com/act21/rule/engine/dsl/expression/runtime/HelperFunctions.class",
+      "sha256": "529dbf2969e8c9e44a03f163cfd337008a84698b0d3269af9d1080e5b802452a"
+    },
+    {
+      "path": "rule-engine/target/test-classes/com/act21/impaktapps/rule/engine/test/RegisteredFunctionsTest.class",
+      "sha256": "4603fc527c038e59cbb3fa8f4b85bcf1f1b4714403eeb3873bc78d3eb6315238"
+    }
+  ]
+}

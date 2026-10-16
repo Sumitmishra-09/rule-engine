@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-15",
+  "command": "python tools/registration_check.py --offline --test RegisteredFunctionsTest",
+  "result": "PASS",
+  "scope": "15 registration tests load the 28 saved XLSX resources. Current engine/parser sources compiled together with Xtend generation; original 44 engine tests were not repeated for this fixture-only change.",
+  "tests": 15,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": "42.091",
+  "cases": [
+    "dateFieldsAndNestedStaticFunctionExecute",
+    "oldFactoryAndBuiltInHeaderShorthandStillExecute",
+    "numericWideningIsTheSameInValidationAndInvocation",
+    "cacheHitDoesNotRebuildTheRequest",
+    "typedListParameterExecutes",
+    "invalidRegistrationsFailBeforeAnyGridIsLoaded",
+    "registryIsReusedAcrossGridsAndFactoriesRemainIsolated",
+    "outputBooleanAndQualifiedCallsUseExplicitArguments",
+    "functionFailureRetainsCauseAndGridCellContext",
+    "booleanCallsNeverReceiveTheYellowTextHeader",
+    "differentSignaturesWithTheSameNameRemainIsolatedDuringConcurrentCompilation",
+    "wrongNamesCountsAndTypesFailDuringGridCompilation",
+    "nullReferenceIsPassedToTheFunction",
+    "zeroArgumentsAndEmptyVarargsExecute",
+    "everyGeneratedBatchReceivesTheRegistry"
+  ],
+  "fixtures": [
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/Batched.xlsx",
+      "sha256": "6e116ba40cd357733cf8dc0d855a8bda9b96c0bfd56c185b58728963cd44e3cb"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/BooleanOutput.xlsx",
+      "sha256": "609ae608866219f972f536f09dbf3185bfd557e9c7683823dd10e0deafc3ca30"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/BuiltIn.xlsx",
+      "sha256": "fe0f7175c513527a7b4f46c77be9118361dc4d2f6b6cc68a8a5d31ddf32f345a"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/ChoiceNumber.xlsx",
+      "sha256": "43e6a124fa22acc0caa81c2e63d36354107aedcdf04ee1d5a3d432ec9d30b691"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/ChoiceText.xlsx",
+      "sha256": "3833fff5f216862382ae47492eb6be8879cdf2b70db8a3b514a4d05e2a16582b"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/Dates.xlsx",
+      "sha256": "db4ff5e845cad24c18d08b1be2167bddc4c0bded286f25802322f8242c1f7274"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/EmptyVarargs.xlsx",
+      "sha256": "ab9d8d9afae0253a3ae632d82ebafdb2e1f4ae7c22ec722cc5ef154bd53d56a6"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/Failing.xlsx",
+      "sha256": "18b432d8c7a5d6269c7fd8c7a46c634f109ed71002df8f9425a45ff111802786"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/invalid/ExtraArgument.xlsx",
+      "sha256": "ed4619c04cc4a664ab20066e187e06c8ad385a941dac46091a9cac06d4674170"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/invalid/MissingArgument.xlsx",
+      "sha256": "9c428a310015fca6e8aa47981b98910691576f31ab17b7118067cd453f96e361"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/invalid/PrimitiveNull.xlsx",
+      "sha256": "4598695d093373af7eed685ef01e1f28151787254295c16ed935e818dff36ab9"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/invalid/QualifiedWrongType.xlsx",
+      "sha256": "28a9371fefea81e497bd0407752a3258564170b05d267164eff6d269c586ef96"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/invalid/UnexpectedArgument.xlsx",
+      "sha256": "a5caa8b1af5cd48b77aca250e8cc3190f76eb52d10e180b8a895cbfcc5d9aa3c"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/invalid/UnknownFunction.xlsx",
+      "sha256": "e8d362f81062643bc2304ae587ce41281c887fd293d1b7657c16db3484d6f56a"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/invalid/WrongType.xlsx",
+      "sha256": "b0fc97b508dcb4ac7db9173ea61bd95e4e71f0274b57d64e4104a5caf271f0e7"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/ListArgument.xlsx",
+      "sha256": "642fe0ac700c929c0dad5ac5a748703669e56a7a07c1d1863713c93b9fd00408"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/NullArgument.xlsx",
+      "sha256": "c18c8900d3b4188ac9a3eaff2a84a78c406d9961d578be5e5ab21376dbe02e89"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/Predicate.xlsx",
+      "sha256": "522ce81a340fdbe4108b659abf4b90fefedabce60497ae65ecaed3cae2b16500"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/PredicateAnd.xlsx",
+      "sha256": "2f603b085048029ff931fdb9c89e4f0844f7cff842b8787a06c701eab136779c"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/PredicateNegated.xlsx",
+      "sha256": "a6adfc31114bc02e0659a61ab20c5ed0c2ca8015b40db07ad1bf3a4b429f1ec7"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/PredicateOr.xlsx",
+      "sha256": "356c332e43b64a33b8e2e8a41752d27bdce92edcd83ed2bf7ede0a7b14a74656"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/PredicateParenthesized.xlsx",
+      "sha256": "88b6ba263b87e08e05c8d04d42b210f32a221fb6fe083b633091120da4487abf"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/PredicateQualified.xlsx",
+      "sha256": "2b35d2fe5aa52f7662115957d79a64d170bf2014318b95257bbe25c26f6e6213"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/Tag.xlsx",
+      "sha256": "992a9def29dc51c604ccbae6098357411fcb9560549694558ab33c1f8d77f395"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/Varargs.xlsx",
+      "sha256": "8e4c8190e90601ab559b355e759f13438993d3931f8f2feb587bb585cbab1fff"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/WidenDecimal.xlsx",
+      "sha256": "a0260a2fdb45a133fa0cfa7b58d7f19530dff5dd425952aa29861ed02a588990"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/WidenLong.xlsx",
+      "sha256": "fdbbba0c3f56cc07ffd876b0b47b739f123aedac6c0c8bff5b7ed2db4d88ccf6"
+    },
+    {
+      "path": "rule-engine/src/test/resources/registered-functions/Zero.xlsx",
+      "sha256": "96ced4cebfc7f5c4b9238fe2f99c7d147b05eddace14ba03afb928f901fdefd0"
+    }
+  ],
+  "full_log": "../../output/function-registration/registration-fixtures-build.log",
+  "log_sha256": "64dfd73cda8e1e4304445355048de2a8fba1c2e8d3ee83d46f86d27343cf2f69",
+  "source_file_count": 148,
+  "generated_artifact_review": "The four Eclipse-regenerated Java files flagged by the previous snapshot match the focused Xtend build output after newline normalization. No generated Java files were manually changed."
+}

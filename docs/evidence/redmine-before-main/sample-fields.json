@@ -1,0 +1,4444 @@
+{
+  "confidence": "INFERRED lexical schema candidates, not an executable or business-approved schema; first sheets only",
+  "grids": [
+    {
+      "path": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 2,
+      "horizontal_inputs": [
+        "self_persistency_percentage"
+      ],
+      "vertical_inputs": [
+        "self_wpc_achievement",
+        "vintage",
+        "jfw_count",
+        "digital_count",
+        "classroom_count"
+      ],
+      "outputs": [
+        "seg",
+        "reward",
+        "rock_qualified"
+      ],
+      "expression_references": [],
+      "referenced_without_header": []
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+      "sheet": "ahrh_rock_qual",
+      "header_row": 2,
+      "horizontal_inputs": [
+        "role_code"
+      ],
+      "vertical_inputs": [
+        "current_quarter",
+        "avg_rq"
+      ],
+      "outputs": [
+        "rock_per_agent",
+        "rock_payout"
+      ],
+      "expression_references": [
+        "avg_rq",
+        "rock_per_agent",
+        "team_count"
+      ],
+      "referenced_without_header": [
+        "team_count"
+      ]
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+      "sheet": "oh_ebh_uplift",
+      "header_row": 2,
+      "horizontal_inputs": [
+        "role_code"
+      ],
+      "vertical_inputs": [
+        "ebh_unit_ach_pct"
+      ],
+      "outputs": [
+        "ebh_uplift_pct",
+        "ebh_additional"
+      ],
+      "expression_references": [
+        "ebh_uplift_pct",
+        "team_earning"
+      ],
+      "referenced_without_header": [
+        "team_earning"
+      ]
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+      "sheet": "oh_team_building",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "role_code",
+        "ach_pct",
+        "team_earning_count"
+      ],
+      "outputs": [
+        "team_incentive_pct",
+        "team_earning"
+      ],
+      "expression_references": [
+        "team_incentive_pct",
+        "team_payout",
+        "team_premult_base"
+      ],
+      "referenced_without_header": [
+        "team_payout",
+        "team_premult_base"
+      ]
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/persistency_multiplier.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "vintage",
+        "self_persistency_percentage"
+      ],
+      "outputs": [
+        "persistency_multiplier"
+      ],
+      "expression_references": [],
+      "referenced_without_header": []
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+      "sheet": "oh_team_building",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "month_of_the_quarter"
+      ],
+      "outputs": [
+        "quarter_m1_ebh_additional",
+        "quarter_m1_rock_payout",
+        "quarter_m1_incentive",
+        "quarter_m2_ebh_additional",
+        "quarter_m2_rock_payout",
+        "quarter_m2_incentive",
+        "quarter_m3_ebh_additional",
+        "quarter_m3_rock_payout",
+        "quarter_m3_incentive"
+      ],
+      "expression_references": [
+        "ebh_additional",
+        "quarter_m1_ebh_additional",
+        "quarter_m1_incentive",
+        "quarter_m1_rock_payout",
+        "quarter_m2_ebh_additional",
+        "quarter_m2_incentive",
+        "quarter_m2_rock_payout",
+        "rock_payout",
+        "team_earning"
+      ],
+      "referenced_without_header": [
+        "ebh_additional",
+        "rock_payout",
+        "team_earning"
+      ]
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "month_of_the_quarter",
+        "quarter_m1_ach",
+        "quarter_m2_ach",
+        "quarter_m3_ach",
+        "q_team_achievement"
+      ],
+      "outputs": [
+        "quarter_m1_gate_met",
+        "quarter_m2_gate_met",
+        "quarter_m3_gate_met",
+        "quarter_gate_met"
+      ],
+      "expression_references": [
+        "q_team_target",
+        "quarter_m1_gate_met",
+        "quarter_m1_target",
+        "quarter_m2_gate_met",
+        "quarter_m2_target",
+        "quarter_m3_gate_met",
+        "quarter_m3_target"
+      ],
+      "referenced_without_header": [
+        "q_team_target",
+        "quarter_m1_target",
+        "quarter_m2_target",
+        "quarter_m3_target"
+      ]
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+      "sheet": "Sheet3",
+      "header_row": 2,
+      "horizontal_inputs": [
+        "goalsheet_month"
+      ],
+      "vertical_inputs": [
+        "band"
+      ],
+      "outputs": [
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target"
+      ],
+      "expression_references": [],
+      "referenced_without_header": []
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+      "sheet": "Sheet3",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "band",
+        "doj_month_year",
+        "dop_month_year",
+        "current_gs_month_mon_yyyy",
+        "goalsheet_month"
+      ],
+      "outputs": [
+        "goalsheet_month",
+        "goalsheet_start_month"
+      ],
+      "expression_references": [
+        "current_gs_month",
+        "current_gs_month_mon_yyyy",
+        "goalsheet_month",
+        "goalsheet_start_month"
+      ],
+      "referenced_without_header": [
+        "current_gs_month"
+      ]
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/incentive/sm_persistency_multiplier.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "self_persistency_percentage"
+      ],
+      "outputs": [
+        "persistency_multiplier"
+      ],
+      "expression_references": [],
+      "referenced_without_header": []
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "ach_pct",
+        "rock_count"
+      ],
+      "outputs": [
+        "rock_per_agent",
+        "rock_incentive"
+      ],
+      "expression_references": [
+        "rock_count",
+        "rock_per_agent"
+      ],
+      "referenced_without_header": []
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/incentive/sm_wfylp_slab.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 2,
+      "horizontal_inputs": [
+        "rock_count"
+      ],
+      "vertical_inputs": [
+        "ach_pct"
+      ],
+      "outputs": [
+        "slab_pct",
+        "slab_pct"
+      ],
+      "expression_references": [],
+      "referenced_without_header": []
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "goalsheet_month"
+      ],
+      "outputs": [
+        "m1_ach",
+        "m2_ach",
+        "m3_ach",
+        "m4_ach",
+        "m5_ach",
+        "m6_ach",
+        "m7_ach",
+        "m8_ach",
+        "m9_ach",
+        "m10_ach",
+        "m11_ach",
+        "m12_ach",
+        "cumulative_m1_ach",
+        "cumulative_m2_ach",
+        "cumulative_m3_ach",
+        "cumulative_m4_ach",
+        "cumulative_m5_ach",
+        "cumulative_m6_ach",
+        "cumulative_m7_ach",
+        "cumulative_m8_ach",
+        "cumulative_m9_ach",
+        "cumulative_m10_ach",
+        "cumulative_m11_ach",
+        "cumulative_m12_ach"
+      ],
+      "expression_references": [
+        "cumulative_m10_ach",
+        "cumulative_m11_ach",
+        "cumulative_m1_ach",
+        "cumulative_m2_ach",
+        "cumulative_m3_ach",
+        "cumulative_m4_ach",
+        "cumulative_m5_ach",
+        "cumulative_m6_ach",
+        "cumulative_m7_ach",
+        "cumulative_m8_ach",
+        "cumulative_m9_ach",
+        "current_month_achievement",
+        "m10_ach",
+        "m11_ach",
+        "m1_ach",
+        "m2_ach",
+        "m3_ach",
+        "m4_ach",
+        "m5_ach",
+        "m6_ach",
+        "m7_ach",
+        "m8_ach",
+        "m9_ach",
+        "prev_goalsheet_month",
+        "prev_month_achievement",
+        "vintage"
+      ],
+      "referenced_without_header": [
+        "current_month_achievement",
+        "prev_goalsheet_month",
+        "prev_month_achievement",
+        "vintage"
+      ]
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "goalsheet_month"
+      ],
+      "outputs": [
+        "m1_target",
+        "m2_target",
+        "m3_target",
+        "m4_target",
+        "m5_target",
+        "m6_target",
+        "m7_target",
+        "m8_target",
+        "m9_target",
+        "m10_target",
+        "m11_target",
+        "m12_target",
+        "cumulative_m1_target",
+        "cumulative_m2_target",
+        "cumulative_m3_target",
+        "cumulative_m4_target",
+        "cumulative_m5_target",
+        "cumulative_m6_target",
+        "cumulative_m7_target",
+        "cumulative_m8_target",
+        "cumulative_m9_target",
+        "cumulative_m10_target",
+        "cumulative_m11_target",
+        "cumulative_m12_target"
+      ],
+      "expression_references": [
+        "cumulative_m10_target",
+        "cumulative_m11_target",
+        "cumulative_m1_target",
+        "cumulative_m2_target",
+        "cumulative_m3_target",
+        "cumulative_m4_target",
+        "cumulative_m5_target",
+        "cumulative_m6_target",
+        "cumulative_m7_target",
+        "cumulative_m8_target",
+        "cumulative_m9_target",
+        "m10_target",
+        "m11_target",
+        "m1_target",
+        "m2_target",
+        "m3_target",
+        "m4_target",
+        "m5_target",
+        "m6_target",
+        "m7_target",
+        "m8_target",
+        "m9_target",
+        "target"
+      ],
+      "referenced_without_header": [
+        "target"
+      ]
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 3,
+      "horizontal_inputs": [
+        "vintage",
+        "current_gs_month_mon_yyyy"
+      ],
+      "vertical_inputs": [
+        "band"
+      ],
+      "outputs": [
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target",
+        "target"
+      ],
+      "expression_references": [],
+      "referenced_without_header": []
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "product_code",
+        "segment",
+        "sub_variant",
+        "ppt",
+        "pt",
+        "deferment_period",
+        "income_start_year",
+        "fyp_collected"
+      ],
+      "outputs": [
+        "product_weight"
+      ],
+      "expression_references": [],
+      "referenced_without_header": []
+    },
+    {
+      "path": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+      "sheet": "Sheet1",
+      "header_row": 1,
+      "horizontal_inputs": [],
+      "vertical_inputs": [
+        "conduct_ok",
+        "golden_ok",
+        "agent_present",
+        "active",
+        "can_sell",
+        "commissionable",
+        "lic_ok"
+      ],
+      "outputs": [
+        "exclusion_reason",
+        "eligibility_status"
+      ],
+      "expression_references": [],
+      "referenced_without_header": []
+    }
+  ],
+  "fields": {
+    "ach_pct": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "B1",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_wfylp_slab.xlsx",
+          "cell": "A2",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "active": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+          "cell": "D1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "agent_present": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+          "cell": "C1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "avg_rq": {
+      "roles": [
+        "expression_reference_candidate",
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "B2",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D10",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "band": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "A2",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "A3",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "can_sell": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+          "cell": "E1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "classroom_count": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+          "cell": "E2",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "commissionable": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+          "cell": "F1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "conduct_ok": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "cumulative_m10_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "W1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "W13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "X13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "W14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m10_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "W1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "W12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "X12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "W13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m11_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "X1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "X14",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Y14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m11_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "X1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "X13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Y13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m12_ach": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Y1",
+          "role": "output"
+        }
+      ]
+    },
+    "cumulative_m12_target": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Y1",
+          "role": "output"
+        }
+      ]
+    },
+    "cumulative_m1_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m1_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m2_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m2_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m3_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m3_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m4_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "R7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m4_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "R6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m5_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "R1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "R8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "S8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "R9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "R10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "R11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "R12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "R13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "R14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m5_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "R1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "R7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "S7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "R8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "R9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "R10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "R11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "R12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "R13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m6_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "S1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "S9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "T9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "S10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "S11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "S12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "S13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "S14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m6_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "S1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "S8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "T8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "S9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "S10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "S11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "S12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "S13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m7_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "T1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "T10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "U10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "T11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "T12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "T13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "T14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m7_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "T1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "T9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "U9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "T10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "T11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "T12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "T13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m8_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "U1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "U11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "V11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "U12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "U13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "U14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m8_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "U1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "U10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "V10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "U11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "U12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "U13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m9_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "V1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "V12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "W12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "V13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "V14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "cumulative_m9_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "V1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "V11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "W11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "V12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "V13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "current_gs_month": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "G2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "G3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "G4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "G5",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "current_gs_month_mon_yyyy": {
+      "roles": [
+        "expression_reference_candidate",
+        "horizontal_input",
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "D1",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "B2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "C3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "A2",
+          "role": "horizontal_input"
+        }
+      ]
+    },
+    "current_month_achievement": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "O4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "P5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "E6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Q6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "F7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "R7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "G8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "S8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "H9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "T9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "I10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "U10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "J11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "V11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "K12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "W12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "L13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "X13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "M14",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "Y14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "current_quarter": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "A2",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "deferment_period": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+          "cell": "F1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "digital_count": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+          "cell": "D2",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "doj_month_year": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "B1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "dop_month_year": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "C1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "ebh_additional": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "C2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "B2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "E3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "H4",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "ebh_unit_ach_pct": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "A2",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "ebh_uplift_pct": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "B2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "C3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "C4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "C5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "C6",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "eligibility_status": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+          "cell": "I1",
+          "role": "output"
+        }
+      ]
+    },
+    "exclusion_reason": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+          "cell": "H1",
+          "role": "output"
+        }
+      ]
+    },
+    "fyp_collected": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+          "cell": "H1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "goalsheet_month": {
+      "roles": [
+        "expression_reference_candidate",
+        "horizontal_input",
+        "output",
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "A1",
+          "role": "horizontal_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "E1",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "F1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "F6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "goalsheet_start_month": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "G1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/goalsheet_month_derive.xlsx",
+          "cell": "G6",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "golden_ok": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+          "cell": "B1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "income_start_year": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+          "cell": "G1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "jfw_count": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+          "cell": "C2",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "lic_ok": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/wfylp_elig_exclusion.xlsx",
+          "cell": "G1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "m10_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "K1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "K13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "K14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m10_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "K1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "K12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "K13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m11_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "L1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "L14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m11_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "L1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "L13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m12_ach": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "M1",
+          "role": "output"
+        }
+      ]
+    },
+    "m12_target": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "M1",
+          "role": "output"
+        }
+      ]
+    },
+    "m1_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m1_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m2_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "C14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m2_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m3_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "D14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m3_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m4_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "E1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "E7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "E8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "E9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "E10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "E11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "E12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "E13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "E14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m4_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "E1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "E6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "E7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "E8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "E9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "E10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "E11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "E12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "E13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m5_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "F1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "F8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "F9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "F10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "F11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "F12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "F13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "F14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m5_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "F1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "F7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "F8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "F9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "F10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "F11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "F12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "F13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m6_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "G1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "G9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "G10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "G11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "G12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "G13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "G14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m6_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "G1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "G8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "G9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "G10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "G11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "G12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "G13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m7_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "H1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "H10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "H11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "H12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "H13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "H14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m7_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "H1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "H9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "H10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "H11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "H12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "H13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m8_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "I1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "I11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "I12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "I13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "I14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m8_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "I1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "I10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "I11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "I12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "I13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m9_ach": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "J1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "J12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "J13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "J14",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "m9_target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "J1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "J11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "J12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "J13",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "month_of_the_quarter": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "persistency_multiplier": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/persistency_multiplier.xlsx",
+          "cell": "C1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_persistency_multiplier.xlsx",
+          "cell": "B1",
+          "role": "output"
+        }
+      ]
+    },
+    "ppt": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+          "cell": "D1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "prev_goalsheet_month": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "A2",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "prev_month_achievement": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "B2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "N2",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "product_code": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "product_weight": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+          "cell": "I1",
+          "role": "output"
+        }
+      ]
+    },
+    "pt": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+          "cell": "E1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "q_team_achievement": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "E1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "q_team_target": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "E6",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_gate_met": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "I1",
+          "role": "output"
+        }
+      ]
+    },
+    "quarter_m1_ach": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "B1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "quarter_m1_ebh_additional": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "B1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "B3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "B4",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m1_gate_met": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "F1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "F3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "F4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "F5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "F6",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m1_incentive": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "D1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "D3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "D4",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m1_rock_payout": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "C1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "C3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "C4",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m1_target": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "B2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "B5",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m2_ach": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "C1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "quarter_m2_ebh_additional": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "E1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "E4",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m2_gate_met": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "G1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "G4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "G5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "G6",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m2_incentive": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "G1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "G4",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m2_rock_payout": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "F1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "F4",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m2_target": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "C3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "C5",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m3_ach": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "D1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "quarter_m3_ebh_additional": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "H1",
+          "role": "output"
+        }
+      ]
+    },
+    "quarter_m3_gate_met": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "H1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "H5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "H6",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "quarter_m3_incentive": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "J1",
+          "role": "output"
+        }
+      ]
+    },
+    "quarter_m3_rock_payout": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "I1",
+          "role": "output"
+        }
+      ]
+    },
+    "quarter_m3_target": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "D4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/team_gate.xlsx",
+          "cell": "D5",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "reward": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+          "cell": "G2",
+          "role": "output"
+        }
+      ]
+    },
+    "rock_count": {
+      "roles": [
+        "expression_reference_candidate",
+        "horizontal_input",
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "B1",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_wfylp_slab.xlsx",
+          "cell": "A1",
+          "role": "horizontal_input"
+        }
+      ]
+    },
+    "rock_incentive": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D1",
+          "role": "output"
+        }
+      ]
+    },
+    "rock_payout": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "C2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "F3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "I4",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "rock_per_agent": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "C2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "C1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_rock_fixed.xlsx",
+          "cell": "D7",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "rock_qualified": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+          "cell": "H2",
+          "role": "output"
+        }
+      ]
+    },
+    "role_code": {
+      "roles": [
+        "horizontal_input",
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "A1",
+          "role": "horizontal_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "A1",
+          "role": "horizontal_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "seg": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+          "cell": "F2",
+          "role": "output"
+        }
+      ]
+    },
+    "segment": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+          "cell": "B1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "self_persistency_percentage": {
+      "roles": [
+        "horizontal_input",
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+          "cell": "A1",
+          "role": "horizontal_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/persistency_multiplier.xlsx",
+          "cell": "B1",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_persistency_multiplier.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "self_wpc_achievement": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+          "cell": "A2",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "slab_pct": {
+      "roles": [
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_wfylp_slab.xlsx",
+          "cell": "B2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/incentive/sm_wfylp_slab.xlsx",
+          "cell": "C2",
+          "role": "output"
+        }
+      ]
+    },
+    "sub_variant": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/WFYLP/product_weightage.xlsx",
+          "cell": "C1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "target": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "B2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "C2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "D2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "E2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "F2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "G2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "H2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "I2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "J2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "K2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "L2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/am_gs_target.xlsx",
+          "cell": "M2",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "B2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "N2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "C3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "O3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "D4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "P4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "E5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Q5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "F6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "R6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "G7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "S7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "H8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "T8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "I9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "U9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "J10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "V10",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "K11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "W11",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "L12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "X12",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "M13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_target.xlsx",
+          "cell": "Y13",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "B3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "C3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "D3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "E3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "F3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "G3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "H3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "I3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "J3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "K3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "L3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "M3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "N3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "O3",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "P3",
+          "role": "output"
+        }
+      ]
+    },
+    "team_count": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D7",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D8",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D9",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/ahrh_rock_qual.xlsx",
+          "cell": "D10",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "team_earning": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "C3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "C4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "C5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_ebh_uplift.xlsx",
+          "cell": "C6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "D2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "G3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/set_monthly_incetive.xlsx",
+          "cell": "J4",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "team_earning_count": {
+      "roles": [
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "C1",
+          "role": "vertical_input"
+        }
+      ]
+    },
+    "team_incentive_pct": {
+      "roles": [
+        "expression_reference_candidate",
+        "output"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "D1",
+          "role": "output"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E5",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E7",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "team_payout": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E3",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E4",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E5",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "team_premult_base": {
+      "roles": [
+        "expression_reference_candidate"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E6",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/oh_team_building.xlsx",
+          "cell": "E7",
+          "role": "expression_reference_candidate"
+        }
+      ]
+    },
+    "vintage": {
+      "roles": [
+        "expression_reference_candidate",
+        "horizontal_input",
+        "vertical_input"
+      ],
+      "occurrences": [
+        {
+          "workbook": "Grid-3.0/Grid-3.0/Advisor/advisor_rock_reward.xlsx",
+          "cell": "B2",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/OH-And-Above/persistency_multiplier.xlsx",
+          "cell": "A1",
+          "role": "vertical_input"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_mom_ach.xlsx",
+          "cell": "A2",
+          "role": "expression_reference_candidate"
+        },
+        {
+          "workbook": "Grid-3.0/Grid-3.0/SM/sm_gs_target.xlsx",
+          "cell": "A1",
+          "role": "horizontal_input"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+D:\hyperform_3.0_backend\rule-engine\output\main-parser-generation\sources-d7w0ew6b\com.act21.rule.engine.dsl.expression.parent\com.act21.rule.engine.dsl.expression\src\com\act21\rule\engine\dsl\GenerateExpression.mwe2
+2    [main] ERROR mf.mwe2.launch.runtime.Mwe2Launcher  - Couldn't find module D:\hyperform_3.0_backend\rule-engine\output\main-parser-generation\sources-d7w0ew6b\com.act21.rule.engine.dsl.expression.parent\com.act21.rule.engine.dsl.expression\src\com\act21\rule\engine\dsl\GenerateExpression.mwe2
+java.lang.IllegalStateException: Couldn't find module D:\hyperform_3.0_backend\rule-engine\output\main-parser-generation\sources-d7w0ew6b\com.act21.rule.engine.dsl.expression.parent\com.act21.rule.engine.dsl.expression\src\com\act21\rule\engine\dsl\GenerateExpression.mwe2
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:78)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:72)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.run(Mwe2Launcher.java:80)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.main(Mwe2Launcher.java:36)

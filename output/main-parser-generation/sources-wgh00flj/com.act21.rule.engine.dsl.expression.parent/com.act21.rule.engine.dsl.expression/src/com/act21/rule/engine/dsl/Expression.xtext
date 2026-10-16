@@ -1,0 +1,191 @@
+grammar com.act21.rule.engine.dsl.Expression with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+generate model "http://www.act21.com/rule/engine/dsl/Expression"
+
+Model:
+	statements+=Statement*;
+
+Statement:
+	NamedElement | Assign | Decide;
+
+NamedElement:
+	VariableDeclaration | FunctionDeclaration | Class | Parameter;
+
+VariableDeclaration:
+	'let' name=ID type=TypeReference values=ArrayExpression;
+
+FunctionDeclaration:
+	'function' name=ID '(' (parameters+=Parameter (',' parameters+=Parameter)*)? ')' ':' returnType=QualifiedName '{'
+	elements+=Statement* '}';
+
+TypeReference:
+	identifier=QualifiedName ('<' typeArguments+=QualifiedName (','
+	typeArguments+=QualifiedName)*'>')?;
+
+Class:
+	'class' name=ID ('<' superClass=[Class|ID])? '{'
+	members+=NamedElement*
+	'}';
+
+Assign:
+	'assign' name=[VariableDeclaration] ':' (value=Expression)?;
+
+Parameter:
+	(varArgs='...')? type=TypeReference name=ID;
+
+Decide:
+	'if' name=[VariableDeclaration] ':' (condition=Expression)?;
+
+Expression returns Expression:
+	LogicalOrExpression;
+
+LogicalOrExpression returns Expression:
+	LogicalAndExpression ({LogicalOrExpression.leftOperand=current} LogicalOrOperator
+	rightOperand=LogicalAndExpression)*;
+
+LogicalAndExpression returns Expression:
+	LogicalNotExpression ({LogicalAndExpression.leftOperand=current}
+	LogicalAndOperator rightOperand=LogicalNotExpression)*;
+
+LogicalNotExpression returns Expression:
+    LogicalRelationExpression
+  | ({LogicalNotExpression} LogicalNotOperator operand=LogicalNotExpression);
+
+LogicalRelationExpression returns Expression:
+	RelationalUnaryExpression
+	=>({LogicalRelationExpression.leftOperand=current} operator=RelationalOperator
+	rightOperand=RelationalUnaryExpression)*;
+
+RelationalUnaryExpression returns Expression:
+	NumericalUnaryExpression | {RelationalUnaryExpression} operator=RelationalUnaryOperator
+	operand=NumericalUnaryExpression;
+
+NumericalUnaryExpression returns Expression:
+	NumericalExpression | {NumericalUnaryExpression} operator=NumericUnaryOperator operand=NumericalExpression;
+
+NumericalExpression returns Expression:
+	PrimaryExpression
+	=>({NumericalExpression.leftOperand=current}
+	operator=NumericalOperator
+	rightOperand=PrimaryExpression)*;
+
+PrimaryExpression returns Expression:
+	LiteralExpression | FeatureCall | ParenthesizedExpression | RangeExpression | ArrayExpression;
+
+RangeExpression returns Expression:
+	{RangeExpression} (leftBracket=(']' | '[') leftExpression=LiteralExpression '-' rightExpression=LiteralExpression
+	rightBracket=('[' | ']'));
+
+LiteralExpression returns Expression:
+	{LiteralExpression} value=Literal;
+
+ParenthesizedExpression returns Expression:
+	{ParenthesizedExpression} '(' expression=Expression ')';
+
+ArrayExpression returns Expression:
+	{ArrayExpression} '[' (elements+=Expression (',' elements+=Expression)*)? ']';
+
+Literal:
+	BoolLiteral | IntLiteral | DecimalLiteral | StringLiteral | NullLiteral | PassLiteral | AllLiteral | DateLiteral;
+
+PassLiteral returns Literal:
+	{PassLiteral} 'PASS';
+
+AllLiteral returns Literal:
+	{AllLiteral} 'ALL';
+
+BoolLiteral:
+	{BoolLiteral} value=BOOL;
+
+IntLiteral:
+	{IntLiteral} value=BIGINT;
+
+DecimalLiteral:
+	{DecimalLiteral} value=Decimal;
+
+DateLiteral:
+	{DateLiteral} value=DATE;
+
+StringLiteral:
+	{StringLiteral} value=STRING;
+
+NullLiteral:
+	{NullLiteral} 'null';
+
+FeatureCall returns Expression:
+	ElementReferenceExpression ((({FeatureCall.owner=current} '.')) feature=[NamedElement|ID]
+	(=>operationCall?='(' (arguments+=Argument (',' arguments+=Argument)*)?')'
+	|
+	=> (arrayAccess?='[' arraySelector+=Expression ']') => ('[' arraySelector+=Expression ']')*)?)*;
+
+//
+ElementReferenceExpression returns Expression:
+	{ElementReferenceExpression} reference=[NamedElement|ID] (unresolvedText=STRING)?
+	(=>operationCall?='(' (arguments+=Argument (',' arguments+=Argument)*)?	')'
+	|
+	=> (arrayAccess?='[' arraySelector+=Expression ']') => ('[' arraySelector+=Expression ']')*)?;
+
+QualifiedName:
+	ID ('.' ID)*;
+
+Argument:
+	value=Expression;
+
+Decimal returns ecore::EBigDecimal:
+	BIGINT ('.' BIGINT);
+
+//terminal DECIMAL returns ecore::EBigDecimal: ('0'..'9')+ ('.' ('0'..'9')+ );
+terminal BIGINT returns ecore::EBigInteger:
+	('0'..'9')+;
+
+terminal DATE:
+	INT '/' INT '/' INT;
+
+terminal BOOL returns ecore::EBoolean:
+	'true' | 'false';
+
+enum AssignmentOperator:
+	assign='=';
+
+LogicalAndOperator:
+	'&&';
+
+LogicalOrOperator:
+	'||';
+
+LogicalNotOperator:
+	'!';
+
+BitwiseOrOperator:
+	'|';
+
+BitwiseAndOperator:
+	'&';
+
+BitwiseXOrOperator:
+	'^';
+
+LamdaOperator:
+	'->';
+
+enum RelationalOperator:
+	smaller='<' | smallerEqual='<=' | greater='>' | greaterEqual='>=' |
+	equals='==' | notEquals='!=' | upto='upto';
+
+enum ShiftOperator:
+	left='<<'
+	| right='>>';
+
+enum NumericalOperator:
+	plus='+' | minus='-' | mul='*' | div='/' | mod='%';
+
+enum NumericUnaryOperator:
+	positive='+' | negative='-';
+
+enum RelationalUnaryOperator:
+	smaller='<' | smallerEqual='<=' | greater='>' | greaterEqual='>=' |
+	equals='==' | notEquals='!=' | upto='upto';
+
+enum PostFixOperator:
+	increment="++" | decrement="--";
